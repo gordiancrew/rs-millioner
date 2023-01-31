@@ -1,4 +1,8 @@
+import { dataQuestion } from "../data/questions";
+import { IQuestion } from "../types.ts/iquestion";
+
 function Question() {
+	const question:IQuestion=dataQuestion[0][0];
 	return (
 		<div>
 			<h1>Question</h1>
@@ -8,6 +12,11 @@ function Question() {
                     EXAMPLE
                 </a>
             </p>
+			<h4>{question.ask}</h4>
+			<h5>{question.ans[0].content}</h5>
+			<h5>{question.ans[1].content}</h5>
+			<h5>{question.ans[2].content}</h5>
+			<h5>{question.ans[3].content}</h5>
 		</div>
 	);
 }
