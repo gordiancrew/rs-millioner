@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "../styles/start.scss";
+import Hexagon from "../utils/hexagon";
 
 function Start() {
   return (
@@ -9,19 +10,27 @@ function Start() {
         On this page user enters the game using his login and password or
         registers.
       </p>
-      <ul>
-        List url:
-        <li>url "/" - start page (this page)</li>
-        <li>
-          url "/home" -<Link to="/home"> home page</Link>
-        </li>
-        <li>
-          url "/question" -<Link to="/question"> page of current question</Link>
-        </li>
-        <li>
-          url "/progress" - <Link to="/progress">page of progress</Link>
-        </li>
-      </ul>
+      <Hexagon
+        content={
+          <Link to="/home">
+            <h2>home page</h2>{" "}
+          </Link>
+        }
+      />
+      <Hexagon
+        content={
+          <Link to="/question">
+            <h2>page of current question</h2>{" "}
+          </Link>
+        }
+      />
+      <Hexagon
+        content={
+          <Link to="/progress">
+            <h2>page of progress</h2>
+          </Link>
+        }
+      />
     </div>
   );
 }

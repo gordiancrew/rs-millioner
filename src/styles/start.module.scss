@@ -1,0 +1,49 @@
+@mixin clip-path {
+    clip-path: polygon(
+      0% var(--notchSize), 
+      var(--notchSize) 0%, 
+      calc(100% - var(--notchSize)) 0%, 
+      100% var(--notchSize), 
+      100% calc(100% - var(--notchSize)), 
+      calc(100% - var(--notchSize)) 100%, 
+      var(--notchSize) 100%, 
+      0% calc(100% - var(--notchSize))
+    )
+}
+
+@mixin center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    @include center;
+    background-color:aquamarine;
+    width: 100vw;
+    height: 200px;
+}
+
+.horizontLine {
+    background-color: black;
+    width: calc(100vw /3);
+    height: 1px;
+}
+
+.questionBox {
+    background-color: black;
+    width: calc(100vw /3);
+    height: 10vh;
+    --notchSize: 5vh;
+    @include clip-path;
+    @include center;
+}
+
+.questionContent {
+    background-color: aqua;
+    width: calc(100vw / 3 - 5px);
+    height: calc(10vh - 0.2vh);
+    --notchSize: calc(5vh - 0.2px);
+    @include clip-path;
+    @include center;
+}
