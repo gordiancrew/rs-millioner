@@ -39,6 +39,10 @@
     @include center;
 }
 
+.questionContent:hover {
+    background-color: aquamarine;
+}
+
 .questionContent {
     background-color: aqua;
     width: calc(100vw / 3 - 5px);
