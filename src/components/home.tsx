@@ -1,6 +1,8 @@
+import '../styles/home.scss'
+
 function Home() {
 	return (
-		<div>
+		<div className='page'>
 			<h1>Home</h1>
 			<p>This home-page shows rules of game, your score for previous games,
                 you rating, end other things of managering.
@@ -9,6 +11,16 @@ function Home() {
                     THIS IMAGE
                 </a>
             </p>
+            
+        <div className="wrap-hexagon">
+            <p className='hexa-text'>Установки игры</p>
+        </div>
+        <div className="wrap-hexagon">
+            <p className='hexa-text'>Начало игры</p>
+        </div>
+        <div className="wrap-hexagon">
+            <p className='hexa-text'>Победители</p>
+        </div>
 		</div>
 	);
 }
