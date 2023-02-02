@@ -9,9 +9,9 @@ function Start() {
         On this page user enters the game using his login and password or
         registers.
       </p>
-      <HexagonButton content="a" link="/question" />
-      <HexagonButton content="b" link="/home" />
-      <HexagonButton content="c" link="/home" />
+      <HexagonButton content="home" link="/home" />
+      <HexagonButton content="progress" link="/progress" />
+      <HexagonButton content="question" link="/question" />
     </div>
   );
 }

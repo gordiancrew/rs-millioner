@@ -1,0 +1,102 @@
+@mixin clip-path($notchSize) {
+    clip-path: polygon(
+      0% $notchSize, 
+      $notchSize 0%, 
+      calc(100% - $notchSize) 0%, 
+      100% $notchSize, 
+      100% calc(100% - $notchSize), 
+      calc(100% - $notchSize) 100%, 
+      $notchSize 100%, 
+      0% calc(100% - $notchSize)
+    )
+}
+
+@mixin center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quiz_section {
+    height: 40vh;
+    width: 100vw;
+    background-color: aqua;
+}
+
+.question_wrapper {
+    height: 40%;
+    width: 100vw;
+    background-color: green;
+    @include center;
+}
+
+.question_wrapper__horizontLine {
+    background-color: black;
+    width: 15%;
+    height: 1px;
+}
+
+.question_wrapper__hexagon {
+    background-color: black;
+    width: 70%;
+    height: 10vh;
+    @include clip-path(5vh);
+    @include center;
+}
+
+.question_content {
+    background-color: green;
+    width: calc(100% - 5px);
+    height: calc(10vh - 0.2vh);
+    @include clip-path(calc(5vh - 0.2px));
+    @include center;
+}
+
+.answer_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 60%;
+    width: 100vw;
+    background-color: green;
+}
+
+.answer_wrapper__line {
+    height: 40%;
+    width: 100vw;
+    background-color: lightgreen;
+    @include center;
+}
+
+.line {
+    background-color: black;
+    width: 15%;
+    height: 1px;
+}
+
+.line_hexagon {
+    background-color: black;
+    width: calc(65% /2);
+    height: 6vh;
+    @include clip-path(3vh);
+    @include center;
+}
+
+.line_hexagon__content {
+    background-color: lightgreen;
+    width: calc(100% - 5px);
+    height: calc(6vh - 0.3vh);
+    @include clip-path(calc(3vh - 0.3px));
+    @include center;
+}
+
+.line_hexagon__content:hover {
+    background-color: green;
+    cursor: pointer;
+}
+
+.line_middle {
+    background-color: black;
+    width: 5%;
+    height: 1px;
+}

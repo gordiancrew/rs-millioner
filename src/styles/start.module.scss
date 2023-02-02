@@ -1,13 +1,13 @@
-@mixin clip-path {
+@mixin clip-path($notchSize) {
     clip-path: polygon(
-      0% var(--notchSize), 
-      var(--notchSize) 0%, 
-      calc(100% - var(--notchSize)) 0%, 
-      100% var(--notchSize), 
-      100% calc(100% - var(--notchSize)), 
-      calc(100% - var(--notchSize)) 100%, 
-      var(--notchSize) 100%, 
-      0% calc(100% - var(--notchSize))
+      0% $notchSize, 
+      $notchSize 0%, 
+      calc(100% - $notchSize) 0%, 
+      100% $notchSize, 
+      100% calc(100% - $notchSize), 
+      calc(100% - $notchSize) 100%, 
+      $notchSize 100%, 
+      0% calc(100% - $notchSize)
     )
 }
 
@@ -18,10 +18,10 @@
 }
 
 .wrapper {
-    @include center;
     background-color:aquamarine;
     width: 100vw;
     height: 200px;
+    @include center;
 }
 
 .horizontLine {
@@ -34,8 +34,7 @@
     background-color: black;
     width: calc(100vw /3);
     height: 10vh;
-    --notchSize: 5vh;
-    @include clip-path;
+    @include clip-path(5vh);
     @include center;
 }
 
@@ -47,7 +46,6 @@
     background-color: aqua;
     width: calc(100vw / 3 - 5px);
     height: calc(10vh - 0.2vh);
-    --notchSize: calc(5vh - 0.2px);
-    @include clip-path;
+    @include clip-path(calc(5vh - 0.2px));
     @include center;
 }
