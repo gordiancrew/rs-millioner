@@ -12,7 +12,9 @@ function HexagonButton(props: IContent) {
       <div className={cl.horizontLine}></div>
       <div className={cl.questionBox}>
         <Link to={props.link}>
-          <div className={cl.questionContent}>{props.content}</div>
+          <div className={cl.questionContent}>
+            <h2>{props.content}</h2>
+          </div>
         </Link>
       </div>
       <div className={cl.horizontLine}></div>
