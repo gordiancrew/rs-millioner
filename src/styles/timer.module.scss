@@ -1,0 +1,30 @@
+.timerBox {
+    height: 40vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+.timerCircle{
+    height: 30vh;
+    width: 30vh;
+    border-radius: 15vh;
+    background-color: white;
+    color: blue;
+    font-size: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.timerProgress{
+    height: 5vh;
+    display: flex;
+}
+.timerItem{
+    width: 5vh;
+    height: 5vh;
+    border-radius: 2.5vh;
+    background-color: aqua;
+}
