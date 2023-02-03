@@ -14,11 +14,23 @@ interface IQuiz {
 
 export default function QuizContent(props: IQuiz) {
   const navi = useNavigate()
-  const questHundler = function (checketQuestion: boolean, e:any) {
+  const questHundler = function (checketQuestion: boolean, e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
+    let currentElem= e.currentTarget;
     if (checketQuestion) {
-      setTimeout(()=>props.setLevel((x: number) => x + 1), 3000)
+
+     currentElem.style.backgroundColor='yellow';
+     setTimeout(()=>currentElem.style.backgroundColor='green', 2000);
+    
+      setTimeout(()=>props.setLevel((x: number) => {
+       currentElem.style.backgroundColor='white';
+      return x + 1
+      }
+      ), 4000)
     } else {
-      navi('/');
+      currentElem.style.backgroundColor='yellow';
+      setTimeout(()=>currentElem.style.backgroundColor='red', 2000);
+      setTimeout(()=>navi('/'), 4000);
+      
     }
   }
   return (
