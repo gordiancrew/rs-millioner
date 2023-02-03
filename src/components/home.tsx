@@ -1,3 +1,4 @@
+import SignUp from './signUp';
 import '../styles/home.scss'
 
 function Home() {
@@ -11,16 +12,16 @@ function Home() {
                     THIS IMAGE
                 </a>
             </p>
-            
-        <div className="wrap-hexagon">
-            <p className='hexa-text'>Установки игры</p>
-        </div>
-        <div className="wrap-hexagon">
-            <p className='hexa-text'>Начало игры</p>
-        </div>
-        <div className="wrap-hexagon">
-            <p className='hexa-text'>Победители</p>
-        </div>
+            <SignUp/>
+            <div className="wrap-hexagon">
+                <p className='hexa-text'>Установки игры</p>
+            </div>
+            <div className="wrap-hexagon">
+                <p className='hexa-text'>Начало игры</p>
+            </div>
+            <div className="wrap-hexagon">
+                <p className='hexa-text'>Победители</p>
+            </div>
 		</div>
 	);
 }
