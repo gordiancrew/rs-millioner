@@ -95,6 +95,56 @@ export const dataQuestion = [
             ]
 
         }
+    ],
+    [
+        {
+            ask: "Это вопрос 3 уровня",
+            ans: [
+                {
+                    content: "a(TRUE)",
+                    check: true
+                },
+                {
+                    content: "b",
+                    check: false
+                },
+                {
+                    content: "c",
+                    check: false
+                },
+                {
+                    content: "d",
+                    check: false
+                }
+
+            ]
+
+        },
+    ],
+    [
+        {
+            ask: "Это вопрос 4 уровня",
+            ans: [
+                {
+                    content: "aa(TRUE)",
+                    check: true
+                },
+                {
+                    content: "bb",
+                    check: false
+                },
+                {
+                    content: "cc",
+                    check: false
+                },
+                {
+                    content: "dd",
+                    check: false
+                }
+
+            ]
+
+        },
     ]
 
 ]

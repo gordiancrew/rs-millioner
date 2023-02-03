@@ -1,35 +1,56 @@
+import { createContext, useState } from "react";
 import { dataQuestion } from "../data/questions";
 import { IQuestion } from "../types.ts/iquestion";
+import ProgressShema from "../utils/progress-shema";
 import QuestionHeader from "../utils/question-header";
 import QuizContent from "../utils/quiz-content";
 import Timer from "../utils/timer";
 
+
 function Question() {
-  const question: IQuestion = dataQuestion[0][0];
-  return (
-    <div>
-      {/* <h1>Question</h1>
-      <p>
-        This page shows current question and timer. Like this example:
-        <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSF_bBXDGTVlh8wrvw7L837NnaJ35L7_xNIyv-xCV5Toz6A-9SQSjaYwgMKyYL26jp3VRA&usqp=CAU">
-          EXAMPLE
-        </a>
-      </p> */}
-      {/* <h4>{question.ask}</h4>
-      <h5>{question.ans[0].content}</h5>
-      <h5>{question.ans[1].content}</h5>
-      <h5>{question.ans[2].content}</h5>
-      <h5>{question.ans[3].content}</h5> */}
-      <QuestionHeader />
-      <Timer />
-      <QuizContent
-        ask={question.ask}
-        ans0={question.ans[0].content}
-        ans1={question.ans[1].content}
-        ans2={question.ans[2].content}
-        ans3={question.ans[3].content}
+  const [level, setLevel] = useState(0);
+  const [timeOn, setTimeOn] = useState(true);
+  const [timer, setTimer] = useState(30);
+  const [answerShema, setAnswerShema] = useState(true);
+  const question: IQuestion = dataQuestion[level][0];
+
+  if (answerShema) {
+    return (
+      <div>
+
+        <QuestionHeader />
+
+        <Timer
+          setTimeOn={setTimeOn}
+          timeOn={timeOn}
+          setTimer={setTimer}
+          timer={timer}
+        />
+        <QuizContent
+          ask={question.ask}
+          ans0={question.ans[0]}
+          ans1={question.ans[1]}
+          ans2={question.ans[2]}
+          ans3={question.ans[3]}
+          setLevel={setLevel}
+          setTimeOn={setTimeOn}
+          setTimer={setTimer}
+          timer={timer}
+          setAnswerShema={setAnswerShema}
+        />
+      </div>
+    );
+  } else {
+    return (
+
+      <ProgressShema
+        level={level}
+        setLevel={setLevel}
+        setAnswerShema={setAnswerShema}
+        setTimer={setTimer}
+        setTimeOn={setTimeOn}
       />
-    </div>
-  );
+    )
+  }
 }
 export default Question;
