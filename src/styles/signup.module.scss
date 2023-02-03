@@ -1,0 +1,44 @@
+.signupform {
+    width: 20%;
+    padding: 0 20px 20px 20px;
+    border: black solid 2px;
+    border-radius: 5px;
+    h2 {
+        text-align: center;
+    }
+    label {
+        display: block;
+        margin-top: 25px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    input {
+        width: 85%;
+        height: 30px;
+        margin-top: 15px;
+        padding: 5px 15px;
+        background: #fff;
+        border: 1px solid #e2e2e2;
+        color: #353535;
+        border-radius: 5px;
+        font-size: 22px;
+        &:focus {
+            outline: 1px solid #f57507;
+        }
+    }
+    button {
+        display: block;
+        width: 180px;
+        padding: 15px;
+        margin-top: 25px;
+        font-size: 18px;
+        color: #fff;
+        border: 0;
+        border-radius: 5px;
+        background-image: linear-gradient(257deg, #03a368, #03b057);
+    }
+    .error {
+        color: #e53e3e;
+        margin-top: 8px;
+    }
+}
