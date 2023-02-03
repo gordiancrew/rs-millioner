@@ -1,25 +1,30 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+
 import timerStyle from "../styles/timer.module.scss";
 import TimeProgress from "./time-progress";
+interface ITimer {
+	setTimeOn: Function;
+	timeOn: boolean;
+	timer: number;
+	setTimer: Function;
+}
 
-function Timer() {
-	const [timer, setTimer] = useState(30);
-	
-
+function Timer(props: ITimer) {
 	useEffect(() => {
-		let timeGo = setInterval(() => {
-			setTimer((x) => (x > 0 ? x - 1 : x));
-		}, 1000);
-	}, []);
+		if (props.timer > 0 && props.timeOn) {
+			setTimeout(() => props.setTimer((x: number) => x - 1), 1000)
+		}
+	}
+	);
 	useEffect(() => {
-		if (timer === 0) alert("TIME IS OUT");
-	}, [timer]);
+		if (props.timer === 0) { alert("TIME IS OUT"); }
+	}, [props.timer]);
 
 	return (
 		<div className={timerStyle.timerBox}>
-			<TimeProgress numb={timer} />
-			<div className={timerStyle.timerCircle}>{timer}</div>
-			<TimeProgress numb={timer} />
+			<TimeProgress numb={props.timer} />
+			<div className={timerStyle.timerCircle}>{props.timer}</div>
+			<TimeProgress numb={props.timer} />
 		</div>
 	);
 }
