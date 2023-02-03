@@ -1,15 +1,26 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import cl from "../styles/quiz.module.scss";
+import { ICase } from "../types.ts/iquestion";
 
 interface IQuiz {
   ask: string;
-  ans0: string;
-  ans1: string;
-  ans2: string;
-  ans3: string;
+  ans0: ICase;
+  ans1: ICase;
+  ans2: ICase;
+  ans3: ICase;
+  setLevel: Function
 }
 
 export default function QuizContent(props: IQuiz) {
+  const navi = useNavigate()
+  const questHundler = function (checketQuestion: boolean, e:any) {
+    if (checketQuestion) {
+      setTimeout(()=>props.setLevel((x: number) => x + 1), 3000)
+    } else {
+      navi('/');
+    }
+  }
   return (
     <section className={cl.quiz_section}>
       <div className={cl.question_wrapper}>
@@ -25,14 +36,14 @@ export default function QuizContent(props: IQuiz) {
         <div className={cl.answer_wrapper__line}>
           <div className={cl.line}></div>
           <div className={cl.line_hexagon}>
-            <div className={cl.line_hexagon__content}>
-              <h4>{props.ans0}</h4>
+            <div onClick={(e) => questHundler(props.ans0.check,e)} className={cl.line_hexagon__content}>
+              <h4>{props.ans0.content}</h4>
             </div>
           </div>
           <div className={cl.line_middle}></div>
           <div className={cl.line_hexagon}>
-            <div className={cl.line_hexagon__content}>
-              <h4>{props.ans1}</h4>
+            <div onClick={(e) => questHundler(props.ans1.check,e)} className={cl.line_hexagon__content}>
+              <h4>{props.ans1.content}</h4>
             </div>
           </div>
           <div className={cl.line}></div>
@@ -40,14 +51,14 @@ export default function QuizContent(props: IQuiz) {
         <div className={cl.answer_wrapper__line}>
           <div className={cl.line}></div>
           <div className={cl.line_hexagon}>
-            <div className={cl.line_hexagon__content}>
-              <h4>{props.ans2}</h4>
+            <div onClick={(e) => questHundler(props.ans2.check,e)} className={cl.line_hexagon__content}>
+              <h4>{props.ans2.content}</h4>
             </div>
           </div>
           <div className={cl.line_middle}></div>
           <div className={cl.line_hexagon}>
-            <div className={cl.line_hexagon__content}>
-              <h4>{props.ans3}</h4>
+            <div onClick={(e) => questHundler(props.ans3.check,e)} className={cl.line_hexagon__content}>
+              <h4>{props.ans3.content}</h4>
             </div>
           </div>
           <div className={cl.line}></div>

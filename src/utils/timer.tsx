@@ -4,6 +4,7 @@ import TimeProgress from "./time-progress";
 
 function Timer() {
 	const [timer, setTimer] = useState(30);
+	
 
 	useEffect(() => {
 		let timeGo = setInterval(() => {
