@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import cl from "../styles/quiz.module.scss";
 import { questState } from "../types.ts/iquest-state";
@@ -20,7 +20,7 @@ interface IQuiz {
 }
 
 export default function QuizContent(props: IQuiz) {
-
+const [rightAnswerStyle, setRightAnswerStyle]=useState({})
   const navi = useNavigate()
   const questHundler = function (checketQuestion: boolean, e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
     let currentElem = e.currentTarget;
@@ -49,6 +49,7 @@ export default function QuizContent(props: IQuiz) {
     } else {
       currentElem.style.backgroundColor = 'yellow';
       setTimeout(() => currentElem.style.backgroundColor = 'red', 2000);
+      setTimeout(() => setRightAnswerStyle({backgroundColor:"blue"}), 2000);
       setTimeout(() => props.setAnswerShema(questState.end), 4000);
 
     }
@@ -58,7 +59,8 @@ export default function QuizContent(props: IQuiz) {
       <div className={cl.question_wrapper}>
         <div className={cl.question_wrapper__horizontLine}></div>
         <div className={cl.question_wrapper__hexagon}>
-          <div className={cl.question_content}>
+          <div className={cl.question_content}
+          >
             <h1>{props.ask}</h1>
           </div>
         </div>
@@ -68,13 +70,15 @@ export default function QuizContent(props: IQuiz) {
         <div className={cl.answer_wrapper__line}>
           <div className={cl.line}></div>
           <div className={cl.line_hexagon}>
-            <div onClick={(e) => questHundler(props.ans0.check, e)} className={cl.line_hexagon__content}>
+            <div style={props.ans0.check?rightAnswerStyle:{}}
+             onClick={(e) => questHundler(props.ans0.check, e)} className={cl.line_hexagon__content}>
               <h4>{props.ans0.content}</h4>
             </div>
           </div>
           <div className={cl.line_middle}></div>
           <div className={cl.line_hexagon}>
-            <div onClick={(e) => questHundler(props.ans1.check, e)} className={cl.line_hexagon__content}>
+            <div style={props.ans1.check?rightAnswerStyle:{}}
+             onClick={(e) => questHundler(props.ans1.check, e)} className={cl.line_hexagon__content}>
               <h4>{props.ans1.content}</h4>
             </div>
           </div>
@@ -83,13 +87,15 @@ export default function QuizContent(props: IQuiz) {
         <div className={cl.answer_wrapper__line}>
           <div className={cl.line}></div>
           <div className={cl.line_hexagon}>
-            <div onClick={(e) => questHundler(props.ans2.check, e)} className={cl.line_hexagon__content}>
+            <div style={props.ans2.check?rightAnswerStyle:{}}
+             onClick={(e) => questHundler(props.ans2.check, e)} className={cl.line_hexagon__content}>
               <h4>{props.ans2.content}</h4>
             </div>
           </div>
           <div className={cl.line_middle}></div>
           <div className={cl.line_hexagon}>
-            <div onClick={(e) => questHundler(props.ans3.check, e)} className={cl.line_hexagon__content}>
+            <div style={props.ans3.check?rightAnswerStyle:{}}
+             onClick={(e) => questHundler(props.ans3.check, e)} className={cl.line_hexagon__content}>
               <h4>{props.ans3.content}</h4>
             </div>
           </div>
