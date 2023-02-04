@@ -17,6 +17,7 @@ function Question() {
   const [answerShema, setAnswerShema] = useState(questState.quiz);
   const [rightAnswerStyle, setRightAnswerStyle] = useState({})
   const [visibleHintBoolean, setVisibleHintBoolean] = useState(false);
+  const[itemHintBoolean,setItemHintBoolean]=useState(false);
   const question: IQuestion = dataQuestion[level][0];
 
   if (answerShema === questState.quiz) {
@@ -28,11 +29,14 @@ function Question() {
           question={question.ans}
           setTimeOn={setTimeOn}
           setTimer={setTimer}
+          setItemHintBoolean={setItemHintBoolean}
         />
 
         <QuestionHeader 
         setVisibleHintBoolean={setVisibleHintBoolean}
         setTimeOn={setTimeOn}
+        itemHintBoolean={itemHintBoolean}
+        setItemHintBoolean={setItemHintBoolean}
         />
         
 
@@ -46,10 +50,11 @@ function Question() {
         />
         <QuizContent
           ask={question.ask}
-          ans0={question.ans[0]}
-          ans1={question.ans[1]}
-          ans2={question.ans[2]}
-          ans3={question.ans[3]}
+          // ans0={question.ans[0]}
+          // ans1={question.ans[1]}
+          // ans2={question.ans[2]}
+          // ans3={question.ans[3]}
+          anses={question.ans}
           level={level}
           setLevel={setLevel}
           setTimeOn={setTimeOn}

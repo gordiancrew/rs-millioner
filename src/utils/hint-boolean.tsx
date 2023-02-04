@@ -4,17 +4,21 @@ interface IBooleanOptions {
     visibleHintBoolean: Boolean
     setVisibleHintBoolean: Function
     question: Array<ICase>;
-    setTimeOn:Function;
-    setTimer:Function;
+    setTimeOn: Function;
+    setTimer: Function;
+    setItemHintBoolean: Function
 }
 
 function HintBoolean(props: IBooleanOptions) {
     const arrLeters = ['A', 'B', 'C', 'D']
-function returnQuest(){
-    props.setVisibleHintBoolean(false)
-    props.setTimer(30)
-    props.setTimeOn(true)
-}
+    function returnQuest() {
+        props.setVisibleHintBoolean(false)
+        props.setTimer(30)
+        props.setTimeOn(true)
+        props.setItemHintBoolean(true)
+
+
+    }
 
     return (
         <div style={{ display: props.visibleHintBoolean ? 'flex' : 'none' }} className={hintStyle.hintWrapper}>
@@ -22,9 +26,9 @@ function returnQuest(){
                 {props.question.map((x, i) =>
                     (<div key={i}>{arrLeters[i]}--{x.check ? 'TRUEE' : 'FALSEE'}</div>)
                 )}
-<button
-onClick={returnQuest}
->Вернуться к вопросу</button>
+                <button
+                    onClick={returnQuest}
+                >Вернуться к вопросу</button>
             </div>
 
         </div>
