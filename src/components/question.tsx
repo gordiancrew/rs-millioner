@@ -14,6 +14,7 @@ function Question() {
   const [timeOn, setTimeOn] = useState(true);
   const [timer, setTimer] = useState(30);
   const [answerShema, setAnswerShema] = useState(questState.quiz);
+  const [rightAnswerStyle, setRightAnswerStyle]=useState({})
   const question: IQuestion = dataQuestion[level][0];
 
   if (answerShema===questState.quiz) {
@@ -26,7 +27,9 @@ function Question() {
           setTimeOn={setTimeOn}
           timeOn={timeOn}
           setTimer={setTimer}
+          setAnswerShema={setAnswerShema}
           timer={timer}
+          setRightAnswerStyle={setRightAnswerStyle}
         />
         <QuizContent
           ask={question.ask}
@@ -40,6 +43,8 @@ function Question() {
           setTimer={setTimer}
           timer={timer}
           setAnswerShema={setAnswerShema}
+          rightAnswerStyle={rightAnswerStyle}
+          setRightAnswerStyle={setRightAnswerStyle}
         />
       </div>
     );

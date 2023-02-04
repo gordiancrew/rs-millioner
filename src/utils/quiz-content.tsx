@@ -17,10 +17,12 @@ interface IQuiz {
   timer: number;
   setTimer: Function;
   setAnswerShema: Function;
+  rightAnswerStyle:Object;
+  setRightAnswerStyle:Function
 }
 
 export default function QuizContent(props: IQuiz) {
-const [rightAnswerStyle, setRightAnswerStyle]=useState({})
+
   const navi = useNavigate()
   const questHundler = function (checketQuestion: boolean, e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
     let currentElem = e.currentTarget;
@@ -49,7 +51,7 @@ const [rightAnswerStyle, setRightAnswerStyle]=useState({})
     } else {
       currentElem.style.backgroundColor = 'yellow';
       setTimeout(() => currentElem.style.backgroundColor = 'red', 2000);
-      setTimeout(() => setRightAnswerStyle({backgroundColor:"blue"}), 2000);
+      setTimeout(() => props.setRightAnswerStyle({backgroundColor:"blue"}), 2000);
       setTimeout(() => props.setAnswerShema(questState.end), 4000);
 
     }
@@ -70,14 +72,14 @@ const [rightAnswerStyle, setRightAnswerStyle]=useState({})
         <div className={cl.answer_wrapper__line}>
           <div className={cl.line}></div>
           <div className={cl.line_hexagon}>
-            <div style={props.ans0.check?rightAnswerStyle:{}}
+            <div style={props.ans0.check?props.rightAnswerStyle:{}}
              onClick={(e) => questHundler(props.ans0.check, e)} className={cl.line_hexagon__content}>
               <h4>{props.ans0.content}</h4>
             </div>
           </div>
           <div className={cl.line_middle}></div>
           <div className={cl.line_hexagon}>
-            <div style={props.ans1.check?rightAnswerStyle:{}}
+            <div style={props.ans1.check?props.rightAnswerStyle:{}}
              onClick={(e) => questHundler(props.ans1.check, e)} className={cl.line_hexagon__content}>
               <h4>{props.ans1.content}</h4>
             </div>
@@ -87,14 +89,14 @@ const [rightAnswerStyle, setRightAnswerStyle]=useState({})
         <div className={cl.answer_wrapper__line}>
           <div className={cl.line}></div>
           <div className={cl.line_hexagon}>
-            <div style={props.ans2.check?rightAnswerStyle:{}}
+            <div style={props.ans2.check?props.rightAnswerStyle:{}}
              onClick={(e) => questHundler(props.ans2.check, e)} className={cl.line_hexagon__content}>
               <h4>{props.ans2.content}</h4>
             </div>
           </div>
           <div className={cl.line_middle}></div>
           <div className={cl.line_hexagon}>
-            <div style={props.ans3.check?rightAnswerStyle:{}}
+            <div style={props.ans3.check?props.rightAnswerStyle:{}}
              onClick={(e) => questHundler(props.ans3.check, e)} className={cl.line_hexagon__content}>
               <h4>{props.ans3.content}</h4>
             </div>
