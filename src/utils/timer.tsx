@@ -1,12 +1,15 @@
 import { useEffect } from "react";
 
 import timerStyle from "../styles/timer.module.scss";
+import { questState } from "../types.ts/iquest-state";
 import TimeProgress from "./time-progress";
 interface ITimer {
 	setTimeOn: Function;
 	timeOn: boolean;
 	timer: number;
 	setTimer: Function;
+	setAnswerShema:Function
+	setRightAnswerStyle:Function
 }
 
 function Timer(props: ITimer) {
@@ -17,7 +20,10 @@ function Timer(props: ITimer) {
 	}
 	);
 	useEffect(() => {
-		if (props.timer === 0) { alert("TIME IS OUT"); }
+		if (props.timer === 0) {
+			setTimeout(() => props.setRightAnswerStyle({backgroundColor:"blue"}), 2000);
+			setTimeout(() => props.setAnswerShema(questState.end), 4000);
+			 }
 	}, [props.timer]);
 
 	return (
