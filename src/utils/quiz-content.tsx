@@ -7,10 +7,7 @@ import { ICase } from "../types.ts/iquestion";
 
 interface IQuiz {
   ask: string;
-  ans0: ICase;
-  ans1: ICase;
-  ans2: ICase;
-  ans3: ICase;
+  anses:Array<ICase>;
   level: number;
   setLevel: Function;
   setTimeOn: Function;
@@ -72,16 +69,16 @@ export default function QuizContent(props: IQuiz) {
         <div className={cl.answer_wrapper__line}>
           <div className={cl.line}></div>
           <div className={cl.line_hexagon}>
-            <div style={props.ans0.check?props.rightAnswerStyle:{}}
-             onClick={(e) => questHundler(props.ans0.check, e)} className={cl.line_hexagon__content}>
-              <h4>{props.ans0.content}</h4>
+            <div style={props.anses[0].check?props.rightAnswerStyle:{}}
+             onClick={(e) => questHundler(props.anses[0].check, e)} className={cl.line_hexagon__content}>
+              <h4>{props.anses[0].content}</h4>
             </div>
           </div>
           <div className={cl.line_middle}></div>
           <div className={cl.line_hexagon}>
-            <div style={props.ans1.check?props.rightAnswerStyle:{}}
-             onClick={(e) => questHundler(props.ans1.check, e)} className={cl.line_hexagon__content}>
-              <h4>{props.ans1.content}</h4>
+            <div style={props.anses[1].check?props.rightAnswerStyle:{}}
+             onClick={(e) => questHundler(props.anses[1].check, e)} className={cl.line_hexagon__content}>
+              <h4>{props.anses[1].content}</h4>
             </div>
           </div>
           <div className={cl.line}></div>
@@ -89,16 +86,16 @@ export default function QuizContent(props: IQuiz) {
         <div className={cl.answer_wrapper__line}>
           <div className={cl.line}></div>
           <div className={cl.line_hexagon}>
-            <div style={props.ans2.check?props.rightAnswerStyle:{}}
-             onClick={(e) => questHundler(props.ans2.check, e)} className={cl.line_hexagon__content}>
-              <h4>{props.ans2.content}</h4>
+            <div style={props.anses[2].check?props.rightAnswerStyle:{}}
+             onClick={(e) => questHundler(props.anses[2].check, e)} className={cl.line_hexagon__content}>
+              <h4>{props.anses[2].content}</h4>
             </div>
           </div>
           <div className={cl.line_middle}></div>
           <div className={cl.line_hexagon}>
-            <div style={props.ans3.check?props.rightAnswerStyle:{}}
-             onClick={(e) => questHundler(props.ans3.check, e)} className={cl.line_hexagon__content}>
-              <h4>{props.ans3.content}</h4>
+            <div style={props.anses[3].check?props.rightAnswerStyle:{}}
+             onClick={(e) => questHundler(props.anses[3].check, e)} className={cl.line_hexagon__content}>
+              <h4>{props.anses[3].content}</h4>
             </div>
           </div>
           <div className={cl.line}></div>

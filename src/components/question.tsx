@@ -3,6 +3,7 @@ import { dataQuestion } from "../data/questions";
 import { questState } from "../types.ts/iquest-state";
 import { IQuestion } from "../types.ts/iquestion";
 import End from "../utils/end";
+import HintBoolean from "../utils/hint-boolean";
 import ProgressShema from "../utils/progress-shema";
 import QuestionHeader from "../utils/question-header";
 import QuizContent from "../utils/quiz-content";
@@ -14,14 +15,30 @@ function Question() {
   const [timeOn, setTimeOn] = useState(true);
   const [timer, setTimer] = useState(30);
   const [answerShema, setAnswerShema] = useState(questState.quiz);
-  const [rightAnswerStyle, setRightAnswerStyle]=useState({})
+  const [rightAnswerStyle, setRightAnswerStyle] = useState({})
+  const [visibleHintBoolean, setVisibleHintBoolean] = useState(false);
+  const[itemHintBoolean,setItemHintBoolean]=useState(false);
   const question: IQuestion = dataQuestion[level][0];
 
-  if (answerShema===questState.quiz) {
+  if (answerShema === questState.quiz) {
     return (
       <div>
+        <HintBoolean
+          visibleHintBoolean={visibleHintBoolean}
+          setVisibleHintBoolean={setVisibleHintBoolean}
+          question={question.ans}
+          setTimeOn={setTimeOn}
+          setTimer={setTimer}
+          setItemHintBoolean={setItemHintBoolean}
+        />
 
-        <QuestionHeader />
+        <QuestionHeader 
+        setVisibleHintBoolean={setVisibleHintBoolean}
+        setTimeOn={setTimeOn}
+        itemHintBoolean={itemHintBoolean}
+        setItemHintBoolean={setItemHintBoolean}
+        />
+        
 
         <Timer
           setTimeOn={setTimeOn}
@@ -33,10 +50,11 @@ function Question() {
         />
         <QuizContent
           ask={question.ask}
-          ans0={question.ans[0]}
-          ans1={question.ans[1]}
-          ans2={question.ans[2]}
-          ans3={question.ans[3]}
+          // ans0={question.ans[0]}
+          // ans1={question.ans[1]}
+          // ans2={question.ans[2]}
+          // ans3={question.ans[3]}
+          anses={question.ans}
           level={level}
           setLevel={setLevel}
           setTimeOn={setTimeOn}
@@ -48,7 +66,7 @@ function Question() {
         />
       </div>
     );
-  } else if(answerShema===questState.progress) {
+  } else if (answerShema === questState.progress) {
     return (
 
       <ProgressShema
@@ -59,8 +77,8 @@ function Question() {
         setTimeOn={setTimeOn}
       />
     )
-  }else{
-    return(
+  } else {
+    return (
       <End />
     )
   }

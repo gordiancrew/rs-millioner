@@ -13,8 +13,8 @@ function ProgressShema(props: IProgress) {
     props.setTimer(30)
     props.setTimeOn(true)
   }
-  const arr = [100, 200, 300, 400, 500]
-  
+  const arr = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000]
+
 
   return (
     <div>
@@ -22,7 +22,11 @@ function ProgressShema(props: IProgress) {
       <button onClick={progressHundler}>Next question</button>
       <div >
         {arr.map((x, i) =>
-          (<div  style={{backgroundColor: i===props.level?'yellow':'white'}} >{i+1}---{arr[i]}</div>)
+          (<div key={i}
+            // style={{color: (i+1)%5===0? 'red':'black'     }}
+            style={{ backgroundColor: i === props.level ? 'yellow' : 'white' ,
+           color: (i+1)%5===0? 'red':'black'     }
+          } >{i + 1}---{arr[i]}</div>)
         )}
       </div>
     </div>

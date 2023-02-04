@@ -1,9 +1,24 @@
 import headerStyle from "../styles/question-header.module.scss";
-function QuestionHeader() {
+interface IHeaderOptions{
+	setVisibleHintBoolean:Function;
+	setTimeOn:Function;
+	itemHintBoolean:boolean
+	setItemHintBoolean:Function
+}
+function QuestionHeader(props:IHeaderOptions) {
+	function booleanHundler(){
+		props.setVisibleHintBoolean(true)
+		props.setTimeOn(false)
+	}
 	return (
 		<div className={headerStyle.headerBox}>
 			<div className={headerStyle.headerHints}>
-				<div className={headerStyle.headerItem}></div>
+				<div
+				onClick={!props.itemHintBoolean?booleanHundler:()=>console.log('pp')}
+				style={{backgroundColor:props.itemHintBoolean?'black':''}}
+				
+				
+				className={headerStyle.headerItem}>Boolean</div>
 				<div className={headerStyle.headerItem}></div>
 				<div className={headerStyle.headerItem}></div>
 			</div>
