@@ -9,15 +9,14 @@ import QuestionHeader from "../utils/question-header";
 import QuizContent from "../utils/quiz-content";
 import Timer from "../utils/timer";
 
-
 function Question() {
   const [level, setLevel] = useState(0);
   const [timeOn, setTimeOn] = useState(true);
   const [timer, setTimer] = useState(30);
   const [answerShema, setAnswerShema] = useState(questState.quiz);
-  const [rightAnswerStyle, setRightAnswerStyle] = useState({})
+  const [rightAnswerStyle, setRightAnswerStyle] = useState({});
   const [visibleHintBoolean, setVisibleHintBoolean] = useState(false);
-  const[itemHintBoolean,setItemHintBoolean]=useState(false);
+  const [itemHintBoolean, setItemHintBoolean] = useState(false);
   const question: IQuestion = dataQuestion[level][0];
 
   if (answerShema === questState.quiz) {
@@ -32,13 +31,12 @@ function Question() {
           setItemHintBoolean={setItemHintBoolean}
         />
 
-        <QuestionHeader 
-        setVisibleHintBoolean={setVisibleHintBoolean}
-        setTimeOn={setTimeOn}
-        itemHintBoolean={itemHintBoolean}
-        setItemHintBoolean={setItemHintBoolean}
+        <QuestionHeader
+          setVisibleHintBoolean={setVisibleHintBoolean}
+          setTimeOn={setTimeOn}
+          itemHintBoolean={itemHintBoolean}
+          setItemHintBoolean={setItemHintBoolean}
         />
-        
 
         <Timer
           setTimeOn={setTimeOn}
@@ -50,10 +48,6 @@ function Question() {
         />
         <QuizContent
           ask={question.ask}
-          // ans0={question.ans[0]}
-          // ans1={question.ans[1]}
-          // ans2={question.ans[2]}
-          // ans3={question.ans[3]}
           anses={question.ans}
           level={level}
           setLevel={setLevel}
@@ -68,7 +62,6 @@ function Question() {
     );
   } else if (answerShema === questState.progress) {
     return (
-
       <ProgressShema
         level={level}
         setLevel={setLevel}
@@ -76,11 +69,9 @@ function Question() {
         setTimer={setTimer}
         setTimeOn={setTimeOn}
       />
-    )
+    );
   } else {
-    return (
-      <End />
-    )
+    return <End />;
   }
 }
 export default Question;
