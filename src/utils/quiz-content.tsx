@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import cl from "../styles/quiz.module.scss";
+import { questState } from "../types.ts/iquest-state";
 import { ICase } from "../types.ts/iquestion";
 
 
@@ -10,6 +11,7 @@ interface IQuiz {
   ans1: ICase;
   ans2: ICase;
   ans3: ICase;
+  level: number;
   setLevel: Function;
   setTimeOn: Function;
   timer: number;
@@ -34,14 +36,20 @@ export default function QuizContent(props: IQuiz) {
       setTimeout(() => currentElem.style.backgroundColor = 'green', 2600);
       setTimeout(() => props.setLevel((x: number) => {
         currentElem.style.backgroundColor = 'white';
-        props.setAnswerShema(false);
-        return x + 1
+        if (props.level < 3) {
+          props.setAnswerShema(questState.progress);
+          return x + 1
+        }
+        else {
+          props.setAnswerShema(questState.end);
+          return x
+        }
       }
       ), 4000)
     } else {
       currentElem.style.backgroundColor = 'yellow';
       setTimeout(() => currentElem.style.backgroundColor = 'red', 2000);
-      setTimeout(() => navi('/'), 4000);
+      setTimeout(() => props.setAnswerShema(questState.end), 4000);
 
     }
   }

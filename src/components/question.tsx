@@ -1,6 +1,8 @@
 import { createContext, useState } from "react";
 import { dataQuestion } from "../data/questions";
+import { questState } from "../types.ts/iquest-state";
 import { IQuestion } from "../types.ts/iquestion";
+import End from "../utils/end";
 import ProgressShema from "../utils/progress-shema";
 import QuestionHeader from "../utils/question-header";
 import QuizContent from "../utils/quiz-content";
@@ -11,10 +13,10 @@ function Question() {
   const [level, setLevel] = useState(0);
   const [timeOn, setTimeOn] = useState(true);
   const [timer, setTimer] = useState(30);
-  const [answerShema, setAnswerShema] = useState(true);
+  const [answerShema, setAnswerShema] = useState(questState.quiz);
   const question: IQuestion = dataQuestion[level][0];
 
-  if (answerShema) {
+  if (answerShema===questState.quiz) {
     return (
       <div>
 
@@ -32,6 +34,7 @@ function Question() {
           ans1={question.ans[1]}
           ans2={question.ans[2]}
           ans3={question.ans[3]}
+          level={level}
           setLevel={setLevel}
           setTimeOn={setTimeOn}
           setTimer={setTimer}
@@ -40,7 +43,7 @@ function Question() {
         />
       </div>
     );
-  } else {
+  } else if(answerShema===questState.progress) {
     return (
 
       <ProgressShema
@@ -50,6 +53,10 @@ function Question() {
         setTimer={setTimer}
         setTimeOn={setTimeOn}
       />
+    )
+  }else{
+    return(
+      <End />
     )
   }
 }
