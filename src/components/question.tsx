@@ -3,6 +3,7 @@ import { dataQuestion } from "../data/questions";
 import { questState } from "../types.ts/iquest-state";
 import { IQuestion } from "../types.ts/iquestion";
 import End from "../utils/end";
+import HintBoolean from "../utils/hint-boolean";
 import ProgressShema from "../utils/progress-shema";
 import QuestionHeader from "../utils/question-header";
 import QuizContent from "../utils/quiz-content";
@@ -14,14 +15,26 @@ function Question() {
   const [timeOn, setTimeOn] = useState(true);
   const [timer, setTimer] = useState(30);
   const [answerShema, setAnswerShema] = useState(questState.quiz);
-  const [rightAnswerStyle, setRightAnswerStyle]=useState({})
+  const [rightAnswerStyle, setRightAnswerStyle] = useState({})
+  const [visibleHintBoolean, setVisibleHintBoolean] = useState(false);
   const question: IQuestion = dataQuestion[level][0];
 
-  if (answerShema===questState.quiz) {
+  if (answerShema === questState.quiz) {
     return (
       <div>
+        <HintBoolean
+          visibleHintBoolean={visibleHintBoolean}
+          setVisibleHintBoolean={setVisibleHintBoolean}
+          question={question.ans}
+          setTimeOn={setTimeOn}
+          setTimer={setTimer}
+        />
 
-        <QuestionHeader />
+        <QuestionHeader 
+        setVisibleHintBoolean={setVisibleHintBoolean}
+        setTimeOn={setTimeOn}
+        />
+        
 
         <Timer
           setTimeOn={setTimeOn}
@@ -48,7 +61,7 @@ function Question() {
         />
       </div>
     );
-  } else if(answerShema===questState.progress) {
+  } else if (answerShema === questState.progress) {
     return (
 
       <ProgressShema
@@ -59,8 +72,8 @@ function Question() {
         setTimeOn={setTimeOn}
       />
     )
-  }else{
-    return(
+  } else {
+    return (
       <End />
     )
   }
