@@ -10,11 +10,18 @@
   width: 30vh;
   border-radius: 15vh;
   background-color: white;
-  color: blue;
+  color: white;
   font-size: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: url(../../public/timer.jpg) no-repeat center ;
+  background-size: 102%;
+  border: 3px solid white;
+  
+  overflow: hidden;
+
+  opacity: 0.8;
 }
 .timerProgress {
   height: 0.5vw;
