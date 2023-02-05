@@ -4,6 +4,7 @@ import { questState } from "../types.ts/iquest-state";
 import { IQuestion } from "../types.ts/iquestion";
 import End from "../utils/end";
 import HintBoolean from "../utils/hint-boolean";
+import HintCall from "../utils/hint-call";
 import ProgressShema from "../utils/progress-shema";
 import QuestionHeader from "../utils/question-header";
 import QuizContent from "../utils/quiz-content";
@@ -15,15 +16,26 @@ function Question() {
   const [timer, setTimer] = useState(30);
   const [answerShema, setAnswerShema] = useState(questState.quiz);
   const [rightAnswerStyle, setRightAnswerStyle] = useState({});
-  const [fiftyFiftyStyle, setFiftyFiftyStyle]=useState({});
+  const [fiftyFiftyStyle, setFiftyFiftyStyle] = useState({});
   const [visibleHintBoolean, setVisibleHintBoolean] = useState(false);
+  const [visibleHintCall, setVisibleHintCall] = useState(false);
   const [itemHintBoolean, setItemHintBoolean] = useState(false);
-  const [itemFiftyFifty,setItemFiftyFifty]=useState(false)
+  const [itemFiftyFifty, setItemFiftyFifty] = useState(false);
+  const[itemCall,setItemCall]=useState(false);
   const question: IQuestion = dataQuestion[level][0];
 
   if (answerShema === questState.quiz) {
     return (
       <div>
+        <HintCall
+          visibleHintCall={visibleHintCall}
+          setVisibleHintCall={setVisibleHintCall}
+          setItemCall={setItemCall}
+          setTimeOn={setTimeOn}
+          setTimer={setTimer}
+          question={question.ans}
+
+        />
         <HintBoolean
           visibleHintBoolean={visibleHintBoolean}
           setVisibleHintBoolean={setVisibleHintBoolean}
@@ -42,6 +54,8 @@ function Question() {
           setItemFiftyFifty={setItemFiftyFifty}
           setFiftyFiftyStyle={setFiftyFiftyStyle}
           setTimer={setTimer}
+          setVisibleHintCall={setVisibleHintCall}
+          itemHintCall={itemCall}
         />
 
         <Timer
