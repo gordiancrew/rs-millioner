@@ -19,6 +19,9 @@
   border-radius: 5vh;
   border: 1vh solid white;
   cursor: pointer;
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }
 .headerItem:hover {
   background-color: orange;

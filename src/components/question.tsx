@@ -15,8 +15,10 @@ function Question() {
   const [timer, setTimer] = useState(30);
   const [answerShema, setAnswerShema] = useState(questState.quiz);
   const [rightAnswerStyle, setRightAnswerStyle] = useState({});
+  const [fiftyFiftyStyle, setFiftyFiftyStyle]=useState({});
   const [visibleHintBoolean, setVisibleHintBoolean] = useState(false);
   const [itemHintBoolean, setItemHintBoolean] = useState(false);
+  const [itemFiftyFifty,setItemFiftyFifty]=useState(false)
   const question: IQuestion = dataQuestion[level][0];
 
   if (answerShema === questState.quiz) {
@@ -36,6 +38,10 @@ function Question() {
           setTimeOn={setTimeOn}
           itemHintBoolean={itemHintBoolean}
           setItemHintBoolean={setItemHintBoolean}
+          itemFiftyFifty={itemFiftyFifty}
+          setItemFiftyFifty={setItemFiftyFifty}
+          setFiftyFiftyStyle={setFiftyFiftyStyle}
+          setTimer={setTimer}
         />
 
         <Timer
@@ -57,6 +63,8 @@ function Question() {
           setAnswerShema={setAnswerShema}
           rightAnswerStyle={rightAnswerStyle}
           setRightAnswerStyle={setRightAnswerStyle}
+          fiftyFiftyStyle={fiftyFiftyStyle}
+          setFiftyFiftyStyle={setFiftyFiftyStyle}
         />
       </div>
     );
