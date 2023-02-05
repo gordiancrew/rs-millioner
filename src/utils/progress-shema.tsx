@@ -22,10 +22,12 @@ function ProgressShema(props: IProgress) {
       <button onClick={progressHundler}>Next question</button>
       <div >
         {arr.map((x, i) =>
-          (<div key={i}
-            // style={{color: (i+1)%5===0? 'red':'black'     }}
-            style={{ backgroundColor: i === props.level ? 'yellow' : 'white' ,
-           color: (i+1)%5===0? 'red':'black'     }
+        (<div key={i}
+          // style={{color: (i+1)%5===0? 'red':'black'     }}
+          style={{
+            backgroundColor: i === props.level ? 'yellow' : 'white',
+            color: (i + 1) % 5 === 0 ? 'red' : 'black'
+          }
           } >{i + 1}---{arr[i]}</div>)
         )}
       </div>
