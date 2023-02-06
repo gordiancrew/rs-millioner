@@ -1,31 +1,35 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import cl from "../styles/quiz.module.scss";
+import { CheckAnswer } from "../types.ts/chaeckAnswer";
 import { questState } from "../types.ts/iquest-state";
 import { ICase } from "../types.ts/iquestion";
 
 
 interface IQuiz {
   ask: string;
-  anses:Array<ICase>;
+  anses: Array<ICase>;
   level: number;
   setLevel: Function;
   setTimeOn: Function;
   timer: number;
   setTimer: Function;
   setAnswerShema: Function;
-  rightAnswerStyle:Object;
-  setRightAnswerStyle:Function
+  rightAnswerStyle: Object;
+  setRightAnswerStyle: Function
+  fiftyFiftyStyle: Object;
+  setFiftyFiftyStyle: Function;
 }
 
 export default function QuizContent(props: IQuiz) {
 
   const navi = useNavigate()
-  const questHundler = function (checketQuestion: boolean, e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
+  const questHundler = function (checketQuestion: CheckAnswer, e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
     let currentElem = e.currentTarget;
     props.setTimeOn(false)
-    if (checketQuestion) {
+    if (checketQuestion === CheckAnswer.right) {
       currentElem.style.backgroundColor = 'yellow';
+
       setTimeout(() => currentElem.style.backgroundColor = 'green', 2000);
       setTimeout(() => currentElem.style.backgroundColor = 'white', 2100);
       setTimeout(() => currentElem.style.backgroundColor = 'green', 2200);
@@ -36,6 +40,7 @@ export default function QuizContent(props: IQuiz) {
       setTimeout(() => props.setLevel((x: number) => {
         currentElem.style.backgroundColor = 'white';
         if (props.level < 3) {
+          props.setFiftyFiftyStyle({})
           props.setAnswerShema(questState.progress);
           return x + 1
         }
@@ -48,7 +53,7 @@ export default function QuizContent(props: IQuiz) {
     } else {
       currentElem.style.backgroundColor = 'yellow';
       setTimeout(() => currentElem.style.backgroundColor = 'red', 2000);
-      setTimeout(() => props.setRightAnswerStyle({backgroundColor:"blue"}), 2000);
+      setTimeout(() => props.setRightAnswerStyle({ backgroundColor: "blue" }), 2000);
       setTimeout(() => props.setAnswerShema(questState.end), 4000);
 
     }
@@ -69,15 +74,19 @@ export default function QuizContent(props: IQuiz) {
         <div className={cl.answer_wrapper__line}>
           <div className={cl.line}></div>
           <div className={cl.line_hexagon}>
-            <div style={props.anses[0].check?props.rightAnswerStyle:{}}
-             onClick={(e) => questHundler(props.anses[0].check, e)} className={cl.line_hexagon__content}>
+            <div style={props.anses[0].check === CheckAnswer.right ? props.rightAnswerStyle :
+              props.anses[0].check == CheckAnswer.falsy ? props.fiftyFiftyStyle : {}
+
+            }
+              onClick={(e) => questHundler(props.anses[0].check, e)} className={cl.line_hexagon__content}>
               <h4>{props.anses[0].content}</h4>
             </div>
           </div>
           <div className={cl.line_middle}></div>
           <div className={cl.line_hexagon}>
-            <div style={props.anses[1].check?props.rightAnswerStyle:{}}
-             onClick={(e) => questHundler(props.anses[1].check, e)} className={cl.line_hexagon__content}>
+            <div style={props.anses[1].check === CheckAnswer.right ? props.rightAnswerStyle :
+              props.anses[1].check == CheckAnswer.falsy ? props.fiftyFiftyStyle : {}}
+              onClick={(e) => questHundler(props.anses[1].check, e)} className={cl.line_hexagon__content}>
               <h4>{props.anses[1].content}</h4>
             </div>
           </div>
@@ -86,15 +95,18 @@ export default function QuizContent(props: IQuiz) {
         <div className={cl.answer_wrapper__line}>
           <div className={cl.line}></div>
           <div className={cl.line_hexagon}>
-            <div style={props.anses[2].check?props.rightAnswerStyle:{}}
-             onClick={(e) => questHundler(props.anses[2].check, e)} className={cl.line_hexagon__content}>
+            <div style={props.anses[2].check === CheckAnswer.right ? props.rightAnswerStyle :
+              props.anses[2].check == CheckAnswer.falsy ? props.fiftyFiftyStyle : {}}
+              onClick={(e) => questHundler(props.anses[2].check, e)} className={cl.line_hexagon__content}>
               <h4>{props.anses[2].content}</h4>
             </div>
           </div>
           <div className={cl.line_middle}></div>
           <div className={cl.line_hexagon}>
-            <div style={props.anses[3].check?props.rightAnswerStyle:{}}
-             onClick={(e) => questHundler(props.anses[3].check, e)} className={cl.line_hexagon__content}>
+            <div style={props.anses[3].check === CheckAnswer.right ? props.rightAnswerStyle :
+              props.anses[3].check == CheckAnswer.falsy ? props.fiftyFiftyStyle : {}
+            }
+              onClick={(e) => questHundler(props.anses[3].check, e)} className={cl.line_hexagon__content}>
               <h4>{props.anses[3].content}</h4>
             </div>
           </div>

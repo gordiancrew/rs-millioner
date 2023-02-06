@@ -4,11 +4,29 @@ interface IHeaderOptions {
   setTimeOn: Function;
   itemHintBoolean: boolean;
   setItemHintBoolean: Function;
+  itemFiftyFifty: boolean;
+  setItemFiftyFifty:Function;
+  setFiftyFiftyStyle:Function;
+  setTimer:Function;
+  setVisibleHintCall:Function;
+  itemHintCall:boolean;
 }
 function QuestionHeader(props: IHeaderOptions) {
   function booleanHundler() {
     props.setVisibleHintBoolean(true);
     props.setTimeOn(false);
+  }
+
+  function fiftyFiftyHundler(){
+    props.setItemFiftyFifty(true)
+    props.setFiftyFiftyStyle({backgroundColor:'white'})  
+    props.setTimeOn(false)
+  }
+  function callHundler(){
+    props.setVisibleHintCall(true);
+    props.setTimeOn(false);
+
+
   }
   return (
     <div className={headerStyle.headerBox}>
@@ -20,8 +38,18 @@ function QuestionHeader(props: IHeaderOptions) {
         >
           Boolean
         </div>
-        <div className={headerStyle.headerItem}></div>
-        <div className={headerStyle.headerItem}></div>
+        <div
+        onClick={!props.itemFiftyFifty ? fiftyFiftyHundler : () => {}}
+         style={{ backgroundColor: props.itemFiftyFifty ? "black" : "" }}
+        className={headerStyle.headerItem}>
+          50:50
+        </div>
+        <div
+        onClick={!props.itemHintCall ? callHundler : () => {}}
+        style={{ backgroundColor: props.itemHintCall ? "black" : "" }}
+        className={headerStyle.headerItem}>
+          Call
+        </div>
       </div>
       <div className={headerStyle.headerHints}>
         <div className={headerStyle.headerItem}></div>

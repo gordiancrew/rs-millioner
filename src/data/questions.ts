@@ -1,3 +1,5 @@
+import { CheckAnswer } from "../types.ts/chaeckAnswer";
+
 export const dataQuestion = [
 
     [
@@ -6,19 +8,19 @@ export const dataQuestion = [
             ans: [
                 {
                     content: "это 1 вариант ответа на вопрос id1.1(правильный)",
-                    check: true
+                    check: CheckAnswer.right
                 },
                 {
                     content: "это 2 вариант ответа на вопрос id1.1(неправильный)",
-                    check: false
+                    check: CheckAnswer.second
                 },
                 {
                     content: "это 3 вариант ответа на вопрос id1.1(неправильный)",
-                    check: false
+                    check: CheckAnswer.falsy
                 },
                 {
                     content: "это 4 вариант ответа на вопрос id1.1(неправильный)",
-                    check: false
+                    check: CheckAnswer.falsy
                 }
 
             ]
@@ -29,19 +31,19 @@ export const dataQuestion = [
             ans: [
                 {
                     content: "это 1 вариант ответа на вопрос id1.2(правильный)",
-                    check: true
+                    check: CheckAnswer.right
                 },
                 {
                     content: "это 2 вариант ответа на вопрос id1.2(неправильный)",
-                    check: false
+                    check: CheckAnswer.second
                 },
                 {
                     content: "это 3 вариант ответа на вопрос id1.2(неправильный)",
-                    check: false
+                    check: CheckAnswer.falsy
                 },
                 {
                     content: "это 4 вариант ответа на вопрос id1.2неправильный)",
-                    check: false
+                    check: CheckAnswer.falsy
                 }
 
             ]
@@ -54,19 +56,19 @@ export const dataQuestion = [
             ans: [
                 {
                     content: "это 1 вариант ответа на вопрос id2.1(правильный)",
-                    check: true
+                    check: CheckAnswer.right
                 },
                 {
                     content: "это 2 вариант ответа на вопрос id2.1(неправильный)",
-                    check: false
+                    check: CheckAnswer.second
                 },
                 {
                     content: "это 3 вариант ответа на вопрос id2.1(неправильный)",
-                    check: false
+                    check: CheckAnswer.falsy
                 },
                 {
                     content: "это 4 вариант ответа на вопрос id2.1(неправильный)",
-                    check: false
+                    check: CheckAnswer.falsy
                 }
 
             ]
@@ -77,19 +79,19 @@ export const dataQuestion = [
             ans: [
                 {
                     content: "это 1 вариант ответа на вопрос id2.2(правильный)",
-                    check: true
+                    check: CheckAnswer.right
                 },
                 {
                     content: "это 2 вариант ответа на вопрос id2.2(неправильный)",
-                    check: false
+                    check: CheckAnswer.second
                 },
                 {
                     content: "это 3 вариант ответа на вопрос id2.2(неправильный)",
-                    check: false
+                    check: CheckAnswer.falsy
                 },
                 {
                     content: "это 4 вариант ответа на вопрос id2.2неправильный)",
-                    check: false
+                    check: CheckAnswer.falsy
                 }
 
             ]
@@ -102,19 +104,19 @@ export const dataQuestion = [
             ans: [
                 {
                     content: "a(TRUE)",
-                    check: true
+                    check: CheckAnswer.right
                 },
                 {
                     content: "b",
-                    check: false
+                    check: CheckAnswer.second
                 },
                 {
                     content: "c",
-                    check: false
+                    check: CheckAnswer.falsy
                 },
                 {
                     content: "d",
-                    check: false
+                    check: CheckAnswer.falsy
                 }
 
             ]
@@ -127,19 +129,19 @@ export const dataQuestion = [
             ans: [
                 {
                     content: "aa(TRUE)",
-                    check: true
+                    check: CheckAnswer.right
                 },
                 {
                     content: "bb",
-                    check: false
+                    check: CheckAnswer.second
                 },
                 {
                     content: "cc",
-                    check: false
+                    check: CheckAnswer.falsy
                 },
                 {
                     content: "dd",
-                    check: false
+                    check: CheckAnswer.falsy
                 }
 
             ]
