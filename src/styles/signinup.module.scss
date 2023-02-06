@@ -1,10 +1,15 @@
-.signupform {
-    width: 20%;
+.signinupform {
+    max-width: 300px;
+    color: #fff;
     padding: 0 20px 20px 20px;
-    border: black solid 2px;
+    border: white solid 2px;
     border-radius: 5px;
     h2 {
         text-align: center;
+    }
+    h3 a {
+        text-decoration: none;
+        color: #fff;
     }
     label {
         display: block;
@@ -35,10 +40,21 @@
         color: #fff;
         border: 0;
         border-radius: 5px;
-        background-image: linear-gradient(257deg, #03a368, #03b057);
+        background-color: #03b057;
+        transition: 0.3s;
+        &:hover {
+            background-color: #27ca76; 
+        }
     }
     .error {
-        color: #e53e3e;
+        color: #fba2a2;
         margin-top: 8px;
     }
+}
+.link {
+    cursor: pointer;
+    transition: 0.3s;
+}
+.link:hover {
+    color: #03a368;
 }

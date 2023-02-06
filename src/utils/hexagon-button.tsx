@@ -23,3 +23,4 @@ function HexagonButton(props: IContent) {
 }
 
 export default HexagonButton;
+

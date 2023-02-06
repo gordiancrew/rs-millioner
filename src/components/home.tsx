@@ -1,7 +1,8 @@
-import SignUp from './signUp';
+import { SignInUp } from './signInUp';
 import '../styles/home.scss'
 
 function Home() {
+
 	return (
 		<div className='page'>
 			<h1>Home</h1>
@@ -12,16 +13,7 @@ function Home() {
                     THIS IMAGE
                 </a>
             </p>
-            <SignUp/>
-            <div className="wrap-hexagon">
-                <p className='hexa-text'>Установки игры</p>
-            </div>
-            <div className="wrap-hexagon">
-                <p className='hexa-text'>Начало игры</p>
-            </div>
-            <div className="wrap-hexagon">
-                <p className='hexa-text'>Победители</p>
-            </div>
+                <SignInUp/>
 		</div>
 	);
 }
