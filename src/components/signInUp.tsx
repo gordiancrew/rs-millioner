@@ -10,6 +10,8 @@ export const SignInUp = () => {
     const [checkUserPassword, setCheckUserPassword] = useState(false);
     const [checkEnteGame, setCheckEnteGame] = useState(false);
     const [stateForm, setStateForm] = useState(true);
+    const [boolenReg, setBoolen] = useState(true);
+    const [doubleName, setDoubleName] = useState(false);
 
     function toggleForm() {
         setStateForm(!stateForm);
@@ -23,10 +25,11 @@ export const SignInUp = () => {
     function enteredGame() {
         setCheckEnteGame(!checkEnteGame);
     }
-    const [boolenReg, setBoolen] = useState(true);
-
     function changeForm() {
         setBoolen(!boolenReg)
+    }
+    function checkDoubleName() {
+        setDoubleName(!doubleName);
     }
     const formikA = useFormik({
         initialValues: {
@@ -73,8 +76,14 @@ export const SignInUp = () => {
                     .required('Обязательное поле!'),
         }),
         onSubmit: values => {
-            localStorage.setItem(values.name, JSON.stringify(values));
-            changeForm();
+            const keysUser = Object.keys(localStorage).map((name) => name.toLowerCase());
+            const newUserName = values.name.toLowerCase();
+            if (keysUser.includes(newUserName)) {
+                checkDoubleName();
+            } else {
+                localStorage.setItem(values.name, JSON.stringify(values));
+                changeForm();
+            }
         }
     })
     return (
@@ -84,7 +93,7 @@ export const SignInUp = () => {
             {!checkEnteGame ? 
                 <>
                     <h2>Авторизация</h2>
-                    <label htmlFor="name">Ваше имя</label>
+                    <label htmlFor="name">Ваш никнейм</label>
                     <input
                         name='name'
                         type="text"
@@ -114,7 +123,7 @@ export const SignInUp = () => {
         {boolenReg ? 
             <>
                 <h2>Регистрация</h2>
-                <label htmlFor="name">Ваше имя</label>
+                <label htmlFor="name">Ваш никнейм</label>
                 <input
                     name='name'
                     type="text"
@@ -123,6 +132,7 @@ export const SignInUp = () => {
                     onBlur={formikR.handleBlur}
                 />
                 {formikR.errors.name && formikR.touched.name ? <div className={style.error}>{formikR.errors.name}</div> : null}
+                {doubleName ? <div className={style.error}>Такое имя уже есть</div> : null}
                 <label htmlFor="email">Ваша почта</label>
                 <input
                     name='email'
