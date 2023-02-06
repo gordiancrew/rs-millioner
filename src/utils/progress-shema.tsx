@@ -13,7 +13,7 @@ function ProgressShema(props: IProgress) {
     props.setTimer(30)
     props.setTimeOn(true)
   }
-  const arr = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000]
+  const arr = [100, 200, 300, 400, 500]
 
 
   return (
@@ -25,7 +25,7 @@ function ProgressShema(props: IProgress) {
         (<div key={i}
           // style={{color: (i+1)%5===0? 'red':'black'     }}
           style={{
-            backgroundColor: i === props.level ? 'yellow' : 'white',
+            backgroundColor: i+1 === props.level ? 'yellow' : 'white',
             color: (i + 1) % 5 === 0 ? 'red' : 'black'
           }
           } >{i + 1}---{arr[i]}</div>)

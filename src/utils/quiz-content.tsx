@@ -39,7 +39,7 @@ export default function QuizContent(props: IQuiz) {
       setTimeout(() => currentElem.style.backgroundColor = 'green', 2600);
       setTimeout(() => props.setLevel((x: number) => {
         currentElem.style.backgroundColor = 'white';
-        if (props.level < 3) {
+        if (props.level < 4) {
           props.setFiftyFiftyStyle({})
           props.setAnswerShema(questState.progress);
           return x + 1
@@ -79,7 +79,8 @@ export default function QuizContent(props: IQuiz) {
 
             }
               onClick={(e) => questHundler(props.anses[0].check, e)} className={cl.line_hexagon__content}>
-              <h4>{props.anses[0].content}</h4>
+              <h4>{props.anses[0].content}
+              {props.anses[0].check==CheckAnswer.right ?'+':'' }</h4>
             </div>
           </div>
           <div className={cl.line_middle}></div>
@@ -87,7 +88,8 @@ export default function QuizContent(props: IQuiz) {
             <div style={props.anses[1].check === CheckAnswer.right ? props.rightAnswerStyle :
               props.anses[1].check == CheckAnswer.falsy ? props.fiftyFiftyStyle : {}}
               onClick={(e) => questHundler(props.anses[1].check, e)} className={cl.line_hexagon__content}>
-              <h4>{props.anses[1].content}</h4>
+              <h4>{props.anses[1].content}
+              {props.anses[1].check==CheckAnswer.right ?'+':'' }</h4>
             </div>
           </div>
           <div className={cl.line}></div>
@@ -98,7 +100,8 @@ export default function QuizContent(props: IQuiz) {
             <div style={props.anses[2].check === CheckAnswer.right ? props.rightAnswerStyle :
               props.anses[2].check == CheckAnswer.falsy ? props.fiftyFiftyStyle : {}}
               onClick={(e) => questHundler(props.anses[2].check, e)} className={cl.line_hexagon__content}>
-              <h4>{props.anses[2].content}</h4>
+              <h4>{props.anses[2].content}
+              {props.anses[2].check==CheckAnswer.right ?'+':'' }</h4>
             </div>
           </div>
           <div className={cl.line_middle}></div>
@@ -107,7 +110,9 @@ export default function QuizContent(props: IQuiz) {
               props.anses[3].check == CheckAnswer.falsy ? props.fiftyFiftyStyle : {}
             }
               onClick={(e) => questHundler(props.anses[3].check, e)} className={cl.line_hexagon__content}>
-              <h4>{props.anses[3].content}</h4>
+              <h4>{props.anses[3].content}
+              {props.anses[3].check==CheckAnswer.right ?'+':'' }
+              </h4>
             </div>
           </div>
           <div className={cl.line}></div>

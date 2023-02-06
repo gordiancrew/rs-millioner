@@ -1,16 +1,13 @@
 import "../styles/start.scss";
 import HexagonButton from "../utils/hexagon-button";
+import logo from "../components/logo.png"
 
 function Start() {
   return (
-    <div>
-      <h1>Start page.</h1>
-      <p>
-        On this page user enters the game using his login and password or
-        registers.
-      </p>
-      <HexagonButton content="home" link="/home" />
-      <HexagonButton content="progress" link="/progress" />
+    <div className="start">
+     <img className="logo" src={logo}></img>
+      {/* <HexagonButton content="home" link="/home" />
+      <HexagonButton content="progress" link="/progress" /> */}
       <HexagonButton content="question" link="/question" />
     </div>
   );

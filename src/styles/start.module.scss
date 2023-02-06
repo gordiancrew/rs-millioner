@@ -18,7 +18,7 @@
 }
 
 .wrapper {
-    background-color:aquamarine;
+    // background-color:aquamarine;
     width: 100vw;
     height: 200px;
     @include center;
@@ -32,6 +32,7 @@
 
 .questionBox {
     background-color: black;
+    background-color: aqua;
     width: calc(100vw /3);
     height: 10vh;
     @include clip-path(5vh);
@@ -39,11 +40,12 @@
 }
 
 .questionContent:hover {
-    background-color: aquamarine;
+    background-color: grey;
 }
 
 .questionContent {
-    background-color: aqua;
+    color:white;
+    background-color: black;
     width: calc(100vw / 3 - 5px);
     height: calc(10vh - 0.2vh);
     @include clip-path(calc(5vh - 0.2px));
