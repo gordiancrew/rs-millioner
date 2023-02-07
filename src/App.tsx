@@ -4,10 +4,16 @@ import Home from './components/home';
 import Progress from './components/progress';
 import Question from './components/question';
 import Start from './components/start';
+import "./styles/start.scss";
+
+
+
 
 function App() {
   return (
     <div>
+  
+    
       <Routes>
           <Route path="/" element={<Start />} />
           <Route path="/home" element={<Home />} />  
