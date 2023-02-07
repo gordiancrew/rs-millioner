@@ -51,3 +51,14 @@
     @include clip-path(calc(5vh - 0.2px));
     @include center;
 }
+@media (max-width: 850px) {
+    .questionBox {
+     
+        width: 80vw;
+      
+    }
+    .questionContent {
+        
+        width: 79vw;
+    }
+}
