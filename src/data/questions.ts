@@ -4,22 +4,22 @@ export const dataQuestion = [
 
     [
         {
-            ask: "Это вопрос 1 уровня сложности id1.1",
+            ask: "Что означает аббревиатура JS в программировании?",
             ans: [
                 {
-                    content: "это 1 вариант ответа на вопрос id1.1(правильный)",
+                    content: "JavaScript",
                     check: CheckAnswer.right
                 },
                 {
-                    content: "это 2 вариант ответа на вопрос id1.1(неправильный)",
+                    content: "Jason Statham ",
                     check: CheckAnswer.second
                 },
                 {
-                    content: "это 3 вариант ответа на вопрос id1.1(неправильный)",
+                    content: "Just second",
                     check: CheckAnswer.falsy
                 },
                 {
-                    content: "это 4 вариант ответа на вопрос id1.1(неправильный)",
+                    content: "Job sweat",
                     check: CheckAnswer.falsy
                 }
 
@@ -27,22 +27,45 @@ export const dataQuestion = [
 
         },
         {
-            ask: "Это вопрос 1 уровня сложности id1.2",
+            ask: "Что такое JavaScript?",
             ans: [
                 {
-                    content: "это 1 вариант ответа на вопрос id1.2(правильный)",
+                    content: "Язык программирования",
                     check: CheckAnswer.right
                 },
                 {
-                    content: "это 2 вариант ответа на вопрос id1.2(неправильный)",
+                    content: "Язык народов Византийской Империи",
                     check: CheckAnswer.second
                 },
                 {
-                    content: "это 3 вариант ответа на вопрос id1.2(неправильный)",
+                    content: "Наскальные царапания",
                     check: CheckAnswer.falsy
                 },
                 {
-                    content: "это 4 вариант ответа на вопрос id1.2неправильный)",
+                    content: "Блюдо",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        },
+        {
+            ask: "Где используется JavaScript",
+            ans: [
+                {
+                    content: "В программировании",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "В тюремной лексике ",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "В игре в карты",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "Только в кино ",
                     check: CheckAnswer.falsy
                 }
 
@@ -52,22 +75,22 @@ export const dataQuestion = [
     ],
     [
         {
-            ask: "Это вопрос 2 уровня сложности id2.1",
+            ask: "Как расшифровывается HTML",
             ans: [
                 {
-                    content: "это 1 вариант ответа на вопрос id2.1(правильный)",
+                    content: "HyperText Markup Language",
                     check: CheckAnswer.right
                 },
                 {
-                    content: "это 2 вариант ответа на вопрос id2.1(неправильный)",
+                    content: "HyperText My Love",
                     check: CheckAnswer.second
                 },
                 {
-                    content: "это 3 вариант ответа на вопрос id2.1(неправильный)",
+                    content: "Hot Top Music List",
                     check: CheckAnswer.falsy
                 },
                 {
-                    content: "это 4 вариант ответа на вопрос id2.1(неправильный)",
+                    content: "Header Title Margin Li",
                     check: CheckAnswer.falsy
                 }
 
@@ -75,22 +98,45 @@ export const dataQuestion = [
 
         },
         {
-            ask: "Это вопрос 2 уровня сложности id2.2",
+            ask: "Что такое CSS",
             ans: [
                 {
-                    content: "это 1 вариант ответа на вопрос id2.2(правильный)",
+                    content: "Cascading Style Sheets",
                     check: CheckAnswer.right
                 },
                 {
-                    content: "это 2 вариант ответа на вопрос id2.2(неправильный)",
+                    content: "Cool Style Sheets",
                     check: CheckAnswer.second
                 },
                 {
-                    content: "это 3 вариант ответа на вопрос id2.2(неправильный)",
+                    content: "Country School Shoes",
                     check: CheckAnswer.falsy
                 },
                 {
-                    content: "это 4 вариант ответа на вопрос id2.2неправильный)",
+                    content: "Cazhetsja Stili Sleteli",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        },
+        {
+            ask: "Что такое js движок",
+            ans: [
+                {
+                    content: "Программа, обрабатывающая JavaScript",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "Программист, пишущий код",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "Новый двигатель BMW",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "Вечеринка в стиле IT",
                     check: CheckAnswer.falsy
                 }
 
@@ -100,60 +146,215 @@ export const dataQuestion = [
     ],
     [
         {
-            ask: "Это вопрос 3 уровня",
+            ask: "Какого типа данных нет в JS",
             ans: [
                 {
-                    content: "a(TRUE)",
+                    content: "Char",
                     check: CheckAnswer.right
                 },
                 {
-                    content: "b",
+                    content: "Number",
                     check: CheckAnswer.second
                 },
                 {
-                    content: "c",
+                    content: "Boolean",
                     check: CheckAnswer.falsy
                 },
                 {
-                    content: "d",
+                    content: "Object",
                     check: CheckAnswer.falsy
                 }
 
             ]
 
         },
+        {
+            ask: "Какой тип данных есть в JS",
+            ans: [
+                {
+                    content: "Symbol",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "Char",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "Integer",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "Mix",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        }, {
+            ask: "Какой тип данных есть в JS",
+            ans: [
+                {
+                    content: "BigInt",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "BigFloat",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "BigString",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "BigObject",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        }
     ],
     [
         {
-            ask: "Это вопрос 4 уровня",
+            ask: "Какое обьявление функций не существуют в JS",
             ans: [
                 {
-                    content: "aa(TRUE)",
+                    content: "Function Progression",
                     check: CheckAnswer.right
                 },
                 {
-                    content: "bb",
+                    content: "Function Expression",
                     check: CheckAnswer.second
                 },
                 {
-                    content: "cc",
+                    content: "Function Decloration",
                     check: CheckAnswer.falsy
                 },
                 {
-                    content: "dd",
+                    content: "Arrow Function",
                     check: CheckAnswer.falsy
                 }
 
             ]
 
         },
+        {
+            ask: "Какой оператор не относится к логическим в JS",
+            ans: [
+                {
+                    content: "$",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "&&",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "||",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "!",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        }, {
+            ask: "Через какое слово нельзя обьявить переменную в JS",
+            ans: [
+                {
+                    content: "get",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "const",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "var",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "let",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        }
+        
+    ],
+    [
+        {
+            ask: "Какую область видимости имеет переменная обьявленная через слово let",
+            ans: [
+                {
+                    content: "Блочную",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "Функциональную",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "Строчную",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "Програмную",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        },
+        {
+            ask: "Что обязательно должна иметь конструкция switch в js",
+            ans: [
+                {
+                    content: "блок case",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "блок default",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "блок break",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "блок finally",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        }, {
+            ask: "Что из этого является тернарным оператором?",
+            ans: [
+                {
+                    content: "let res = a ? one : two",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "let res = a ? one \ two",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "let res = a ? one",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "let res = a ! one : two",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        }
+        
     ]
 
 ]
-
-
-
-
-
-    //in this constant we write all questions as array objects
-    // or 15 arrays, each array equals difficult level

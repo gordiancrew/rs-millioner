@@ -1,4 +1,5 @@
 import { questState } from "../types.ts/iquest-state";
+import progressStyle from "../styles/progress.module.scss";
 
 interface IProgress {
   level: number;
@@ -13,24 +14,28 @@ function ProgressShema(props: IProgress) {
     props.setTimer(30)
     props.setTimeOn(true)
   }
-  const arr = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000]
+  const arr1 = [100, 200, 300, 500, 1000, 2000, 4000, 8000, 16000, 32000,
+    64000,125000,250000, 500000, 1000000]
+    const arr=arr1.reverse();
 
 
   return (
-    <div>
-      <h1>Progress shema. You level is:{props.level}</h1>
-      <button onClick={progressHundler}>Next question</button>
-      <div >
+    <div className={progressStyle.progressWrapper}>
+      {/* <h1>Progress shema. You level is:{props.level}</h1> */}
+     
+      <div className={progressStyle.progressBox}>
         {arr.map((x, i) =>
         (<div key={i}
           // style={{color: (i+1)%5===0? 'red':'black'     }}
           style={{
-            backgroundColor: i === props.level ? 'yellow' : 'white',
-            color: (i + 1) % 5 === 0 ? 'red' : 'black'
+            backgroundColor: i === 15-props.level ? 'yellow' : '',
+            color: i === 5 ||i===10||i===0? 'white' :
+             (15-i)>props.level?'#9e9342':'black'
           }
-          } >{i + 1}---{arr[i]}</div>)
+          } >{i>5?"\u00A0\u00A0":''}{15-i }<span style={{color:'white'}}>{' '}⬥{' '}</span>{arr[i]}</div>)
         )}
       </div>
+      <button onClick={progressHundler}>Next question</button>
     </div>
   );
 }
