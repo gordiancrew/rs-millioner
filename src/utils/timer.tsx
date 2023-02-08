@@ -8,22 +8,24 @@ interface ITimer {
 	timeOn: boolean;
 	timer: number;
 	setTimer: Function;
-	setAnswerShema:Function
-	setRightAnswerStyle:Function
+	setAnswerShema: Function;
+	setRightAnswerStyle: Function;
 }
 
 function Timer(props: ITimer) {
 	useEffect(() => {
 		if (props.timer > 0 && props.timeOn) {
-			setTimeout(() => props.setTimer((x: number) => x - 1), 1000)
+			setTimeout(() => props.setTimer((x: number) => x - 1), 1000);
 		}
-	}
-	);
+	});
 	useEffect(() => {
 		if (props.timer === 0) {
-			setTimeout(() => props.setRightAnswerStyle({backgroundColor:"blue"}), 2000);
+			setTimeout(
+				() => props.setRightAnswerStyle({ backgroundColor: "blue" }),
+				2000
+			);
 			setTimeout(() => props.setAnswerShema(questState.end), 4000);
-			 }
+		}
 	}, [props.timer]);
 
 	return (
