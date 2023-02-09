@@ -8,19 +8,20 @@ import { ICase } from "../types.ts/iquestion";
 import { musicUrlEnum } from "../types.ts/music-url";
 
 interface IQuiz {
-	ask: string;
-	anses: Array<ICase>;
-	level: number;
-	setLevel: Function;
-	setTimeOn: Function;
-	timer: number;
-	setTimer: Function;
-	setAnswerShema: Function;
-	rightAnswerStyle: Object;
-	setRightAnswerStyle: Function;
-	fiftyFiftyStyle: Object;
-	setFiftyFiftyStyle: Function;
-	// play:Function
+  ask: string;
+  anses: Array<ICase>;
+  level: number;
+  setLevel: Function;
+  setTimeOn: Function;
+  addPoints: Function;
+  timer: number;
+  setTimer: Function;
+  setAnswerShema: Function;
+  rightAnswerStyle: Object;
+  setRightAnswerStyle: Function
+  fiftyFiftyStyle: Object;
+  setFiftyFiftyStyle: Function;
+
 }
 
 export default function QuizContent(props: IQuiz) {
@@ -31,16 +32,40 @@ export default function QuizContent(props: IQuiz) {
   const [playCurrentAnswer]=useSound(musicUrlEnum.currentAnswer);
   const [playNextLevel]=useSound(musicUrlEnum.nextLevel);
 
-	const navi = useNavigate();
-	const questHundler = function (
-		checketQuestion: CheckAnswer,
-		e: React.MouseEvent<HTMLDivElement, MouseEvent>
-	) {
-    playCurrentAnswer()
-		let currentElem = e.currentTarget;
-		props.setTimeOn(false);
-		if (checketQuestion === CheckAnswer.right) {
-			currentElem.style.backgroundColor = "yellow";
+
+  const navi = useNavigate()
+  const questHundler = function (checketQuestion: CheckAnswer, e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
+    let currentElem = e.currentTarget;
+    props.setTimeOn(false) 
+    if (checketQuestion === CheckAnswer.right) {
+      currentElem.style.backgroundColor = 'yellow';
+
+      setTimeout(() => currentElem.style.backgroundColor = 'green', 2000);
+      setTimeout(() => currentElem.style.backgroundColor = 'white', 2100);
+      setTimeout(() => currentElem.style.backgroundColor = 'green', 2200);
+      setTimeout(() => currentElem.style.backgroundColor = 'white', 2300);
+      setTimeout(() => currentElem.style.backgroundColor = 'green', 2400);
+      setTimeout(() => currentElem.style.backgroundColor = 'white', 2500);
+      setTimeout(() => currentElem.style.backgroundColor = 'green', 2600);
+      setTimeout(() => props.setLevel((x: number) => {
+        currentElem.style.backgroundColor = 'white';
+        if (props.level < 5) {
+          props.setFiftyFiftyStyle({})
+          props.setAnswerShema(questState.progress);
+          props.addPoints();
+          return x + 1
+        }
+        else {
+          props.setAnswerShema(questState.end);
+          return x
+        }
+      }
+      ), 4000)
+    } else {
+      currentElem.style.backgroundColor = 'yellow';
+      setTimeout(() => currentElem.style.backgroundColor = 'red', 2000);
+      setTimeout(() => props.setRightAnswerStyle({ backgroundColor: "blue" }), 2000);
+      setTimeout(() => props.setAnswerShema(questState.end), 4000);
 
 			setTimeout(() => {
 				currentElem.style.backgroundColor = "green";

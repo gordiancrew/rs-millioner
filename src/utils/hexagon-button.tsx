@@ -5,7 +5,7 @@ interface IContent {
   content: string;
   link: string;
 }
-
+ 
 function HexagonButton(props: IContent) {
   return (
     <div className={cl.wrapper}>
