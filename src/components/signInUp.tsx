@@ -95,9 +95,10 @@ export const SignInUp = () => {
           {!checkEnteGame ? (
             <>
               <h2>Авторизация</h2>
-              <label htmlFor="name">Ваш никнейм</label>
+              {/* <label htmlFor="name">Ваш никнейм</label> */}
               <div className={st.input_wrapper}>
                 <input
+                  placeholder="Ваш никнейм"
                   name="name"
                   type="text"
                   value={formikA.values.name}
@@ -107,14 +108,19 @@ export const SignInUp = () => {
               </div>
 
               {formikA.errors.name && formikA.touched.name ? (
-                <div className={style.error}>{formikA.errors.name}</div>
+                <div className={style.error} style={{ top: "40vh" }}>
+                  {formikA.errors.name}
+                </div>
               ) : null}
               {checkUserName ? (
-                <div className={style.error}>Не правильный логин</div>
+                <div className={style.error} style={{ top: "40vh" }}>
+                  Неправильный логин
+                </div>
               ) : null}
-              <label htmlFor="email">Пароль</label>
+              {/* <label htmlFor="email">Пароль</label> */}
               <div className={st.input_wrapper}>
                 <input
+                  placeholder="Пароль"
                   name="password"
                   type="password"
                   value={formikA.values.password}
@@ -124,10 +130,14 @@ export const SignInUp = () => {
               </div>
 
               {formikA.errors.password && formikA.touched.password ? (
-                <div className={style.error}>{formikA.errors.password}</div>
+                <div className={style.error} style={{ top: "50vh" }}>
+                  {formikA.errors.password}
+                </div>
               ) : null}
               {checkUserPassword ? (
-                <div className={style.error}>Не правильный пароль</div>
+                <div className={style.error} style={{ top: "50vh" }}>
+                  Неправильный пароль
+                </div>
               ) : null}
               <div className={st.input_wrapper}>
                 <button type="submit">Отправить</button>
@@ -152,7 +162,7 @@ export const SignInUp = () => {
           {boolenReg ? (
             <>
               <h2>Регистрация</h2>
-              <label htmlFor="name">Ваш никнейм</label>
+              <label htmlFor="name">Ваш никнейм:</label>
               <div className={st.input_wrapper}>
                 <input
                   name="name"
@@ -164,12 +174,16 @@ export const SignInUp = () => {
               </div>
 
               {formikR.errors.name && formikR.touched.name ? (
-                <div className={style.error}>{formikR.errors.name}</div>
+                <div className={style.error} style={{ top: "43vh" }}>
+                  {formikR.errors.name}
+                </div>
               ) : null}
               {doubleName ? (
-                <div className={style.error}>Такое имя уже есть</div>
+                <div className={style.error} style={{ top: "43vh" }}>
+                  Такое имя уже есть
+                </div>
               ) : null}
-              <label htmlFor="email">Ваша почта</label>
+              <label htmlFor="email">Ваша почта:</label>
               <div className={st.input_wrapper}>
                 <input
                   name="email"
@@ -181,9 +195,11 @@ export const SignInUp = () => {
               </div>
 
               {formikR.errors.email && formikR.touched.email ? (
-                <div className={style.error}>{formikR.errors.email}</div>
+                <div className={style.error} style={{ top: "56vh" }}>
+                  {formikR.errors.email}
+                </div>
               ) : null}
-              <label htmlFor="email">Пароль</label>
+              <label htmlFor="email">Пароль:</label>
               <div className={st.input_wrapper}>
                 <input
                   name="password"
@@ -195,7 +211,9 @@ export const SignInUp = () => {
               </div>
 
               {formikR.errors.password && formikR.touched.password ? (
-                <div className={style.error}>{formikR.errors.password}</div>
+                <div className={style.error} style={{ top: "68vh" }}>
+                  {formikR.errors.password}
+                </div>
               ) : null}
               <div className={st.input_wrapper}>
                 <button type="submit">Отправить</button>
