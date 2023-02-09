@@ -13,7 +13,6 @@ import Timer from "../utils/timer";
 
 function Question() {
   const [level, setLevel] = useState(0);
-  let [totalPoints, setTotalPoints] = useState(0);
   const [timeOn, setTimeOn] = useState(true);
   const [timer, setTimer] = useState(30);
   const [answerShema, setAnswerShema] = useState(questState.quiz);
@@ -25,12 +24,7 @@ function Question() {
   const [itemFiftyFifty, setItemFiftyFifty] = useState(false);
   const [itemCall, setItemCall] = useState(false);
 
-  function addPoints() {
-    setTotalPoints(totalPoints + 100);
-  }
-  function repeatGame() {
-    window.location.reload();
-  }
+
 
   function shuffleArr(arr: IQuestion[] | ICase[]) {
     for (let i = arr.length - 1; i > 0; i--) {
@@ -48,6 +42,7 @@ function Question() {
   const question: IQuestion = questionArr[0];
   let answers = question.ans;
   useEffect(() => { shuffleArr(answers) }, []);
+
 
   if (answerShema === questState.quiz) {
     return (
@@ -96,7 +91,6 @@ function Question() {
           anses={question.ans}
           level={level}
           setLevel={setLevel}
-          addPoints={addPoints}
           setTimeOn={setTimeOn}
           setTimer={setTimer}
           timer={timer}
@@ -120,9 +114,7 @@ function Question() {
       />
     );
   } else {
-    return <End totalPoints={totalPoints}
-                repeatGame={repeatGame}/>;
+    return <End />;
   }
 }
 export default Question;
-
