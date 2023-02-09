@@ -88,11 +88,10 @@
   height: calc(8vh - 0.3vh);
   @include clip-path(calc(4vh - 0.3px));
   @include center;
-}
-
-.line_hexagon__content:hover {
-  background-color: gray;
-  cursor: pointer;
+  &:hover {
+    background-color: gray;
+    cursor: pointer;
+  }
 }
 
 .line_middle {

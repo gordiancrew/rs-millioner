@@ -40,7 +40,7 @@ export default function QuizContent(props: IQuiz) {
       setTimeout(() => currentElem.style.backgroundColor = 'green', 2600);
       setTimeout(() => props.setLevel((x: number) => {
         currentElem.style.backgroundColor = 'white';
-        if (props.level < 3) {
+        if (props.level < 5) {
           props.setFiftyFiftyStyle({})
           props.setAnswerShema(questState.progress);
           props.addPoints();

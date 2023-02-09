@@ -1,7 +1,7 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { dataQuestion } from "../data/questions";
 import { questState } from "../types.ts/iquest-state";
-import { IQuestion } from "../types.ts/iquestion";
+import { ICase, IQuestion } from "../types.ts/iquestion";
 import End from "../utils/end";
 import HintBoolean from "../utils/hint-boolean";
 import HintCall from "../utils/hint-call";
@@ -22,14 +22,29 @@ function Question() {
   const [visibleHintCall, setVisibleHintCall] = useState(false);
   const [itemHintBoolean, setItemHintBoolean] = useState(false);
   const [itemFiftyFifty, setItemFiftyFifty] = useState(false);
-  const[itemCall,setItemCall]=useState(false);
-  const question: IQuestion = dataQuestion[level][0];
+  const [itemCall, setItemCall] = useState(false);
   function addPoints() {
     setTotalPoints(totalPoints + 100);
   }
   function repeatGame() {
     window.location.reload();
   }
+  function shuffleArr(arr: IQuestion[] | ICase[]) {
+    for (let i = arr.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]]
+
+    }
+  }
+  let questionArr: Array<IQuestion> = dataQuestion[level];
+  useEffect(() => {
+    shuffleArr(questionArr);
+    shuffleArr(questionArr[0].ans)
+  }
+    , [level])
+  const question: IQuestion = questionArr[0];
+  let answers = question.ans;
+  useEffect(() => { shuffleArr(answers) }, []);
 
   if (answerShema === questState.quiz) {
     return (
@@ -40,7 +55,7 @@ function Question() {
           setItemCall={setItemCall}
           setTimeOn={setTimeOn}
           setTimer={setTimer}
-          question={question.ans}
+          question={answers}
 
         />
         <HintBoolean
