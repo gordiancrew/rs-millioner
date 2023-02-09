@@ -13,6 +13,7 @@ interface IQuiz {
 	level: number;
 	setLevel: Function;
 	setTimeOn: Function;
+	addPoints: Function;
 	timer: number;
 	setTimer: Function;
 	setAnswerShema: Function;
@@ -60,6 +61,7 @@ export default function QuizContent(props: IQuiz) {
 						if (props.level < 5) {
 							props.setFiftyFiftyStyle({});
 							props.setAnswerShema(questState.progress);
+							props.addPoints();
 							return x + 1;
 						} else {
 							props.setAnswerShema(questState.end);
