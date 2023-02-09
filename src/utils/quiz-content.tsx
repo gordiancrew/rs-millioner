@@ -12,6 +12,7 @@ interface IQuiz {
   level: number;
   setLevel: Function;
   setTimeOn: Function;
+  addPoints: Function;
   timer: number;
   setTimer: Function;
   setAnswerShema: Function;
@@ -26,7 +27,7 @@ export default function QuizContent(props: IQuiz) {
   const navi = useNavigate()
   const questHundler = function (checketQuestion: CheckAnswer, e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
     let currentElem = e.currentTarget;
-    props.setTimeOn(false)
+    props.setTimeOn(false) 
     if (checketQuestion === CheckAnswer.right) {
       currentElem.style.backgroundColor = 'yellow';
 
@@ -42,6 +43,7 @@ export default function QuizContent(props: IQuiz) {
         if (props.level < 3) {
           props.setFiftyFiftyStyle({})
           props.setAnswerShema(questState.progress);
+          props.addPoints();
           return x + 1
         }
         else {

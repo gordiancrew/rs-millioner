@@ -12,6 +12,7 @@ import Timer from "../utils/timer";
 
 function Question() {
   const [level, setLevel] = useState(0);
+  let [totalPoints, setTotalPoints] = useState(0);
   const [timeOn, setTimeOn] = useState(true);
   const [timer, setTimer] = useState(30);
   const [answerShema, setAnswerShema] = useState(questState.quiz);
@@ -23,6 +24,12 @@ function Question() {
   const [itemFiftyFifty, setItemFiftyFifty] = useState(false);
   const[itemCall,setItemCall]=useState(false);
   const question: IQuestion = dataQuestion[level][0];
+  function addPoints() {
+    setTotalPoints(totalPoints + 100);
+  }
+  function repeatGame() {
+    window.location.reload();
+  }
 
   if (answerShema === questState.quiz) {
     return (
@@ -71,6 +78,7 @@ function Question() {
           anses={question.ans}
           level={level}
           setLevel={setLevel}
+          addPoints={addPoints}
           setTimeOn={setTimeOn}
           setTimer={setTimer}
           timer={timer}
@@ -93,7 +101,9 @@ function Question() {
       />
     );
   } else {
-    return <End />;
+    return <End totalPoints={totalPoints}
+                repeatGame={repeatGame}/>;
   }
 }
 export default Question;
+
