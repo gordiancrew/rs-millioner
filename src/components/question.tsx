@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import useSound from "use-sound";
 import { dataQuestion } from "../data/questions";
 import { questState } from "../types.ts/iquest-state";
 import { ICase, IQuestion } from "../types.ts/iquestion";
@@ -23,12 +24,14 @@ function Question() {
   const [itemHintBoolean, setItemHintBoolean] = useState(false);
   const [itemFiftyFifty, setItemFiftyFifty] = useState(false);
   const [itemCall, setItemCall] = useState(false);
+
   function addPoints() {
     setTotalPoints(totalPoints + 100);
   }
   function repeatGame() {
     window.location.reload();
   }
+
   function shuffleArr(arr: IQuestion[] | ICase[]) {
     for (let i = arr.length - 1; i > 0; i--) {
       let j = Math.floor(Math.random() * (i + 1));
@@ -102,6 +105,7 @@ function Question() {
           setRightAnswerStyle={setRightAnswerStyle}
           fiftyFiftyStyle={fiftyFiftyStyle}
           setFiftyFiftyStyle={setFiftyFiftyStyle}
+          // play={play}
         />
       </div>
     );
