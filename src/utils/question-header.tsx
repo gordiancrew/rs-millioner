@@ -1,4 +1,6 @@
+import useSound from "use-sound";
 import headerStyle from "../styles/question-header.module.scss";
+import { musicUrlEnum } from "../types.ts/music-url";
 interface IHeaderOptions {
   setVisibleHintBoolean: Function;
   setTimeOn: Function;
@@ -10,17 +12,23 @@ interface IHeaderOptions {
   setTimer:Function;
   setVisibleHintCall:Function;
   itemHintCall:boolean;
+  booleanStyle:object;
+  setBooleanStyle:Function;
 }
 function QuestionHeader(props: IHeaderOptions) {
+  const[playFiftyFifty]=useSound(musicUrlEnum.fiftyFifty)
   function booleanHundler() {
-    props.setVisibleHintBoolean(true);
+    props.setItemHintBoolean(true)
+    props.setBooleanStyle({display:'flex'});
     props.setTimeOn(false);
+    playFiftyFifty()
   }
 
   function fiftyFiftyHundler(){
     props.setItemFiftyFifty(true)
     props.setFiftyFiftyStyle({backgroundColor:'white'})  
     props.setTimeOn(false)
+    playFiftyFifty()
   }
   function callHundler(){
     props.setVisibleHintCall(true);

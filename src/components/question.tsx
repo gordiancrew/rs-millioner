@@ -19,6 +19,7 @@ function Question() {
   const [answerShema, setAnswerShema] = useState(questState.quiz);
   const [rightAnswerStyle, setRightAnswerStyle] = useState({});
   const [fiftyFiftyStyle, setFiftyFiftyStyle] = useState({});
+  const [booleanStyle,setBooleanStyle]=useState({});
   const [visibleHintBoolean, setVisibleHintBoolean] = useState(false);
   const [visibleHintCall, setVisibleHintCall] = useState(false);
   const [itemHintBoolean, setItemHintBoolean] = useState(false);
@@ -32,7 +33,7 @@ function Question() {
     window.location.reload();
   }
 
-  function shuffleArr(arr: IQuestion[] | ICase[]) {
+  function shuffleArr(arr: IQuestion[] | ICase[]|String[]) {
     for (let i = arr.length - 1; i > 0; i--) {
       let j = Math.floor(Math.random() * (i + 1));
       [arr[i], arr[j]] = [arr[j], arr[i]]
@@ -82,6 +83,9 @@ function Question() {
           setTimer={setTimer}
           setVisibleHintCall={setVisibleHintCall}
           itemHintCall={itemCall}
+          booleanStyle={booleanStyle}
+          setBooleanStyle={setBooleanStyle}
+          
         />
 
         <Timer
@@ -106,6 +110,9 @@ function Question() {
           setRightAnswerStyle={setRightAnswerStyle}
           fiftyFiftyStyle={fiftyFiftyStyle}
           setFiftyFiftyStyle={setFiftyFiftyStyle}
+          shuffleArr={shuffleArr}
+          booleanStyle={booleanStyle}
+          setBooleanStyle={setBooleanStyle}
           // play={play}
         />
       </div>
