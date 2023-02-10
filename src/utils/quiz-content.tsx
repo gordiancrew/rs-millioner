@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useSound from "use-sound";
+import { booleanFalse, booleanTrue } from "../data/boolean";
 import cl from "../styles/quiz.module.scss";
 import { CheckAnswer } from "../types.ts/chaeckAnswer";
 import { questState } from "../types.ts/iquest-state";
@@ -21,23 +22,31 @@ interface IQuiz {
 	setRightAnswerStyle: Function;
 	fiftyFiftyStyle: Object;
 	setFiftyFiftyStyle: Function;
+	shuffleArr: Function;
+	booleanStyle: object;
+	setBooleanStyle:Function;
 	// play:Function
 }
 
 export default function QuizContent(props: IQuiz) {
 	// useEffect(()=>{props.play()},[])
-	
-	const [playRightAnswer] = useSound(musicUrlEnum.rightAnswer);
-  const [playBadAnswer]=useSound(musicUrlEnum.badAnswer)
-  const [playCurrentAnswer]=useSound(musicUrlEnum.currentAnswer);
-  const [playNextLevel]=useSound(musicUrlEnum.nextLevel);
 
+	const [playRightAnswer] = useSound(musicUrlEnum.rightAnswer);
+	const [playBadAnswer] = useSound(musicUrlEnum.badAnswer)
+	const [playCurrentAnswer] = useSound(musicUrlEnum.currentAnswer);
+	const [playNextLevel] = useSound(musicUrlEnum.nextLevel);
+	let boolFalse = booleanFalse;
+	let boolTrue = booleanTrue;
+	useEffect(() => {
+		props.shuffleArr(boolFalse);
+		props.shuffleArr(boolTrue);
+	}, [])
 	const navi = useNavigate();
 	const questHundler = function (
 		checketQuestion: CheckAnswer,
 		e: React.MouseEvent<HTMLDivElement, MouseEvent>
 	) {
-    playCurrentAnswer()
+		playCurrentAnswer()
 		let currentElem = e.currentTarget;
 		props.setTimeOn(false);
 		if (checketQuestion === CheckAnswer.right) {
@@ -45,8 +54,8 @@ export default function QuizContent(props: IQuiz) {
 
 			setTimeout(() => {
 				currentElem.style.backgroundColor = "green";
-        playNextLevel()
-				
+				playNextLevel()
+
 			}, 2000);
 			setTimeout(() => (currentElem.style.backgroundColor = "white"), 2100);
 			setTimeout(() => (currentElem.style.backgroundColor = "green"), 2200);
@@ -55,11 +64,12 @@ export default function QuizContent(props: IQuiz) {
 			setTimeout(() => (currentElem.style.backgroundColor = "white"), 2500);
 			setTimeout(() => (currentElem.style.backgroundColor = "green"), 2600);
 			setTimeout(
-				() =>{
+				() => {
 					props.setLevel((x: number) => {
 						currentElem.style.backgroundColor = "white";
 						if (props.level < 5) {
 							props.setFiftyFiftyStyle({});
+							props.setBooleanStyle({display:'none'})
 							props.setAnswerShema(questState.progress);
 							props.addPoints();
 							return x + 1;
@@ -68,17 +78,18 @@ export default function QuizContent(props: IQuiz) {
 							return x;
 						}
 					})
-        
-        
-        },
+
+
+				},
 				4000
 			);
 		} else {
 
 			currentElem.style.backgroundColor = "yellow";
-			setTimeout(() => {currentElem.style.backgroundColor = "red"
-      playBadAnswer();
-    }, 2000);
+			setTimeout(() => {
+				currentElem.style.backgroundColor = "red"
+				playBadAnswer();
+			}, 2000);
 			setTimeout(
 				() => props.setRightAnswerStyle({ backgroundColor: "blue" }),
 				2000
@@ -106,12 +117,18 @@ export default function QuizContent(props: IQuiz) {
 								props.anses[0].check === CheckAnswer.right
 									? props.rightAnswerStyle
 									: props.anses[0].check == CheckAnswer.falsy
-									? props.fiftyFiftyStyle
-									: {}
+										? props.fiftyFiftyStyle
+										: {}
 							}
 							onClick={(e) => questHundler(props.anses[0].check, e)}
 							className={cl.line_hexagon__content}>
 							<h4>{props.anses[0].content}</h4>
+							<div
+								style={props.booleanStyle}
+								className={cl.bool}>
+								{props.anses[0].check == CheckAnswer.right ?
+									boolTrue[0] : boolFalse[0]
+								}</div>
 						</div>
 					</div>
 					<div className={cl.line_middle}></div>
@@ -121,30 +138,45 @@ export default function QuizContent(props: IQuiz) {
 								props.anses[1].check === CheckAnswer.right
 									? props.rightAnswerStyle
 									: props.anses[1].check == CheckAnswer.falsy
-									? props.fiftyFiftyStyle
-									: {}
+										? props.fiftyFiftyStyle
+										: {}
 							}
 							onClick={(e) => questHundler(props.anses[1].check, e)}
 							className={cl.line_hexagon__content}>
 							<h4>{props.anses[1].content}</h4>
+							<div
+								style={props.booleanStyle}
+								className={cl.bool}>
+								{props.anses[1].check == CheckAnswer.right ?
+									boolTrue[0] : boolFalse[1]
+								}</div>
 						</div>
 					</div>
 					<div className={cl.line}></div>
 				</div>
 				<div className={cl.answer_wrapper__line}>
+
 					<div className={cl.line}></div>
 					<div className={cl.line_hexagon}>
+
 						<div
 							style={
 								props.anses[2].check === CheckAnswer.right
 									? props.rightAnswerStyle
 									: props.anses[2].check == CheckAnswer.falsy
-									? props.fiftyFiftyStyle
-									: {}
+										? props.fiftyFiftyStyle
+										: {}
 							}
 							onClick={(e) => questHundler(props.anses[2].check, e)}
 							className={cl.line_hexagon__content}>
 							<h4>{props.anses[2].content}</h4>
+							<div
+								style={props.booleanStyle}
+								className={cl.bool}>
+								{props.anses[2].check == CheckAnswer.right ?
+									boolTrue[0] : boolFalse[2]
+								}</div>
+
 						</div>
 					</div>
 					<div className={cl.line_middle}></div>
@@ -154,12 +186,18 @@ export default function QuizContent(props: IQuiz) {
 								props.anses[3].check === CheckAnswer.right
 									? props.rightAnswerStyle
 									: props.anses[3].check == CheckAnswer.falsy
-									? props.fiftyFiftyStyle
-									: {}
+										? props.fiftyFiftyStyle
+										: {}
 							}
 							onClick={(e) => questHundler(props.anses[3].check, e)}
 							className={cl.line_hexagon__content}>
 							<h4>{props.anses[3].content}</h4>
+							<div
+								style={props.booleanStyle}
+								className={cl.bool}>
+								{props.anses[3].check == CheckAnswer.right ?
+									boolTrue[0] : boolFalse[3]
+								}</div>
 						</div>
 					</div>
 					<div className={cl.line}></div>

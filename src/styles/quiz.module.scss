@@ -1,20 +1,29 @@
 @mixin clip-path($notchSize) {
-  clip-path: polygon(
-    0% $notchSize,
-    $notchSize 0%,
-    calc(100% - $notchSize) 0%,
-    100% $notchSize,
-    100% calc(100% - $notchSize),
-    calc(100% - $notchSize) 100%,
-    $notchSize 100%,
-    0% calc(100% - $notchSize)
-  );
+  clip-path: polygon(0% $notchSize,
+      $notchSize 0%,
+      calc(100% - $notchSize) 0%,
+      100% $notchSize,
+      100% calc(100% - $notchSize),
+      calc(100% - $notchSize) 100%,
+      $notchSize 100%,
+      0% calc(100% - $notchSize));
 }
 
 @mixin center {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.bool {
+
+
+  margin-left: 10px;
+  padding: 5px;
+  background-color: rgb(54, 38, 38);
+  border-radius: 10px;
+  display: none;
+ 
 }
 
 .quiz_section {
@@ -63,6 +72,7 @@
 .answer_wrapper__line {
   height: 40%;
   width: 100vw;
+
   @include center;
 }
 
@@ -88,6 +98,7 @@
   height: calc(8vh - 0.3vh);
   @include clip-path(calc(4vh - 0.3px));
   @include center;
+
   &:hover {
     background-color: gray;
     cursor: pointer;
@@ -101,6 +112,7 @@
 }
 
 @media (max-width: 850px) {
+
   .question_wrapper__horizontLine,
   .line_middle,
   .line {
@@ -110,6 +122,7 @@
   .quiz_section {
     height: 55vh;
   }
+
   .answer_wrapper__line {
     flex-direction: column;
     justify-content: space-around;
@@ -143,4 +156,6 @@
   .answer_wrapperline {
     height: 50%;
   }
+
+
 }
