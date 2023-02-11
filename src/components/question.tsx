@@ -62,6 +62,7 @@ function Question() {
           setTimer={setTimer}
           question={answers}
           shuffleArr={shuffleArr}
+        
 
         />
         <HintBoolean
