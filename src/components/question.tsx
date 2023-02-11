@@ -33,7 +33,7 @@ function Question() {
     window.location.reload();
   }
 
-  function shuffleArr(arr: IQuestion[] | ICase[]|String[]) {
+  function shuffleArr(arr: IQuestion[] | ICase[]|String[]|Number[]) {
     for (let i = arr.length - 1; i > 0; i--) {
       let j = Math.floor(Math.random() * (i + 1));
       [arr[i], arr[j]] = [arr[j], arr[i]]
@@ -61,6 +61,7 @@ function Question() {
           setTimeOn={setTimeOn}
           setTimer={setTimer}
           question={answers}
+          shuffleArr={shuffleArr}
 
         />
         <HintBoolean

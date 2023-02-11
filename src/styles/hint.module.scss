@@ -20,3 +20,26 @@
     justify-content: center;
     flex-direction: column;
 }
+.telephoneWrapper{
+    background-color: red;
+    display: flex;
+    flex-wrap: wrap;
+    width: 30vh;
+    justify-content: center;
+
+}
+.telephoneBlock{
+    width: 9vh;
+    height: 9vh;
+    background-color: aliceblue;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.telephoneDisplay{
+    width: 20vh;
+    height: 10vh;
+    background-color: blue;
+    margin: 2vh;
+}

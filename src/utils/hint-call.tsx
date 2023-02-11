@@ -9,10 +9,12 @@ interface ICallOptions {
     question: Array<ICase>;
     setTimeOn: Function;
     setTimer: Function;
+    shuffleArr:Function;
 }
 
 function HintCall(props: ICallOptions) {
     const arrLeters = ['A', 'B', 'C', 'D']
+    const arrNumbers=[1,2,3,4,5,6,7,8,9,0]
     function returnQuest() {
         props.setVisibleHintCall(false)
         props.setTimer(30)
@@ -32,6 +34,17 @@ function HintCall(props: ICallOptions) {
                 )} */}
                 <h1>Здесь будет игра CALL</h1>
                 <h2>Answer is:{answer}</h2>
+<div className={hintStyle.telephoneWrapper}>
+    <div className={hintStyle.telephoneDisplay}></div>
+{arrNumbers.map((x,i)=>(
+<div className={hintStyle.telephoneBlock} key={i}> {i==9?0:i+1}  </div>
+
+
+))}
+
+
+</div>
+
                 <button
                     onClick={returnQuest}
                 >Вернуться к вопросу</button>
