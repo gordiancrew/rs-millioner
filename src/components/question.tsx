@@ -39,6 +39,7 @@ function Question() {
       [arr[i], arr[j]] = [arr[j], arr[i]]
 
     }
+    return arr;
   }
   let questionArr: Array<IQuestion> = dataQuestion[level];
   useEffect(() => {

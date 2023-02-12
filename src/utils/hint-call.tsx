@@ -11,19 +11,17 @@ interface ICallOptions {
     setTimeOn: Function;
     setTimer: Function;
     shuffleArr: Function;
-    
+
 }
 
 function HintCall(props: ICallOptions) {
     const arrLeters = ['A', 'B', 'C', 'D']
-    const arrNumbers = [0,9,8,7,1,2,3,5,4,6]
-
-
+    const arrNumbers = [0, 9, 8, 7, 1, 2, 3, 5, 4, 6]
 
     let arrResult: number[] = []
     const [currentBlick, setCurrentBlick] = useState(-1)
     const [display, setDisplay] = useState('Запомните комбинацию цифр!')
-    useEffect(()=>props.shuffleArr(arrNumbers),[])
+    // useEffect(()=>props.shuffleArr(arrNumbers),[])
     useEffect(() => {
 
         for (let i = 0; i <= 10; i++) {
@@ -46,7 +44,7 @@ function HintCall(props: ICallOptions) {
     function setMemo(num: number) {
 
         arrResult.push(num)
-        
+
         if (arrResult.length === 10) {
             let count = 0;
             for (let i = 0; i < 10; i++) {
@@ -56,7 +54,7 @@ function HintCall(props: ICallOptions) {
             }
             console.log(arrNumbers)
             console.log(arrResult)
-            setDisplay('вероятность ' + count)
+            setDisplay('вероятность ' + count*10+'%')
 
         }
 
@@ -77,8 +75,8 @@ function HintCall(props: ICallOptions) {
                 <h2>Answer is:{answer}</h2>
                 <div className={hintStyle.telephoneWrapper}>
                     <div className={hintStyle.telephoneDisplay}>{display}</div>
-                    {arrNumbers.map((x, i) => (
-                        <div onClick={() => setMemo( i )}
+                    {arrNumbers.map((x: number, i: number) => (
+                        <div onClick={() => setMemo(i)}
                             style={{ backgroundColor: (i == currentBlick) ? 'yellow' : '' }}
                             className={hintStyle.telephoneBlock} key={i}> {i == 9 ? 0 : i + 1}
 
