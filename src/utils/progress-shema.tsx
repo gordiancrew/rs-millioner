@@ -26,7 +26,10 @@ function ProgressShema(props: IProgress) {
       {/* <h1>Progress shema. You level is:{props.level}</h1> */}
      <div
      style={{display:props.level!==5&&props.level!==10?'none':''}}
-      className={progressStyle.circleSum}>{arr1[15-props.level]}</div>
+      className={progressStyle.circleSum}></div>
+      <div
+       style={{display:props.level!==5&&props.level!==10?'none':''}}
+      className={progressStyle.circleText}>{arr1[15-props.level]}</div>
       <div className={progressStyle.progressBox}>
         {arr.map((x, i) =>
         (<div key={i}

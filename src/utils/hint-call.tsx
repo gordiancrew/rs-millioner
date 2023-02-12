@@ -28,7 +28,7 @@ function HintCall(props: ICallOptions) {
 
         for (let i = 0; i <= 10; i++) {
             setTimeout(() => {
-                playClick()
+                // playClick()
                 setCurrentBlick(i === 10 ? -1 : arrNumbers[i])
 
             }, (i + 1) * 1000 + 4000);
@@ -38,7 +38,7 @@ function HintCall(props: ICallOptions) {
 
     }, []
     )
-  
+
 
 
 
@@ -51,33 +51,55 @@ function HintCall(props: ICallOptions) {
         props.setTimeOn(true)
         props.setItemCall(true)
     }
+
     function setMemo(num: number) {
-        playClick()
-        arrResult.push(num)
+
+
+        arrResult.push(num);
+        playClick();
 
         if (arrResult.length === 10) {
+            let answer: string = '';
+            props.question.forEach((x, i) => x.check === CheckAnswer.right ?
+                answer = arrLeters[i] : '')
             let count = 0;
             for (let i = 0; i < 10; i++) {
                 if (arrNumbers[i] === arrResult[i]) {
                     count++;
                 }
             }
+
+            let arrPercent = [];
+
+            for (let i = 0; i < 10 - count; i++) {
+
+                arrPercent.push(arrLeters[0] !== answer ? arrLeters[0] : arrLeters[1])
+            }
+            for (let i = 0; i < count; i++) {
+
+                arrPercent.push(answer)
+
+            }
+
+            props.shuffleArr(arrPercent);
+
+
             console.log(arrNumbers)
             console.log(arrResult)
-            setDisplay('вероятность ' + count * 10 + '%')
+
+
+            setDisplay('вероятность ' + count * 10 + '% ответ ' + arrPercent[0])
 
         }
 
 
     }
-    let answer;
-    props.question.forEach((x, i) => x.check === CheckAnswer.right ?
-        answer = arrLeters[i] : '')
+
 
     return (
         <div style={{ display: props.visibleHintCall ? 'flex' : 'none' }} className={hintStyle.hintWrapper}>
             <div className={hintStyle.hintContainer}>
-                <h2>Answer is:{answer}</h2>
+                {/* <h2>Answer is:{answer}</h2> */}
                 <div className={hintStyle.telephoneWrapper}>
                     <div className={hintStyle.telephoneDisplay}>{display}</div>
                     {arrNumbers.map((x: number, i: number) => (
