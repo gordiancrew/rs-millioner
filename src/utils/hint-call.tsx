@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import useSound from "use-sound";
 import Question from "../components/question";
 import hintStyle from "../styles/hint.module.scss";
 import { CheckAnswer } from "../types.ts/chaeckAnswer";
@@ -21,19 +22,28 @@ function HintCall(props: ICallOptions) {
     let arrResult: number[] = []
     const [currentBlick, setCurrentBlick] = useState(-1)
     const [display, setDisplay] = useState('Запомните комбинацию цифр!')
+    const [playClick] = useSound('https://zvukipro.com/uploads/files/2019-09/1568277966_7ef6b05043704d0.mp3');
     // useEffect(()=>props.shuffleArr(arrNumbers),[])
     useEffect(() => {
 
         for (let i = 0; i <= 10; i++) {
-            setTimeout(() => setCurrentBlick(i === 10 ? -1 : arrNumbers[i]), (i + 1) * 1000 + 4000);
+            setTimeout(() => {
+                playClick()
+                setCurrentBlick(i === 10 ? -1 : arrNumbers[i])
+
+            }, (i + 1) * 1000 + 4000);
         }
 
         setTimeout(() => setDisplay('Повторите увиденную комбинацию!'), 16000)
 
     }, []
-
-
     )
+  
+
+
+
+
+
     function returnQuest() {
 
         props.setVisibleHintCall(false)
@@ -42,7 +52,7 @@ function HintCall(props: ICallOptions) {
         props.setItemCall(true)
     }
     function setMemo(num: number) {
-
+        playClick()
         arrResult.push(num)
 
         if (arrResult.length === 10) {
@@ -54,7 +64,7 @@ function HintCall(props: ICallOptions) {
             }
             console.log(arrNumbers)
             console.log(arrResult)
-            setDisplay('вероятность ' + count*10+'%')
+            setDisplay('вероятность ' + count * 10 + '%')
 
         }
 
@@ -66,12 +76,7 @@ function HintCall(props: ICallOptions) {
 
     return (
         <div style={{ display: props.visibleHintCall ? 'flex' : 'none' }} className={hintStyle.hintWrapper}>
-            <div className={hintStyle.hintContainer}> Hint boolean
-
-                {/* {props.question.map((x, i) =>
-                    (<div key={i}>{arrLeters[i]}--{x.check ? 'TRUEE' : 'FALSEE'}</div>)
-                )} */}
-                <h1>Здесь будет игра CALL</h1>
+            <div className={hintStyle.hintContainer}>
                 <h2>Answer is:{answer}</h2>
                 <div className={hintStyle.telephoneWrapper}>
                     <div className={hintStyle.telephoneDisplay}>{display}</div>

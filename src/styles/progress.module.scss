@@ -23,3 +23,22 @@
     font-weight: 900;
     background-color:  hsla(60, 13%, 5%, 0.4);
 }
+.circleSum{
+    background: url(../../public/sum.jpg) no-repeat center ;
+    background-size: 125%;
+    z-index: 20;
+    position: absolute;
+    top:30vh;
+    left: auto;
+    height: 40vh;
+    width: 40vh;
+    background-color: white;
+    font-size: 10vh;
+    color:white;
+    text-shadow: black 1vh 1vh 1vh;
+    border-radius: 20vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
