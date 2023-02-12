@@ -54,11 +54,13 @@
 .question_content {
   background-color: black;
   color: #ffff;
+  text-align: center;
   align-items: center;
   width: calc(100% - 5px);
   height: calc(14vh - 0.2vh);
   @include clip-path(calc(7vh - 0.2px));
   @include center;
+  padding:10px;
 }
 
 .answer_wrapper {
