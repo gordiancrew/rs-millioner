@@ -35,6 +35,7 @@ export default function QuizContent(props: IQuiz) {
 	const [playBadAnswer] = useSound(musicUrlEnum.badAnswer)
 	const [playCurrentAnswer] = useSound(musicUrlEnum.currentAnswer);
 	const [playNextLevel] = useSound(musicUrlEnum.nextLevel);
+	const[playCircleSum]=useSound(musicUrlEnum.circleASum);
 	let boolFalse = booleanFalse;
 	let boolTrue = booleanTrue;
 	useEffect(() => {
@@ -54,7 +55,7 @@ export default function QuizContent(props: IQuiz) {
 
 			setTimeout(() => {
 				currentElem.style.backgroundColor = "green";
-				playNextLevel()
+				props.level!=3?playNextLevel():playCircleSum()
 
 			}, 2000);
 			setTimeout(() => (currentElem.style.backgroundColor = "white"), 2100);
