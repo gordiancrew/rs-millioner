@@ -33,6 +33,7 @@ function QuestionHeader(props: IHeaderOptions) {
   function callHundler(){
     props.setVisibleHintCall(true);
     props.setTimeOn(false);
+    playFiftyFifty()
 
 
   }
