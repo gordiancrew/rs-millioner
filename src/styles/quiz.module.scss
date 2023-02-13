@@ -1,12 +1,14 @@
 @mixin clip-path($notchSize) {
-  clip-path: polygon(0% $notchSize,
-      $notchSize 0%,
-      calc(100% - $notchSize) 0%,
-      100% $notchSize,
-      100% calc(100% - $notchSize),
-      calc(100% - $notchSize) 100%,
-      $notchSize 100%,
-      0% calc(100% - $notchSize));
+  clip-path: polygon(
+    0% $notchSize,
+    $notchSize 0%,
+    calc(100% - $notchSize) 0%,
+    100% $notchSize,
+    100% calc(100% - $notchSize),
+    calc(100% - $notchSize) 100%,
+    $notchSize 100%,
+    0% calc(100% - $notchSize)
+  );
 }
 
 @mixin center {
@@ -16,14 +18,11 @@
 }
 
 .bool {
-
-
   margin-left: 10px;
   padding: 5px;
   background-color: rgb(54, 38, 38);
   border-radius: 10px;
   display: none;
- 
 }
 
 .quiz_section {
@@ -60,7 +59,6 @@
   height: calc(14vh - 0.2vh);
   @include clip-path(calc(7vh - 0.2px));
   @include center;
-  padding:10px;
 }
 
 .answer_wrapper {
@@ -74,7 +72,6 @@
 .answer_wrapper__line {
   height: 40%;
   width: 100vw;
-
   @include center;
 }
 
@@ -93,18 +90,29 @@
 }
 
 .line_hexagon__content {
+  display: flex;
+  align-items: center;
   background-color: black;
   color: #ffff;
   width: calc(100% - 5px);
-  text-align: center;
   height: calc(8vh - 0.3vh);
   @include clip-path(calc(4vh - 0.3px));
-  @include center;
 
   &:hover {
     background-color: gray;
     cursor: pointer;
   }
+}
+
+.optionLetters {
+  color: rgb(158, 147, 66);
+  &::before {
+    content: "⬥";
+  }
+}
+
+h4 {
+  padding-left: 4vh;
 }
 
 .line_middle {
@@ -114,7 +122,6 @@
 }
 
 @media (max-width: 850px) {
-
   .question_wrapper__horizontLine,
   .line_middle,
   .line {
@@ -158,6 +165,4 @@
   .answer_wrapperline {
     height: 50%;
   }
-
-
 }
