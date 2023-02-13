@@ -36,6 +36,7 @@ export default function QuizContent(props: IQuiz) {
 	const [playCurrentAnswer] = useSound(musicUrlEnum.currentAnswer);
 	const [playNextLevel] = useSound(musicUrlEnum.nextLevel);
 	const[playCircleSum]=useSound(musicUrlEnum.circleASum);
+	const [stateAnswBtns, setStateAnswBtns] = useState(true);
 	let boolFalse = booleanFalse;
 	let boolTrue = booleanTrue;
 	useEffect(() => {
@@ -43,59 +44,66 @@ export default function QuizContent(props: IQuiz) {
 		props.shuffleArr(boolTrue);
 	}, [])
 	const navi = useNavigate();
+	function disableAnswBtns() {
+		setStateAnswBtns(!stateAnswBtns);
+	}
+
 	const questHundler = function (
 		checketQuestion: CheckAnswer,
 		e: React.MouseEvent<HTMLDivElement, MouseEvent>
 	) {
-		playCurrentAnswer()
-		let currentElem = e.currentTarget;
-		props.setTimeOn(false);
-		if (checketQuestion === CheckAnswer.right) {
-			currentElem.style.backgroundColor = "yellow";
+		if (stateAnswBtns) {
+			playCurrentAnswer()
+			let currentElem = e.currentTarget;
+			props.setTimeOn(false);
+			if (checketQuestion === CheckAnswer.right) {
+				currentElem.style.backgroundColor = "yellow";
 
-			setTimeout(() => {
-				currentElem.style.backgroundColor = "green";
-				props.level!=3?playNextLevel():playCircleSum()
+				setTimeout(() => {
+					currentElem.style.backgroundColor = "green";
+					props.level!=3?playNextLevel():playCircleSum()
 
-			}, 2000);
-			setTimeout(() => (currentElem.style.backgroundColor = "white"), 2100);
-			setTimeout(() => (currentElem.style.backgroundColor = "green"), 2200);
-			setTimeout(() => (currentElem.style.backgroundColor = "white"), 2300);
-			setTimeout(() => (currentElem.style.backgroundColor = "green"), 2400);
-			setTimeout(() => (currentElem.style.backgroundColor = "white"), 2500);
-			setTimeout(() => (currentElem.style.backgroundColor = "green"), 2600);
-			setTimeout(
-				() => {
-					props.setLevel((x: number) => {
-						currentElem.style.backgroundColor = "white";
-						if (props.level < 5) {
-							props.setFiftyFiftyStyle({});
-							props.setBooleanStyle({display:'none'})
-							props.setAnswerShema(questState.progress);
-							props.addPoints();
-							return x + 1;
-						} else {
-							props.setAnswerShema(questState.end);
-							return x;
-						}
-					})
+				}, 2000);
+				setTimeout(() => (currentElem.style.backgroundColor = "white"), 2100);
+				setTimeout(() => (currentElem.style.backgroundColor = "green"), 2200);
+				setTimeout(() => (currentElem.style.backgroundColor = "white"), 2300);
+				setTimeout(() => (currentElem.style.backgroundColor = "green"), 2400);
+				setTimeout(() => (currentElem.style.backgroundColor = "white"), 2500);
+				setTimeout(() => (currentElem.style.backgroundColor = "green"), 2600);
+				setTimeout(
+					() => {
+						props.setLevel((x: number) => {
+							currentElem.style.backgroundColor = "white";
+							if (props.level < 5) {
+								props.setFiftyFiftyStyle({});
+								props.setBooleanStyle({display:'none'})
+								props.setAnswerShema(questState.progress);
+								props.addPoints();
+								return x + 1;
+							} else {
+								props.setAnswerShema(questState.end);
+								return x;
+							}
+						})
 
 
-				},
-				4000
-			);
-		} else {
+					},
+					4000
+				);
+			} else {
 
-			currentElem.style.backgroundColor = "yellow";
-			setTimeout(() => {
-				currentElem.style.backgroundColor = "red"
-				playBadAnswer();
-			}, 2000);
-			setTimeout(
-				() => props.setRightAnswerStyle({ backgroundColor: "blue" }),
-				2000
-			);
-			setTimeout(() => props.setAnswerShema(questState.end), 4000);
+				currentElem.style.backgroundColor = "yellow";
+				setTimeout(() => {
+					currentElem.style.backgroundColor = "red"
+					playBadAnswer();
+				}, 2000);
+				setTimeout(
+					() => props.setRightAnswerStyle({ backgroundColor: "blue" }),
+					2000
+				);
+				setTimeout(() => props.setAnswerShema(questState.end), 4000);
+			}
+			disableAnswBtns();
 		}
 	};
 	return (
