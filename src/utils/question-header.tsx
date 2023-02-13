@@ -7,35 +7,35 @@ interface IHeaderOptions {
   itemHintBoolean: boolean;
   setItemHintBoolean: Function;
   itemFiftyFifty: boolean;
-  setItemFiftyFifty:Function;
-  setFiftyFiftyStyle:Function;
-  setTimer:Function;
-  setVisibleHintCall:Function;
-  itemHintCall:boolean;
-  booleanStyle:object;
-  setBooleanStyle:Function;
+  setItemFiftyFifty: Function;
+  setFiftyFiftyStyle: Function;
+  setTimer: Function;
+  setVisibleHintCall: Function;
+  itemHintCall: boolean;
+  booleanStyle: object;
+  setBooleanStyle: Function;
 }
 function QuestionHeader(props: IHeaderOptions) {
-  const[playFiftyFifty]=useSound(musicUrlEnum.fiftyFifty)
+  const [playFiftyFifty] = useSound(musicUrlEnum.fiftyFifty);
   function booleanHundler() {
-    props.setItemHintBoolean(true)
-    props.setBooleanStyle({display:'flex'});
+    props.setItemHintBoolean(true);
+    props.setBooleanStyle({ display: "flex" });
     props.setTimeOn(false);
-    playFiftyFifty()
+    playFiftyFifty();
   }
 
-  function fiftyFiftyHundler(){
-    props.setItemFiftyFifty(true)
-    props.setFiftyFiftyStyle({backgroundColor:'white'})  
-    props.setTimeOn(false)
-    playFiftyFifty()
+  function fiftyFiftyHundler() {
+    props.setItemFiftyFifty(true);
+    props.setFiftyFiftyStyle({
+      display: "none",
+    });
+    props.setTimeOn(false);
+    playFiftyFifty();
   }
-  function callHundler(){
+  function callHundler() {
     props.setVisibleHintCall(true);
     props.setTimeOn(false);
-    playFiftyFifty()
-
-
+    playFiftyFifty();
   }
   return (
     <div className={headerStyle.headerBox}>
@@ -48,15 +48,17 @@ function QuestionHeader(props: IHeaderOptions) {
           Boolean
         </div>
         <div
-        onClick={!props.itemFiftyFifty ? fiftyFiftyHundler : () => {}}
-         style={{ backgroundColor: props.itemFiftyFifty ? "black" : "" }}
-        className={headerStyle.headerItem}>
+          onClick={!props.itemFiftyFifty ? fiftyFiftyHundler : () => {}}
+          style={{ backgroundColor: props.itemFiftyFifty ? "black" : "" }}
+          className={headerStyle.headerItem}
+        >
           50:50
         </div>
         <div
-        onClick={!props.itemHintCall ? callHundler : () => {}}
-        style={{ backgroundColor: props.itemHintCall ? "black" : "" }}
-        className={headerStyle.headerItem}>
+          onClick={!props.itemHintCall ? callHundler : () => {}}
+          style={{ backgroundColor: props.itemHintCall ? "black" : "" }}
+          className={headerStyle.headerItem}
+        >
           Call
         </div>
       </div>
