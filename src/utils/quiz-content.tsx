@@ -61,7 +61,7 @@ export default function QuizContent(props: IQuiz) {
 
 				setTimeout(() => {
 					currentElem.style.backgroundColor = "green";
-					props.level!=3?playNextLevel():playCircleSum()
+					props.level!=4&&props.level!=9?playNextLevel():playCircleSum()
 
 				}, 2000);
 				setTimeout(() => (currentElem.style.backgroundColor = "white"), 2100);
@@ -70,26 +70,21 @@ export default function QuizContent(props: IQuiz) {
 				setTimeout(() => (currentElem.style.backgroundColor = "green"), 2400);
 				setTimeout(() => (currentElem.style.backgroundColor = "white"), 2500);
 				setTimeout(() => (currentElem.style.backgroundColor = "green"), 2600);
-				setTimeout(
-					() => {
-						props.setLevel((x: number) => {
-							currentElem.style.backgroundColor = "white";
-							if (props.level < 5) {
-								props.setFiftyFiftyStyle({});
-								props.setBooleanStyle({display:'none'})
-								props.setAnswerShema(questState.progress);
-								props.addPoints();
-								return x + 1;
-							} else {
-								props.setAnswerShema(questState.end);
-								return x;
-							}
-						})
-
-
-					},
-					4000
-				);
+				setTimeout(() => {
+					props.setLevel((x: number) => {
+						currentElem.style.backgroundColor = "white";
+						if (props.level < 12) {
+							props.setFiftyFiftyStyle({});
+							props.setBooleanStyle({display:'none'})
+							props.setAnswerShema(questState.progress);
+							props.addPoints();
+							return x + 1;
+						} else {
+							props.setAnswerShema(questState.end);
+							return x;
+						}
+					})
+				}, 4000);
 			} else {
 
 				currentElem.style.backgroundColor = "yellow";

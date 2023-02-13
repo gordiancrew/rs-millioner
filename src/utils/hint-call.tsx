@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import useSound from "use-sound";
 import Question from "../components/question";
 import hintStyle from "../styles/hint.module.scss";
 import { CheckAnswer } from "../types.ts/chaeckAnswer";
@@ -21,19 +22,28 @@ function HintCall(props: ICallOptions) {
     let arrResult: number[] = []
     const [currentBlick, setCurrentBlick] = useState(-1)
     const [display, setDisplay] = useState('Запомните комбинацию цифр!')
+    const [playClick] = useSound('https://zvukipro.com/uploads/files/2019-09/1568277966_7ef6b05043704d0.mp3');
     // useEffect(()=>props.shuffleArr(arrNumbers),[])
     useEffect(() => {
 
         for (let i = 0; i <= 10; i++) {
-            setTimeout(() => setCurrentBlick(i === 10 ? -1 : arrNumbers[i]), (i + 1) * 1000 + 4000);
+            setTimeout(() => {
+                // playClick()
+                setCurrentBlick(i === 10 ? -1 : arrNumbers[i])
+
+            }, (i + 1) * 1000 + 4000);
         }
 
         setTimeout(() => setDisplay('Повторите увиденную комбинацию!'), 16000)
 
     }, []
-
-
     )
+
+
+
+
+
+
     function returnQuest() {
 
         props.setVisibleHintCall(false)
@@ -41,38 +51,55 @@ function HintCall(props: ICallOptions) {
         props.setTimeOn(true)
         props.setItemCall(true)
     }
+
     function setMemo(num: number) {
 
-        arrResult.push(num)
+
+        arrResult.push(num);
+        playClick();
 
         if (arrResult.length === 10) {
+            let answer: string = '';
+            props.question.forEach((x, i) => x.check === CheckAnswer.right ?
+                answer = arrLeters[i] : '')
             let count = 0;
             for (let i = 0; i < 10; i++) {
                 if (arrNumbers[i] === arrResult[i]) {
                     count++;
                 }
             }
+
+            let arrPercent = [];
+
+            for (let i = 0; i < 10 - count; i++) {
+
+                arrPercent.push(arrLeters[0] !== answer ? arrLeters[0] : arrLeters[1])
+            }
+            for (let i = 0; i < count; i++) {
+
+                arrPercent.push(answer)
+
+            }
+
+            props.shuffleArr(arrPercent);
+
+
             console.log(arrNumbers)
             console.log(arrResult)
-            setDisplay('вероятность ' + count*10+'%')
+
+
+            setDisplay('вероятность ' + count * 10 + '% ответ ' + arrPercent[0])
 
         }
 
 
     }
-    let answer;
-    props.question.forEach((x, i) => x.check === CheckAnswer.right ?
-        answer = arrLeters[i] : '')
+
 
     return (
         <div style={{ display: props.visibleHintCall ? 'flex' : 'none' }} className={hintStyle.hintWrapper}>
-            <div className={hintStyle.hintContainer}> Hint boolean
-
-                {/* {props.question.map((x, i) =>
-                    (<div key={i}>{arrLeters[i]}--{x.check ? 'TRUEE' : 'FALSEE'}</div>)
-                )} */}
-                <h1>Здесь будет игра CALL</h1>
-                <h2>Answer is:{answer}</h2>
+            <div className={hintStyle.hintContainer}>
+                {/* <h2>Answer is:{answer}</h2> */}
                 <div className={hintStyle.telephoneWrapper}>
                     <div className={hintStyle.telephoneDisplay}>{display}</div>
                     {arrNumbers.map((x: number, i: number) => (

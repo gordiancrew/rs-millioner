@@ -1,5 +1,6 @@
 import { questState } from "../types.ts/iquest-state";
 import progressStyle from "../styles/progress.module.scss";
+import { useState } from "react";
 
 interface IProgress {
   level: number;
@@ -17,12 +18,18 @@ function ProgressShema(props: IProgress) {
   const arr1 = [100, 200, 300, 500, 1000, 2000, 4000, 8000, 16000, 32000,
     64000,125000,250000, 500000, 1000000]
     const arr=arr1.reverse();
+   
 
 
   return (
     <div className={progressStyle.progressWrapper}>
       {/* <h1>Progress shema. You level is:{props.level}</h1> */}
-     
+     <div
+     style={{display:props.level!==5&&props.level!==10?'none':''}}
+      className={progressStyle.circleSum}></div>
+      <div
+       style={{display:props.level!==5&&props.level!==10?'none':''}}
+      className={progressStyle.circleText}>{arr1[15-props.level]}</div>
       <div className={progressStyle.progressBox}>
         {arr.map((x, i) =>
         (<div key={i}
