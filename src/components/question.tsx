@@ -131,8 +131,10 @@ function Question() {
       />
     );
   } else {
-    return <End totalPoints={totalPoints}
-                repeatGame={repeatGame}/>;
+    return (<End 
+    level={level}
+    />
+    );
   }
 }
 export default Question;

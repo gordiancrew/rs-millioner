@@ -148,8 +148,8 @@ export const SignInUp = () => {
                 </span>
               </h3>
               <h3>
-                <Link to="/question">
-                  <span className={style.link}>Играть без регистрации</span>
+                <Link to="/home">
+                  <span className={style.link}>Вход без регистрации</span>
                 </Link>
               </h3>
             </>
