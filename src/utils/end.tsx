@@ -14,6 +14,7 @@ function End(props: IEnd) {
 	let winnerSum;
 	if (props.keepMoney) {
 		winnerSum = win[props.level-1]
+		
 	}
 	else if (props.level < 5) {
 		winnerSum = 0
