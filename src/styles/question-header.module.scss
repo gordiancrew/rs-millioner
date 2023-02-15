@@ -10,6 +10,8 @@
   display: flex;
   gap: 3vw;
   margin: 0 5vw;
+  font-weight: 500;
+  font-size: 1.5rem;
 }
 
 .headerItem {
@@ -26,13 +28,17 @@
 .headerItem:hover {
   background-color: orange;
 }
+.icon{
+  height: 80%;
+}
 
 @media (max-width: 850px) {
   .headerItem {
     width: 5vh;
     height: 5vh;
-    background-color: red;
+   font-size: 1rem;
     border-radius: 5vh;
+   
   }
 
   .headerBox {

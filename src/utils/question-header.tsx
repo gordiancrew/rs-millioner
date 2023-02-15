@@ -3,6 +3,7 @@ import useSound from "use-sound";
 import headerStyle from "../styles/question-header.module.scss";
 import { questState } from "../types.ts/iquest-state";
 import { musicUrlEnum } from "../types.ts/music-url";
+//import phoneImg from 'https://cdn-icons-png.flaticon.com/512/159/159832.png'
 interface IHeaderOptions {
   setVisibleHintBoolean: Function;
   setTimeOn: Function;
@@ -55,7 +56,7 @@ function QuestionHeader(props: IHeaderOptions) {
           style={{ backgroundColor: props.itemHintBoolean ? "black" : "" }}
           className={headerStyle.headerItem}
         >
-          Boolean
+          Bool
         </div>
         <div
           onClick={!props.itemFiftyFifty ? fiftyFiftyHundler : () => { }}
@@ -69,14 +70,24 @@ function QuestionHeader(props: IHeaderOptions) {
           style={{ backgroundColor: props.itemHintCall ? "black" : "" }}
           className={headerStyle.headerItem}
         >
-          Call
+         <img
+         className={headerStyle.icon}
+         src='https://cdn-icons-png.flaticon.com/512/159/159832.png'></img>
         </div>
       </div>
       <div className={headerStyle.headerHints}>
         <div
           onClick={keepHundler}
-          className={headerStyle.headerItem}>Забрать</div>
-        <Link to="/home" className={headerStyle.headerItem}>Выход</Link>
+          className={headerStyle.headerItem}>
+
+
+<img className={headerStyle.icon}
+         src='https://cdn-icons-png.flaticon.com/512/2174/2174616.png'></img>
+          </div>
+        <Link to="/home" className={headerStyle.headerItem}>
+        <img className={headerStyle.icon}
+         src='https://cdn.icon-icons.com/icons2/1769/PNG/512/4115235-exit-logout-sign-out_114030.png'></img>
+        </Link>
       </div>
     </div>
   );
