@@ -25,6 +25,7 @@ function Question() {
   const [itemHintBoolean, setItemHintBoolean] = useState(false);
   const [itemFiftyFifty, setItemFiftyFifty] = useState(false);
   const [itemCall, setItemCall] = useState(false);
+  const[keepMoney, setKeepMoney]=useState(false);
 
   function addPoints() {
     setTotalPoints(totalPoints + 100);
@@ -88,6 +89,8 @@ function Question() {
           itemHintCall={itemCall}
           booleanStyle={booleanStyle}
           setBooleanStyle={setBooleanStyle}
+          setKeepMoney={setKeepMoney}
+          setAnswerShema={setAnswerShema}
           
         />
 
@@ -133,6 +136,7 @@ function Question() {
   } else {
     return (<End 
     level={level}
+    keepMoney={keepMoney}
     />
     );
   }
