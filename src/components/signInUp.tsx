@@ -5,7 +5,7 @@ import * as Yup from "yup";
 import style from "../styles/signinup.module.scss";
 import st from "../styles/start.module.scss";
 
-export const SignInUp = (props: {t: Function}) => {
+export const SignInUp = (props: { t: Function }) => {
   const [checkUserName, setCheckUserName] = useState(false);
   const [checkUserPassword, setCheckUserPassword] = useState(false);
   const [checkEnteGame, setCheckEnteGame] = useState(false);
@@ -101,7 +101,7 @@ export const SignInUp = (props: {t: Function}) => {
                 <input
                   placeholder={t("signinup.nickname")}
                   name="name"
-                  type="text" 
+                  type="text"
                   value={formikA.values.name}
                   onChange={formikA.handleChange}
                   onBlur={formikA.handleBlur}
