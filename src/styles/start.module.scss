@@ -51,6 +51,10 @@
   }
 }
 
+.link {
+  text-decoration: none;
+}
+
 .input_wrapper {
   width: 100%;
   background-color: #ffff;
@@ -79,4 +83,19 @@
       cursor: pointer;
     }
   }
+}
+
+.button_endPage {
+  width: calc(100% + 10vw);
+  margin-left: -5vw;
+  height: 6vh;
+  @include clip-path(3vh);
+  background-color: rgb(30, 171, 178);
+  color: #ffff;
+  border: none;
+  cursor: pointer;
+  // transition: 0.4s;
+  // &:hover {
+  //   transform: scale(1.1);
+  // }
 }
