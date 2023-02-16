@@ -149,7 +149,7 @@ export const SignInUp = (props: {t: Function}) => {
                 </span>
               </h3>
               <h3>
-                <Link to="/question">
+                <Link to="/home">
                   <span className={style.link}>{t("signinup.notregistr")}</span>
                 </Link>
               </h3>

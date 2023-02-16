@@ -3,7 +3,7 @@
         "autoris": "Authorization",
         "autorised": "You are logged in",
         "willregistr": "Register",
-        "notregistr": "Play without registration",
+        "notregistr": "Login without registration",
         "registr": "Registration",
         "nickname": "Your nickname:",
         "email": "Your mail:",
@@ -13,9 +13,10 @@
         "startgame": "Start the game"
     },
     "gameover": {
-        "gameover": "Game over",
+        "gameover": "Game over!",
         "playagain": "Play again",
-        "youresult": "Your result is",
+        "youresult": "Your winnings:",
+        "exitmenu": "Exit to the menu",
         "points": "points"
     }
 }

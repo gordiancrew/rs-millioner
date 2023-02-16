@@ -1,6 +1,9 @@
+import { Link } from "react-router-dom";
 import useSound from "use-sound";
 import headerStyle from "../styles/question-header.module.scss";
+import { questState } from "../types.ts/iquest-state";
 import { musicUrlEnum } from "../types.ts/music-url";
+//import phoneImg from 'https://cdn-icons-png.flaticon.com/512/159/159832.png'
 interface IHeaderOptions {
   setVisibleHintBoolean: Function;
   setTimeOn: Function;
@@ -14,6 +17,8 @@ interface IHeaderOptions {
   itemHintCall: boolean;
   booleanStyle: object;
   setBooleanStyle: Function;
+  setKeepMoney: Function;
+  setAnswerShema: Function;
 }
 function QuestionHeader(props: IHeaderOptions) {
   const [playFiftyFifty] = useSound(musicUrlEnum.fiftyFifty);
@@ -37,34 +42,52 @@ function QuestionHeader(props: IHeaderOptions) {
     props.setTimeOn(false);
     playFiftyFifty();
   }
+  function keepHundler() {
+    props.setKeepMoney(true);
+    props.setAnswerShema(questState.end)
+
+
+  }
   return (
     <div className={headerStyle.headerBox}>
       <div className={headerStyle.headerHints}>
         <div
-          onClick={!props.itemHintBoolean ? booleanHundler : () => {}}
+          onClick={!props.itemHintBoolean ? booleanHundler : () => { }}
           style={{ backgroundColor: props.itemHintBoolean ? "black" : "" }}
           className={headerStyle.headerItem}
         >
-          Boolean
+          Bool
         </div>
         <div
-          onClick={!props.itemFiftyFifty ? fiftyFiftyHundler : () => {}}
+          onClick={!props.itemFiftyFifty ? fiftyFiftyHundler : () => { }}
           style={{ backgroundColor: props.itemFiftyFifty ? "black" : "" }}
           className={headerStyle.headerItem}
         >
           50:50
         </div>
         <div
-          onClick={!props.itemHintCall ? callHundler : () => {}}
+          onClick={!props.itemHintCall ? callHundler : () => { }}
           style={{ backgroundColor: props.itemHintCall ? "black" : "" }}
           className={headerStyle.headerItem}
         >
-          Call
+         <img
+         className={headerStyle.icon}
+         src='https://cdn-icons-png.flaticon.com/512/159/159832.png'></img>
         </div>
       </div>
       <div className={headerStyle.headerHints}>
-        <div className={headerStyle.headerItem}></div>
-        <div className={headerStyle.headerItem}></div>
+        <div
+          onClick={keepHundler}
+          className={headerStyle.headerItem}>
+
+
+<img className={headerStyle.icon}
+         src='https://cdn-icons-png.flaticon.com/512/2174/2174616.png'></img>
+          </div>
+        <Link to="/home" className={headerStyle.headerItem}>
+        <img className={headerStyle.icon}
+         src='https://cdn.icon-icons.com/icons2/1769/PNG/512/4115235-exit-logout-sign-out_114030.png'></img>
+        </Link>
       </div>
     </div>
   );

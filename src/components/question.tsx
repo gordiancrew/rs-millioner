@@ -28,6 +28,7 @@ function Question() {
   const [itemCall, setItemCall] = useState(false);
   const { t } = useTranslation();
   const languageStorage = localStorage.getItem("languagegame");
+  const[keepMoney, setKeepMoney]=useState(false);
 
   function addPoints() {
     setTotalPoints(totalPoints + 100);
@@ -95,6 +96,8 @@ function Question() {
           itemHintCall={itemCall}
           booleanStyle={booleanStyle}
           setBooleanStyle={setBooleanStyle}
+          setKeepMoney={setKeepMoney}
+          setAnswerShema={setAnswerShema}
           
         />
 
@@ -138,9 +141,12 @@ function Question() {
       />
     );
   } else {
-    return <End totalPoints={totalPoints}
+    return (<End totalPoints={totalPoints}
                 repeatGame={repeatGame}
-                t={t}/>;
+                level={level}
+                keepMoney={keepMoney}
+                t={t}/>);
+
   }
 }
 export default Question;
