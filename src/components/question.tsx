@@ -1,7 +1,11 @@
 import { createContext, useEffect, useState } from "react";
 // import { useTranslation } from "react-i18next";
 import useSound from "use-sound";
-import { dataQuestionEn, dataQuestionBl, dataQuestionRu } from "../data/questions";
+import {
+  dataQuestionEn,
+  dataQuestionBl,
+  dataQuestionRu,
+} from "../data/questions";
 import { questState } from "../types.ts/iquest-state";
 import { ICase, IQuestion } from "../types.ts/iquestion";
 import End from "../utils/end";
@@ -12,7 +16,7 @@ import QuestionHeader from "../utils/question-header";
 import QuizContent from "../utils/quiz-content";
 import Timer from "../utils/timer";
 
-function Question({t}: {t: Function}) {
+function Question({ t }: { t: Function }) {
   const [level, setLevel] = useState(0);
   let [totalPoints, setTotalPoints] = useState(0);
   const [timeOn, setTimeOn] = useState(true);
@@ -20,7 +24,7 @@ function Question({t}: {t: Function}) {
   const [answerShema, setAnswerShema] = useState(questState.quiz);
   const [rightAnswerStyle, setRightAnswerStyle] = useState({});
   const [fiftyFiftyStyle, setFiftyFiftyStyle] = useState({});
-  const [booleanStyle,setBooleanStyle]=useState({});
+  const [booleanStyle, setBooleanStyle] = useState({});
   const [visibleHintBoolean, setVisibleHintBoolean] = useState(false);
   const [visibleHintCall, setVisibleHintCall] = useState(false);
   const [itemHintBoolean, setItemHintBoolean] = useState(false);
@@ -28,7 +32,7 @@ function Question({t}: {t: Function}) {
   const [itemCall, setItemCall] = useState(false);
   // const { t } = useTranslation();
   const languageStorage = localStorage.getItem("languagegame");
-  const[keepMoney, setKeepMoney]=useState(false);
+  const [keepMoney, setKeepMoney] = useState(false);
 
   function addPoints() {
     setTotalPoints(totalPoints + 100);
@@ -37,11 +41,10 @@ function Question({t}: {t: Function}) {
     window.location.reload();
   }
 
-  function shuffleArr(arr: IQuestion[] | ICase[]|String[]|Number[]) {
+  function shuffleArr(arr: IQuestion[] | ICase[] | String[] | Number[]) {
     for (let i = arr.length - 1; i > 0; i--) {
       let j = Math.floor(Math.random() * (i + 1));
-      [arr[i], arr[j]] = [arr[j], arr[i]]
-
+      [arr[i], arr[j]] = [arr[j], arr[i]];
     }
     return arr;
   }
@@ -52,13 +55,13 @@ function Question({t}: {t: Function}) {
   }
   useEffect(() => {
     shuffleArr(questionArr);
-    shuffleArr(questionArr[0].ans)
-  }
-    , [level]);
+    shuffleArr(questionArr[0].ans);
+  }, [level]);
   const question: IQuestion = questionArr[0];
   let answers = question.ans;
-  useEffect(() => { shuffleArr(answers) }, []);
-
+  useEffect(() => {
+    shuffleArr(answers);
+  }, []);
 
   if (answerShema === questState.quiz) {
     return (
@@ -71,8 +74,7 @@ function Question({t}: {t: Function}) {
           setTimer={setTimer}
           question={answers}
           shuffleArr={shuffleArr}
-        
-
+          t={t}
         />
         <HintBoolean
           visibleHintBoolean={visibleHintBoolean}
@@ -98,7 +100,6 @@ function Question({t}: {t: Function}) {
           setBooleanStyle={setBooleanStyle}
           setKeepMoney={setKeepMoney}
           setAnswerShema={setAnswerShema}
-          
         />
 
         <Timer
@@ -142,12 +143,15 @@ function Question({t}: {t: Function}) {
       />
     );
   } else {
-    return (<End totalPoints={totalPoints}
-                repeatGame={repeatGame}
-                level={level}
-                keepMoney={keepMoney}
-                t={t}/>);
-
+    return (
+      <End
+        totalPoints={totalPoints}
+        repeatGame={repeatGame}
+        level={level}
+        keepMoney={keepMoney}
+        t={t}
+      />
+    );
   }
 }
 export default Question;

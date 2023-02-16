@@ -1,25 +1,33 @@
 {
-    "signinup": {
-        "autoris": "Authorization",
-        "autorised": "You are logged in",
-        "willregistr": "Register",
-        "notregistr": "Login without registration",
-        "registr": "Registration",
-        "nickname": "Your nickname:",
-        "email": "Your mail:",
-        "password": "Password:",
-        "send": "Send",
-        "registred": "Are you registered",
-        "startgame": "Start the game",
-        "yourprofile": "Your profile",
-        "play": "Play"
-    },
-    "gameover": {
-        "gameover": "Game over!",
-        "playagain": "Play again",
-        "youresult": "Your winnings:",
-        "exitmenu": "Exit to the menu",
-        "points": "points",
-        "nextquestion": "Next question"
-    }
+  "signinup": {
+    "autoris": "Authorization",
+    "autorised": "You are logged in",
+    "willregistr": "Register",
+    "notregistr": "Login without registration",
+    "registr": "Registration",
+    "nickname": "Your nickname:",
+    "email": "Your mail:",
+    "password": "Password:",
+    "send": "Send",
+    "registred": "Are you registered",
+    "startgame": "Start the game",
+    "yourprofile": "Your profile",
+    "play": "Play",
+    "rules": "Rules"
+  },
+  "gameover": {
+    "gameover": "Game over!",
+    "playagain": "Play again",
+    "youresult": "Your winnings:",
+    "exitmenu": "Exit to the menu",
+    "points": "points",
+    "nextquestion": "Next question"
+  },
+  "hint": {
+    "condition": "Remember the combination of numbers!",
+    "backToQuestion": "Back to question",
+    "requirement": "Repeat the combination you saw!",
+    "probability": "Probability",
+    "answer": "answer"
+  }
 }
