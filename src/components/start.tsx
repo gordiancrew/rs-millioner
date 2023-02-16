@@ -10,6 +10,7 @@ function Start({t, autorisation}: {t: Function, autorisation: boolean}) {
         ) : null
       }
       <HexagonButton content={t("signinup.play")} link="/question" />
+      <HexagonButton content={t("signinup.rules")} link="/home" />
     </div>
   );
 }
