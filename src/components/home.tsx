@@ -2,7 +2,7 @@ import { SignInUp } from "./signInUp";
 // import { useTranslation } from "react-i18next";
 import "../styles/home.scss";
 
-function Home({changeLng, t}: {changeLng: Function, t: Function}) {
+function Home({changeLng, t, changeAutoris}: {changeLng: Function, t: Function, changeAutoris: Function}) {
 
   /* const { t, i18n } = useTranslation();
   const changeLanguage = (language: string) => {
@@ -15,7 +15,7 @@ function Home({changeLng, t}: {changeLng: Function, t: Function}) {
         <button onClick={() => changeLng("en")}>EN</button>
         <button onClick={() => changeLng("bl")}>BL</button>
         <button onClick={() => changeLng("ru")}>RU</button>
-      <SignInUp t={t}/>
+      <SignInUp t={t} changeAutoris={changeAutoris}/>
     </div>
   );
 }

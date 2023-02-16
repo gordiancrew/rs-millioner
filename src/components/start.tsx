@@ -1,10 +1,14 @@
 import "../styles/start.scss";
 import HexagonButton from "../utils/hexagon-button";
 
-function Start({t}: {t: Function}) {
+function Start({t, autorisation}: {t: Function, autorisation: boolean}) {
   return (
     <div className='startWrapper'>
-      <HexagonButton content={t("signinup.yourprofile")} link="/home" />
+      {
+        autorisation ? (
+          <HexagonButton content={t("signinup.yourprofile")} link="/profile" />
+        ) : null
+      }
       <HexagonButton content={t("signinup.play")} link="/question" />
     </div>
   );
