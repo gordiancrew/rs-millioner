@@ -1,6 +1,865 @@
 import { CheckAnswer } from "../types.ts/chaeckAnswer";
 
-export const dataQuestion = [
+export const dataQuestionEn = [
+    [
+        {
+            ask: "What does the abbreviation JS mean in programming?",
+            ans: [
+                {
+                    content: "JavaScript",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "Jason Statham ",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "Just second",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "Job sweat",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        },
+        {
+            ask: "What is JavaScript?",
+            ans: [
+                {
+                    content: "Programming language",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "The language of the peoples of the Byzantine Empire",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "Rock scratches",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "Dish",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        },
+        {
+            ask: "Where is JavaScript used?",
+            ans: [
+                {
+                    content: "In programming",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "In prison vocabulary",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "In a game of cards",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "Only in movies",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        }
+    ],
+    [
+        {
+            ask: "How is HTML decoded?",
+            ans: [
+                {
+                    content: "HyperText Markup Language",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "HyperText My Love",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "Hot Top Music List",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "Header Title Margin Li",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        },
+        {
+            ask: "What is CSS?",
+            ans: [
+                {
+                    content: "Cascading Style Sheets",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "Cool Style Sheets",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "Country School Shoes",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "Cazhetsja Stili Sleteli",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        },
+        {
+            ask: "What is js engine?",
+            ans: [
+                {
+                    content: "JavaScript processing program",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "Programmer writing code",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "New BMW engine",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "IT style party",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        }
+    ],
+    [
+        {
+            ask: "What type of data is missing in JS?",
+            ans: [
+                {
+                    content: "Char",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "Number",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "Boolean",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "Object",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        },
+        {
+            ask: "What is the data type in JS?",
+            ans: [
+                {
+                    content: "Symbol",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "Char",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "Integer",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "Mix",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        }, 
+        {
+            ask: "What is the data type in JS?",
+            ans: [
+                {
+                    content: "BigInt",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "BigFloat",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "BigString",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "BigObject",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        }
+    ],
+    [
+        {
+            ask: "Which function declaration does not exist in JS?",
+            ans: [
+                {
+                    content: "Function Progression",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "Function Expression",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "Function Decloration",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "Arrow Function",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        },
+        {
+            ask: "Which operator is not a boolean operator in JS?",
+            ans: [
+                {
+                    content: "$",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "&&",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "||",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "!",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        }, 
+        {
+            ask: "What word can not be used to declare a variable in JS?",
+            ans: [
+                {
+                    content: "get",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "const",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "var",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "let",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        }
+
+    ],
+    [
+        {
+            ask: "What is the scope of a variable declared with the let word?",
+            ans: [
+                {
+                    content: "The block scope",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "The functional scope",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "The string scope",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "The program scope",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        },
+        {
+            ask: "What must a switch statement in js have?",
+            ans: [
+                {
+                    content: "The case block",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "The default block",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "The break block",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "The finally block",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        }, 
+        {
+            ask: "Which of these is a ternary operator?",
+            ans: [
+                {
+                    content: "let res = a ? one : two",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "let res = a ? one \ two",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "let res = a ? one",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "let res = a ! one : two",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        }
+
+    ],
+    [
+        {
+            ask: "Which method removes the last element from an array and returns it?",
+            ans: [
+                {
+                    content: "pop",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "push ",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "shift",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "unshift",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        },
+        {
+            ask: "What does the shift method do with an array?",
+            ans: [
+                {
+                    content: "Removes the first element",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "Removes the last element",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "Adds the first element",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "Adds an element to the end",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        },
+        {
+            ask: "How can you not declare an array?",
+            ans: [
+                {
+                    content: "let arr= [Array]",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "let arr= new Array() ",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "let arr=[]",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "let arr=[3,4,5] ",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+        }
+    ],
+];
+
+export const dataQuestionBl = [
+    [
+        {
+            ask: "Што азначае абрэвіятура JS у праграмаванні?",
+            ans: [
+                {
+                    content: "JavaScript",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "Jason Statham ",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "Just second",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "Job sweat",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        },
+        {
+            ask: "Што такое JavaScript?",
+            ans: [
+                {
+                    content: "Мова праграмавання",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "Мова народаў Візантыйскай імперыі",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "Наскальныя іерогліфы",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "Блюда",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        },
+        {
+            ask: "Дзе выкарыстоўваецца JavaScript",
+            ans: [
+                {
+                    content: "У праграмаванні",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "У лексіцы вязняў",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "У гульні ў карты",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "Толькі ў кіно",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        }
+    ],
+    [
+        {
+            ask: "Як расшыфроўваецца HTML",
+            ans: [
+                {
+                    content: "HyperText Markup Language",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "HyperText My Love",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "Hot Top Music List",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "Header Title Margin Li",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        },
+        {
+            ask: "Што такое CSS",
+            ans: [
+                {
+                    content: "Cascading Style Sheets",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "Cool Style Sheets",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "Country School Shoes",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "Cazhetsja Stili Sleteli",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        },
+        {
+            ask: "Што значыць js рухавік",
+            ans: [
+                {
+                    content: "Праграма, якая апрацоўвае JavaScript",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "Праграміст, які піша код",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "Новы рухавік BMW",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "Вечарынка у стылі IT",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        }
+    ],
+    [
+        {
+            ask: "Якога тыпу дадзеных няма ў JS",
+            ans: [
+                {
+                    content: "Char",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "Number",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "Boolean",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "Object",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        },
+        {
+            ask: "Які тып дадзеных ёсць у JS",
+            ans: [
+                {
+                    content: "Symbol",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "Char",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "Integer",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "Mix",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        }, {
+            ask: "Які тып дадзеных ёсць у JS",
+            ans: [
+                {
+                    content: "BigInt",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "BigFloat",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "BigString",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "BigObject",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        }
+    ],
+    [
+        {
+            ask: "Якое аб'яўленне функцыі не існуе ў JS",
+            ans: [
+                {
+                    content: "Function Progression",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "Function Expression",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "Function Decloration",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "Arrow Function",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        },
+        {
+            ask: "Які аператар не адносіцца да лагічных у JS",
+            ans: [
+                {
+                    content: "$",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "&&",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "||",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "!",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        }, 
+        {
+            ask: "Праз якое слова нельга а'явіць пераменную ў JS",
+            ans: [
+                {
+                    content: "get",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "const",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "var",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "let",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        }
+
+    ],
+    [
+        {
+            ask: "Якую вобласць бачнасці мае пераменная аб'яўленная праз слова let",
+            ans: [
+                {
+                    content: "Блочную",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "Функцыянальную",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "Строчную",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "Праграмную",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        },
+        {
+            ask: "Што абавязкова павінна мець канструкцыя switch у js",
+            ans: [
+                {
+                    content: "блок case",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "блок default",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "блок break",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "блок finally",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        }, 
+        {
+            ask: "Што з гэтага з'яўляецца тэрнарным аператарам?",
+            ans: [
+                {
+                    content: "let res = a ? one : two",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "let res = a ? one \ two",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "let res = a ? one",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "let res = a ! one : two",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        }
+
+    ],
+    [
+        {
+            ask: "Які з метадаў выдаляе апошні элемент масіва ды вяртае яго?",
+            ans: [
+                {
+                    content: "pop",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "push ",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "shift",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "unshift",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        },
+        {
+            ask: "Што робіць метад shift с масівам?",
+            ans: [
+                {
+                    content: "Выдаляе першы элемент",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "Выдаляе апошні элемент",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "Дабаўляе першы элемент",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "Дабаўляе элемент у канец",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        },
+        {
+            ask: "Як нельга аб'явіць масіў?",
+            ans: [
+                {
+                    content: "let arr= [Array]",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "let arr= new Array() ",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "let arr=[]",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "let arr=[3,4,5] ",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+        }
+    ],
+];
+
+export const dataQuestionRu = [
 
     [
         {

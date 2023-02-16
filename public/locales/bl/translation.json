@@ -1,0 +1,25 @@
+{
+    "signinup": {
+        "autoris": "Аўтарызацыя",
+        "autorised": "Вы аўтарызаваныя",
+        "willregistr": "Зарэгістравацца",
+        "notregistr": "Уваход без регістрацыі",
+        "registr": "Регістрацыя",
+        "nickname": "Ваш нікнэйм:",
+        "email": "Ваша пошта:",
+        "password": "Пароль:",
+        "send": "Адправіць",
+        "registred": "Вы зарэгістраваныя",
+        "startgame": "Пачаць гульню",
+        "yourprofile": "Асабісты кабінет",
+        "play": "Гуляць"
+    },
+    "gameover": {
+        "gameover": "Гульня завершана!",
+        "playagain": "Згуляць яшчэ раз",
+        "youresult": "Ваш выйгрыш:",
+        "exitmenu": "Выхад у меню",
+        "points": "балаў",
+        "nextquestion": "Наступнае пытанне"
+    }
+}

@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
+// import { useTranslation } from "react-i18next";
 import useSound from "use-sound";
-import { dataQuestion } from "../data/questions";
+import { dataQuestionEn, dataQuestionBl, dataQuestionRu } from "../data/questions";
 import { questState } from "../types.ts/iquest-state";
 import { ICase, IQuestion } from "../types.ts/iquestion";
 import End from "../utils/end";
@@ -11,7 +12,7 @@ import QuestionHeader from "../utils/question-header";
 import QuizContent from "../utils/quiz-content";
 import Timer from "../utils/timer";
 
-function Question() {
+function Question({t}: {t: Function}) {
   const [level, setLevel] = useState(0);
   let [totalPoints, setTotalPoints] = useState(0);
   const [timeOn, setTimeOn] = useState(true);
@@ -25,6 +26,8 @@ function Question() {
   const [itemHintBoolean, setItemHintBoolean] = useState(false);
   const [itemFiftyFifty, setItemFiftyFifty] = useState(false);
   const [itemCall, setItemCall] = useState(false);
+  // const { t } = useTranslation();
+  const languageStorage = localStorage.getItem("languagegame");
   const[keepMoney, setKeepMoney]=useState(false);
 
   function addPoints() {
@@ -42,12 +45,16 @@ function Question() {
     }
     return arr;
   }
-  let questionArr: Array<IQuestion> = dataQuestion[level];
+  let questionArr: Array<IQuestion> = dataQuestionRu[level];
+  if (languageStorage) {
+    if (languageStorage === "en") questionArr = dataQuestionEn[level];
+    if (languageStorage === "bl") questionArr = dataQuestionBl[level];
+  }
   useEffect(() => {
     shuffleArr(questionArr);
     shuffleArr(questionArr[0].ans)
   }
-    , [level])
+    , [level]);
   const question: IQuestion = questionArr[0];
   let answers = question.ans;
   useEffect(() => { shuffleArr(answers) }, []);
@@ -131,14 +138,16 @@ function Question() {
         setAnswerShema={setAnswerShema}
         setTimer={setTimer}
         setTimeOn={setTimeOn}
+        t={t}
       />
     );
   } else {
-    return (<End 
-    level={level}
-    keepMoney={keepMoney}
-    />
-    );
+    return (<End totalPoints={totalPoints}
+                repeatGame={repeatGame}
+                level={level}
+                keepMoney={keepMoney}
+                t={t}/>);
+
   }
 }
 export default Question;
