@@ -1,5 +1,5 @@
-import { Link, useNavigation } from 'react-router-dom';
-import style from '../styles/page-end.module.scss';
+import { Link, useNavigation } from "react-router-dom";
+import style from "../styles/page-end.module.scss";
 import st from "../styles/start.module.scss";
 import { congratEn, congratBl, congratRu } from '../data/congratulations';
 
@@ -12,7 +12,10 @@ interface IEnd {
 }
 
 const languageStorage = localStorage.getItem("languagegame");
-const win=[100,200,300,500,1000,2000,4000,8000,16000,32000,64000,125000,250000,500000,1000000];
+const win = [
+	100, 200, 300, 500, 1000, 2000, 4000, 8000, 16000, 32000, 64000, 125000,
+	250000, 500000, 1000000,
+  ];
 
 function End(props: IEnd) {
 	// const navi = useNavigation()
