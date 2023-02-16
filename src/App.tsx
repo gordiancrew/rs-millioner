@@ -23,12 +23,13 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Home 
-                                  changeLng={changeLanguage} 
-                                  t={t}
-                                  changeAutoris={changeAutoris} />} />
+        <Route path="/" element={<Home t={t} changeAutoris={changeAutoris} />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/home" element={<Start t={t} autorisation={autorisation}/>} />
+        <Route path="/home" element={<Start 
+                                      changeLng={changeLanguage} 
+                                      t={t} 
+                                      autorisation={autorisation}
+                                    />} />
         <Route path="/progress" element={<Progress />} />
         <Route path="/question" element={<Question t={t}/>} />
       </Routes>

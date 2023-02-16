@@ -9,9 +9,7 @@ import st from "../styles/start.module.scss";
 export const SignInUp = (props: {t: Function, changeAutoris: Function}) => {
   const [checkUserName, setCheckUserName] = useState(false);
   const [checkUserPassword, setCheckUserPassword] = useState(false);
-  // const [checkEnteGame, setCheckEnteGame] = useState(false);
   const [stateForm, setStateForm] = useState(true);
-  // const [boolenReg, setBoolen] = useState(true);
   const [doubleName, setDoubleName] = useState(false);
   const { t } = props;
   const navigate = useNavigate();
@@ -25,12 +23,6 @@ export const SignInUp = (props: {t: Function, changeAutoris: Function}) => {
   function changeCheckPassword() {
     setCheckUserPassword(!checkUserPassword);
   }
-  /* function enteredGame() {
-    setCheckEnteGame(!checkEnteGame);
-  } */
-  /* function changeForm() {
-    setBoolen(!boolenReg);
-  } */
   function checkDoubleName() {
     setDoubleName(!doubleName);
   }
@@ -59,7 +51,6 @@ export const SignInUp = (props: {t: Function, changeAutoris: Function}) => {
         } else {
           enterMenu();
           props.changeAutoris();
-          // enteredGame();
         }
       } else {
         changeCheckName();
@@ -92,7 +83,6 @@ export const SignInUp = (props: {t: Function, changeAutoris: Function}) => {
         checkDoubleName();
       } else {
         localStorage.setItem(values.name, JSON.stringify(values));
-        // changeForm();
         enterMenu();
         props.changeAutoris();
       }
