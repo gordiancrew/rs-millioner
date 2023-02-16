@@ -1,25 +1,33 @@
 {
-    "signinup": {
-        "autoris": "Авторизация",
-        "autorised": "Вы авторизовались",
-        "willregistr": "Зарегистрироваться",
-        "notregistr": "Вход без регистрации",
-        "registr": "Регистрация",
-        "nickname": "Ваш никнейм:",
-        "email": "Ваша почта:",
-        "password": "Пароль:",
-        "send": "Отправить",
-        "registred": "Вы зарегистрированы",
-        "startgame": "Начать игру",
-        "yourprofile": "Личный кабинет",
-        "play": "Играть"
-    },
-    "gameover": {
-        "gameover": "Игра закончена!",
-        "playagain": "Сыграть еще раз",
-        "youresult": "Ваш выигрыш:",
-        "exitmenu": "Выход в меню",
-        "points": "баллов",
-        "nextquestion": "Следующий вопрос"
-    }
+  "signinup": {
+    "autoris": "Авторизация",
+    "autorised": "Вы авторизовались",
+    "willregistr": "Зарегистрироваться",
+    "notregistr": "Вход без регистрации",
+    "registr": "Регистрация",
+    "nickname": "Ваш никнейм:",
+    "email": "Ваша почта:",
+    "password": "Пароль:",
+    "send": "Отправить",
+    "registred": "Вы зарегистрированы",
+    "startgame": "Начать игру",
+    "yourprofile": "Личный кабинет",
+    "play": "Играть",
+    "rules": "Правила"
+  },
+  "gameover": {
+    "gameover": "Игра закончена!",
+    "playagain": "Сыграть еще раз",
+    "youresult": "Ваш выигрыш:",
+    "exitmenu": "Выход в меню",
+    "points": "баллов",
+    "nextquestion": "Следующий вопрос"
+  },
+  "hint": {
+    "condition": "Запомните комбинацию цифр!",
+    "backToQuestion": "Назад к вопросу",
+    "requirement": "Повторите увиденную комбинацию!",
+    "probability": "Вероятность",
+    "answer": "ответ"
+  }
 }
