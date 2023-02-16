@@ -10,13 +10,16 @@
         "password": "Пароль:",
         "send": "Адправіць",
         "registred": "Вы зарэгістраваныя",
-        "startgame": "Пачаць гульню"
+        "startgame": "Пачаць гульню",
+        "yourprofile": "Асабісты кабінет",
+        "play": "Гуляць"
     },
     "gameover": {
         "gameover": "Гульня завершана!",
         "playagain": "Згуляць яшчэ раз",
         "youresult": "Ваш выйгрыш:",
         "exitmenu": "Выхад у меню",
-        "points": "балаў"
+        "points": "балаў",
+        "nextquestion": "Наступнае пытанне"
     }
 }

@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
+// import { useTranslation } from "react-i18next";
 import useSound from "use-sound";
 import { dataQuestionEn, dataQuestionBl, dataQuestionRu } from "../data/questions";
 import { questState } from "../types.ts/iquest-state";
@@ -12,7 +12,7 @@ import QuestionHeader from "../utils/question-header";
 import QuizContent from "../utils/quiz-content";
 import Timer from "../utils/timer";
 
-function Question() {
+function Question({t}: {t: Function}) {
   const [level, setLevel] = useState(0);
   let [totalPoints, setTotalPoints] = useState(0);
   const [timeOn, setTimeOn] = useState(true);
@@ -26,7 +26,7 @@ function Question() {
   const [itemHintBoolean, setItemHintBoolean] = useState(false);
   const [itemFiftyFifty, setItemFiftyFifty] = useState(false);
   const [itemCall, setItemCall] = useState(false);
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   const languageStorage = localStorage.getItem("languagegame");
   const[keepMoney, setKeepMoney]=useState(false);
 
@@ -138,6 +138,7 @@ function Question() {
         setAnswerShema={setAnswerShema}
         setTimer={setTimer}
         setTimeOn={setTimeOn}
+        t={t}
       />
     );
   } else {
