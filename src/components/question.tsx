@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import useSound from "use-sound";
-import { dataQuestion } from "../data/questions";
+import { dataQuestionEn, dataQuestionBl, dataQuestionRu } from "../data/questions";
 import { questState } from "../types.ts/iquest-state";
 import { ICase, IQuestion } from "../types.ts/iquestion";
 import End from "../utils/end";
@@ -25,6 +26,8 @@ function Question() {
   const [itemHintBoolean, setItemHintBoolean] = useState(false);
   const [itemFiftyFifty, setItemFiftyFifty] = useState(false);
   const [itemCall, setItemCall] = useState(false);
+  const { t } = useTranslation();
+  const languageStorage = localStorage.getItem("languagegame");
 
   function addPoints() {
     setTotalPoints(totalPoints + 100);
@@ -41,12 +44,16 @@ function Question() {
     }
     return arr;
   }
-  let questionArr: Array<IQuestion> = dataQuestion[level];
+  let questionArr: Array<IQuestion> = dataQuestionRu[level];
+  if (languageStorage) {
+    if (languageStorage === "en") questionArr = dataQuestionEn[level];
+    if (languageStorage === "bl") questionArr = dataQuestionBl[level];
+  }
   useEffect(() => {
     shuffleArr(questionArr);
     shuffleArr(questionArr[0].ans)
   }
-    , [level])
+    , [level]);
   const question: IQuestion = questionArr[0];
   let answers = question.ans;
   useEffect(() => { shuffleArr(answers) }, []);
@@ -132,7 +139,8 @@ function Question() {
     );
   } else {
     return <End totalPoints={totalPoints}
-                repeatGame={repeatGame}/>;
+                repeatGame={repeatGame}
+                t={t}/>;
   }
 }
 export default Question;

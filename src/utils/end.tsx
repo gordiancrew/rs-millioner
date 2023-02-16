@@ -1,31 +1,24 @@
 import style from '../styles/page-end.module.scss';
+import { congratEn, congratBl, congratRu } from '../data/congratulations';
 
-const congratulations = {
-	0: 'Извините, но вы ничего не выиграли.',
-	100: 'Нам жаль, но у вас минимальный бал.',
-	200: 'Ваш выигрыш очень скромный.',
-	300: 'Не плохая игра, попробуйте еще раз.',
-	500: '500 баллов - это уже не плохо.',
-	1000: 'У вас первый несгораемый выигрыш.',
-	2000: 'Не переживайте, у вас все получиться',
-	4000: 'Фраза на 4000 баллов',
-	8000: 'Фраза на 8000 баллов',
-	16000: 'Фраза на 16000 баллов',
-	32000: 'Поздравляем, вам не много не хватило да максимального бала.',
-	64000: 'Поздравляем, вы очень хороший программист.'
-}
+const languageStorage = localStorage.getItem("languagegame");
 
-function End(props: {totalPoints: number, repeatGame: Function}) {
-	const {totalPoints, repeatGame} = props;
+function End(props: {totalPoints: number, repeatGame: Function, t: Function}) {
+	let congratulations = congratRu;
+	if (languageStorage) {
+		if (languageStorage === "en") congratulations = congratEn;
+		if (languageStorage === "bl") congratulations = congratBl;
+	  }
+	const {totalPoints, repeatGame, t} = props;
 	return (
 		<div className={style.wrappage}>
             <div>
-				<h1>Игра закончена</h1>
+				<h1>{t("gameover.gameover")}</h1>
 				<p>{congratulations[totalPoints as keyof typeof congratulations]}</p>
-				<p>Ваш результат <span className={style.win}>{props.totalPoints}</span> баллов</p>
+				<p>{t("gameover.youresult")} <span className={style.win}>{props.totalPoints}</span> {t("gameover.points")}</p>
 				<button 
 					className={style.buttonagain}
-					onClick={() => repeatGame()}>Сыграть еще раз</button>
+					onClick={() => repeatGame()}>{t("gameover.playagain")}</button>
 			</div>
 		</div>
 	);

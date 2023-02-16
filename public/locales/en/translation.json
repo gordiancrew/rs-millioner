@@ -1,0 +1,21 @@
+{
+    "signinup": {
+        "autoris": "Authorization",
+        "autorised": "You are logged in",
+        "willregistr": "Register",
+        "notregistr": "Play without registration",
+        "registr": "Registration",
+        "nickname": "Your nickname:",
+        "email": "Your mail:",
+        "password": "Password:",
+        "send": "Send",
+        "registred": "Are you registered",
+        "startgame": "Start the game"
+    },
+    "gameover": {
+        "gameover": "Game over",
+        "playagain": "Play again",
+        "youresult": "Your result is",
+        "points": "points"
+    }
+}

@@ -5,13 +5,14 @@ import * as Yup from "yup";
 import style from "../styles/signinup.module.scss";
 import st from "../styles/start.module.scss";
 
-export const SignInUp = () => {
+export const SignInUp = (props: {t: Function}) => {
   const [checkUserName, setCheckUserName] = useState(false);
   const [checkUserPassword, setCheckUserPassword] = useState(false);
   const [checkEnteGame, setCheckEnteGame] = useState(false);
   const [stateForm, setStateForm] = useState(true);
   const [boolenReg, setBoolen] = useState(true);
   const [doubleName, setDoubleName] = useState(false);
+  const { t } = props;
 
   function toggleForm() {
     setStateForm(!stateForm);
@@ -94,13 +95,13 @@ export const SignInUp = () => {
         <form className={style.signinupform} onSubmit={formikA.handleSubmit}>
           {!checkEnteGame ? (
             <>
-              <h2>Авторизация</h2>
+              <h2>{t("signinup.autoris")}</h2>
               {/* <label htmlFor="name">Ваш никнейм</label> */}
               <div className={st.input_wrapper}>
                 <input
-                  placeholder="Ваш никнейм"
+                  placeholder={t("signinup.nickname")}
                   name="name"
-                  type="text"
+                  type="text" 
                   value={formikA.values.name}
                   onChange={formikA.handleChange}
                   onBlur={formikA.handleBlur}
@@ -120,7 +121,7 @@ export const SignInUp = () => {
               {/* <label htmlFor="email">Пароль</label> */}
               <div className={st.input_wrapper}>
                 <input
-                  placeholder="Пароль"
+                  placeholder={t("signinup.password")}
                   name="password"
                   type="password"
                   value={formikA.values.password}
@@ -140,29 +141,29 @@ export const SignInUp = () => {
                 </div>
               ) : null}
               <div className={st.input_wrapper}>
-                <button type="submit">Отправить</button>
+                <button type="submit">{t("signinup.send")}</button>
               </div>
               <h3>
                 <span className={style.link} onClick={toggleForm}>
-                  Зарегистрироваться
+                  {t("signinup.willregistr")}
                 </span>
               </h3>
               <h3>
                 <Link to="/question">
-                  <span className={style.link}>Играть без регистрации</span>
+                  <span className={style.link}>{t("signinup.notregistr")}</span>
                 </Link>
               </h3>
             </>
           ) : (
-            <h2>Вы авторизовались</h2>
+            <h2>{t("signinup.autorised")}</h2>
           )}
         </form>
       ) : (
         <form className={style.signinupform} onSubmit={formikR.handleSubmit}>
           {boolenReg ? (
             <>
-              <h2>Регистрация</h2>
-              <label htmlFor="name">Ваш никнейм:</label>
+              <h2>{t("signinup.registr")}</h2>
+              <label htmlFor="name">{t("signinup.nickname")}</label>
               <div className={st.input_wrapper}>
                 <input
                   name="name"
@@ -183,7 +184,7 @@ export const SignInUp = () => {
                   Такое имя уже есть
                 </div>
               ) : null}
-              <label htmlFor="email">Ваша почта:</label>
+              <label htmlFor="email">{t("signinup.email")}</label>
               <div className={st.input_wrapper}>
                 <input
                   name="email"
@@ -199,7 +200,7 @@ export const SignInUp = () => {
                   {formikR.errors.email}
                 </div>
               ) : null}
-              <label htmlFor="email">Пароль:</label>
+              <label htmlFor="email">{t("signinup.password")}</label>
               <div className={st.input_wrapper}>
                 <input
                   name="password"
@@ -216,15 +217,15 @@ export const SignInUp = () => {
                 </div>
               ) : null}
               <div className={st.input_wrapper}>
-                <button type="submit">Отправить</button>
+                <button type="submit">{t("signinup.send")}</button>
               </div>
             </>
           ) : (
             <>
-              <h2>Вы зарегистрированы</h2>
+              <h2>{t("signinup.registred")}</h2>
               <h3>
                 <Link to="/question">
-                  <span className={style.link}>Начать игру</span>
+                  <span className={style.link}>{t("signinup.startgame")}</span>
                 </Link>
               </h3>
             </>
