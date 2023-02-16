@@ -11,7 +11,7 @@ function HexagonButton(props: IContent) {
     <div className={cl.wrapper}>
       <div className={cl.horizontLine}></div>
       <div className={cl.questionBox}>
-        <Link to={props.link}>
+        <Link className={cl.link} to={props.link}>
           <div className={cl.questionContent}>
             <h2>{props.content}</h2>
           </div>
@@ -23,4 +23,3 @@ function HexagonButton(props: IContent) {
 }
 
 export default HexagonButton;
-
