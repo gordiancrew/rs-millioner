@@ -6,7 +6,9 @@ import { useNavigate } from "react-router-dom";
 import style from "../styles/signinup.module.scss";
 import st from "../styles/start.module.scss";
 
+
 export const SignInUp = (props: {t: Function, changeAutoris: Function}) => {
+
   const [checkUserName, setCheckUserName] = useState(false);
   const [checkUserPassword, setCheckUserPassword] = useState(false);
   const [stateForm, setStateForm] = useState(true);
@@ -92,6 +94,7 @@ export const SignInUp = (props: {t: Function, changeAutoris: Function}) => {
     <>
       {stateForm ? (
         <form className={style.signinupform} onSubmit={formikA.handleSubmit}>
+
           <h2>{t("signinup.autoris")}</h2>
           <div className={st.input_wrapper}>
             <input
