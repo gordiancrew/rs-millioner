@@ -6,9 +6,7 @@ import { useNavigate } from "react-router-dom";
 import style from "../styles/signinup.module.scss";
 import st from "../styles/start.module.scss";
 
-
-export const SignInUp = (props: {t: Function, changeAutoris: Function}) => {
-
+export const SignInUp = (props: { t: Function; changeAutoris: Function }) => {
   const [checkUserName, setCheckUserName] = useState(false);
   const [checkUserPassword, setCheckUserPassword] = useState(false);
   const [stateForm, setStateForm] = useState(true);
@@ -29,7 +27,7 @@ export const SignInUp = (props: {t: Function, changeAutoris: Function}) => {
     setDoubleName(!doubleName);
   }
   function enterMenu() {
-    navigate("/home")
+    navigate("/home");
   }
   const formikA = useFormik({
     initialValues: {
@@ -38,11 +36,11 @@ export const SignInUp = (props: {t: Function, changeAutoris: Function}) => {
     },
     validationSchema: Yup.object({
       name: Yup.string()
-        .min(2, "Минимум 2 символа!")
-        .required("Обязательное поле!"),
+        .min(2, t("signinup.min2Sumb"))
+        .required(t("signinup.requiredField")),
       password: Yup.string()
-        .min(8, "Минимум 8 символов!")
-        .required("Обязательное поле!"),
+        .min(8, t("signinup.min8Sumb"))
+        .required(t("signinup.requiredField")),
     }),
     onSubmit: (values) => {
       const user = localStorage.getItem(values.name);
@@ -67,14 +65,14 @@ export const SignInUp = (props: {t: Function, changeAutoris: Function}) => {
     },
     validationSchema: Yup.object({
       name: Yup.string()
-        .min(2, "Минимум 2 символа!")
-        .required("Обязательное поле!"),
+        .min(2, t("signinup.min2Sumb"))
+        .required(t("signinup.requiredField")),
       email: Yup.string()
-        .email("Неправильный email адрес!")
-        .required("Обязательное поле!"),
+        .email(t("signinup.emailError"))
+        .required(t("signinup.requiredField")),
       password: Yup.string()
-        .min(8, "Минимум 8 символов!")
-        .required("Обязательное поле!"),
+        .min(8, t("signinup.min8Sumb"))
+        .required(t("signinup.requiredField")),
     }),
     onSubmit: (values) => {
       const keysUser = Object.keys(localStorage).map((name) =>
@@ -94,13 +92,12 @@ export const SignInUp = (props: {t: Function, changeAutoris: Function}) => {
     <>
       {stateForm ? (
         <form className={style.signinupform} onSubmit={formikA.handleSubmit}>
-
           <h2>{t("signinup.autoris")}</h2>
           <div className={st.input_wrapper}>
             <input
               placeholder={t("signinup.nickname")}
               name="name"
-              type="text" 
+              type="text"
               value={formikA.values.name}
               onChange={formikA.handleChange}
               onBlur={formikA.handleBlur}
@@ -114,7 +111,7 @@ export const SignInUp = (props: {t: Function, changeAutoris: Function}) => {
           ) : null}
           {checkUserName ? (
             <div className={style.error} style={{ top: "40vh" }}>
-              Неправильный логин
+              {t("signinup.loginError")}
             </div>
           ) : null}
           <div className={st.input_wrapper}>
@@ -135,7 +132,7 @@ export const SignInUp = (props: {t: Function, changeAutoris: Function}) => {
           ) : null}
           {checkUserPassword ? (
             <div className={style.error} style={{ top: "50vh" }}>
-              Неправильный пароль
+              {t("signinup.passwordError")}
             </div>
           ) : null}
           <div className={st.input_wrapper}>
@@ -173,7 +170,7 @@ export const SignInUp = (props: {t: Function, changeAutoris: Function}) => {
           ) : null}
           {doubleName ? (
             <div className={style.error} style={{ top: "43vh" }}>
-              Такое имя уже есть
+              {t("signinup.doubleName")}
             </div>
           ) : null}
           <label htmlFor="email">{t("signinup.email")}</label>
