@@ -57,12 +57,18 @@ export const SignInUp = ({t, changeAutoris, changeLng}: ISignUp) => {
         } else {
           enterMenu();
           changeAutoris();
+          localStorage.currentName=userData.name
         }
       } else {
         changeCheckName();
       }
     },
   });
+
+  function logout(){
+    localStorage.removeItem('currentName')
+    
+  }
   const formikR = useFormik({
     initialValues: {
       name: "",
@@ -93,6 +99,7 @@ export const SignInUp = ({t, changeAutoris, changeLng}: ISignUp) => {
         localStorage.setItem(values.name, JSON.stringify(values));
         enterMenu();
         changeAutoris();
+        localStorage.currentName=values.name
       }
     },
   });
@@ -155,7 +162,9 @@ export const SignInUp = ({t, changeAutoris, changeLng}: ISignUp) => {
               </span>
             </h3>
             <h3>
-              <Link to="/home">
+              <Link to="/home"
+              onClick={logout}
+              >
                 <span className={style.link}>{t("signinup.notregistr")}</span>
               </Link>
             </h3>
