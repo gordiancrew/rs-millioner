@@ -1,8 +1,6 @@
-import { Link, useNavigation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import style from "../styles/page-end.module.scss";
 import st from "../styles/start.module.scss";
-import { congratEn, congratBl, congratRu } from "../data/congratulations";
-import { useEffect } from "react";
 import { IGamer } from "../types.ts/iscore";
 
 interface IEnd {
@@ -13,7 +11,6 @@ interface IEnd {
   t: Function;
 }
 
-const languageStorage = localStorage.getItem("languagegame");
 const win = [
   100, 200, 300, 500, 1000, 2000, 4000, 8000, 16000, 32000, 64000, 125000,
   250000, 500000, 1000000,
@@ -29,7 +26,7 @@ function End(props: IEnd) {
   currentGamerObjectString = localStorage.getItem(localStorage.currentName)
   let winnerSum: number;
   if (props.keepMoney) {
-    const newLocal = winnerSum = win[props.level - 1];
+    winnerSum = win[props.level - 1];
   } else if (props.level < 5) {
     winnerSum = 0;
   } else if (props.level < 10) {
@@ -38,11 +35,6 @@ function End(props: IEnd) {
     winnerSum = 32000;
   } else {
     winnerSum = 1000000;
-  }
-  let congratulations = congratRu;
-  if (languageStorage) {
-    if (languageStorage === "en") congratulations = congratEn;
-    if (languageStorage === "bl") congratulations = congratBl;
   }
   const { t } = props;
 

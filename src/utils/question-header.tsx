@@ -73,7 +73,7 @@ function QuestionHeader(props: IHeaderOptions) {
         >
          <img
          className={headerStyle.icon}
-         src='https://cdn-icons-png.flaticon.com/512/159/159832.png'></img>
+         src='https://cdn-icons-png.flaticon.com/512/159/159832.png' alt=""></img>
         </div>
       </div>
       <div className={headerStyle.headerHints}>
@@ -84,12 +84,12 @@ function QuestionHeader(props: IHeaderOptions) {
 
 
 <img className={headerStyle.icon}
-         src='https://cdn-icons-png.flaticon.com/512/2174/2174616.png'></img>
+         src='https://cdn-icons-png.flaticon.com/512/2174/2174616.png' alt=""></img>
           </div>
           <h1>{props.level}</h1>
         <Link to="/home" className={headerStyle.headerItem}>
         <img className={headerStyle.icon}
-         src='https://cdn.icon-icons.com/icons2/1769/PNG/512/4115235-exit-logout-sign-out_114030.png'></img>
+         src='https://cdn.icon-icons.com/icons2/1769/PNG/512/4115235-exit-logout-sign-out_114030.png' alt=""></img>
         </Link>
       </div>
     </div>

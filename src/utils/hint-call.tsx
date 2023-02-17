@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import useSound from "use-sound";
-import Question from "../components/question";
+// import Question from "../components/question";
 import hintStyle from "../styles/hint.module.scss";
 import { CheckAnswer } from "../types.ts/chaeckAnswer";
-import { ICase, IQuestion } from "../types.ts/iquestion";
+import { ICase } from "../types.ts/iquestion";
 interface ICallOptions {
   visibleHintCall: boolean;
   setVisibleHintCall: Function;
@@ -98,12 +98,12 @@ function HintCall(props: ICallOptions) {
           {arrNumbers.map((x: number, i: number) => (
             <div
               onClick={() => setMemo(i)}
-              style={{ backgroundColor: i == currentBlick ? "yellow" : "" }}
+              style={{ backgroundColor: i === currentBlick ? "yellow" : "" }}
               className={hintStyle.telephoneBlock}
               key={i}
             >
               {" "}
-              {i == 9 ? 0 : i + 1}
+              {i === 9 ? 0 : i + 1}
             </div>
           ))}
         </div>

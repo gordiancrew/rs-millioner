@@ -1,6 +1,4 @@
-import { createContext, useEffect, useState } from "react";
-// import { useTranslation } from "react-i18next";
-import useSound from "use-sound";
+import { useEffect, useState } from "react";
 import {
   dataQuestionEn,
   dataQuestionBl,
@@ -30,7 +28,6 @@ function Question({ t }: { t: Function }) {
   const [itemHintBoolean, setItemHintBoolean] = useState(false);
   const [itemFiftyFifty, setItemFiftyFifty] = useState(false);
   const [itemCall, setItemCall] = useState(false);
-  // const { t } = useTranslation();
   const languageStorage = localStorage.getItem("languagegame");
   const [keepMoney, setKeepMoney] = useState(false);
 

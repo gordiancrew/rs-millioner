@@ -1,6 +1,6 @@
 import { questState } from "../types.ts/iquest-state";
 import progressStyle from "../styles/progress.module.scss";
-import { useState } from "react";
+// import { useState } from "react";
 import st from "../styles/start.module.scss";
 
 interface IProgress {

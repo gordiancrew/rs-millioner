@@ -1,5 +1,5 @@
 import hintStyle from "../styles/hint.module.scss";
-import { ICase, IQuestion } from "../types.ts/iquestion";
+import { ICase } from "../types.ts/iquestion";
 interface IBooleanOptions {
     visibleHintBoolean: Boolean
     setVisibleHintBoolean: Function
