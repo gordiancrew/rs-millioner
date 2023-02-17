@@ -51,6 +51,11 @@ function QuestionHeader(props: IHeaderOptions) {
   }
   return (
     <div className={headerStyle.headerBox}>
+       {/* {
+        localStorage.currentName ? (
+         <div>{"Вы зарегистрированы как "+localStorage.currentName}</div>
+        ) : null
+      } */}
       <div className={headerStyle.headerHints}>
         <div
           onClick={!props.itemHintBoolean ? booleanHundler : () => { }}
@@ -86,7 +91,7 @@ function QuestionHeader(props: IHeaderOptions) {
 <img className={headerStyle.icon}
          src='https://cdn-icons-png.flaticon.com/512/2174/2174616.png' alt=""></img>
           </div>
-          <h1>{props.level}</h1>
+
         <Link to="/home" className={headerStyle.headerItem}>
         <img className={headerStyle.icon}
          src='https://cdn.icon-icons.com/icons2/1769/PNG/512/4115235-exit-logout-sign-out_114030.png' alt=""></img>
