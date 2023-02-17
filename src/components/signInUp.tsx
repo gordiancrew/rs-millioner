@@ -3,17 +3,23 @@ import { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
+import LangButtons from "../utils/lang-buttons";
 import style from "../styles/signinup.module.scss";
 import st from "../styles/start.module.scss";
 
+interface ISignUp {
+  t: Function;
+  changeAutoris: Function;
+  changeLng: Function;
+}
 
-export const SignInUp = (props: {t: Function, changeAutoris: Function}) => {
+export const SignInUp = ({t, changeAutoris, changeLng}: ISignUp) => {
 
   const [checkUserName, setCheckUserName] = useState(false);
   const [checkUserPassword, setCheckUserPassword] = useState(false);
   const [stateForm, setStateForm] = useState(true);
   const [doubleName, setDoubleName] = useState(false);
-  const { t } = props;
+  // const { t } = props;
   const navigate = useNavigate();
 
   function toggleForm() {
@@ -52,7 +58,7 @@ export const SignInUp = (props: {t: Function, changeAutoris: Function}) => {
           changeCheckPassword();
         } else {
           enterMenu();
-          props.changeAutoris();
+          changeAutoris();
         }
       } else {
         changeCheckName();
@@ -86,72 +92,75 @@ export const SignInUp = (props: {t: Function, changeAutoris: Function}) => {
       } else {
         localStorage.setItem(values.name, JSON.stringify(values));
         enterMenu();
-        props.changeAutoris();
+        changeAutoris();
       }
     },
   });
   return (
     <>
       {stateForm ? (
-        <form className={style.signinupform} onSubmit={formikA.handleSubmit}>
+        <>
+          <LangButtons changeLng={changeLng}/>
+          <form className={style.signinupform} onSubmit={formikA.handleSubmit}>
 
-          <h2>{t("signinup.autoris")}</h2>
-          <div className={st.input_wrapper}>
-            <input
-              placeholder={t("signinup.nickname")}
-              name="name"
-              type="text" 
-              value={formikA.values.name}
-              onChange={formikA.handleChange}
-              onBlur={formikA.handleBlur}
-            />
-          </div>
+            <h2>{t("signinup.autoris")}</h2>
+            <div className={st.input_wrapper}>
+              <input
+                placeholder={t("signinup.nickname")}
+                name="name"
+                type="text" 
+                value={formikA.values.name}
+                onChange={formikA.handleChange}
+                onBlur={formikA.handleBlur}
+              />
+            </div>
 
-          {formikA.errors.name && formikA.touched.name ? (
-            <div className={style.error} style={{ top: "40vh" }}>
-              {formikA.errors.name}
+            {formikA.errors.name && formikA.touched.name ? (
+              <div className={style.error} style={{ top: "40vh" }}>
+                {formikA.errors.name}
+              </div>
+            ) : null}
+            {checkUserName ? (
+              <div className={style.error} style={{ top: "40vh" }}>
+                Неправильный логин
+              </div>
+            ) : null}
+            <div className={st.input_wrapper}>
+              <input
+                placeholder={t("signinup.password")}
+                name="password"
+                type="password"
+                value={formikA.values.password}
+                onChange={formikA.handleChange}
+                onBlur={formikA.handleBlur}
+              />
             </div>
-          ) : null}
-          {checkUserName ? (
-            <div className={style.error} style={{ top: "40vh" }}>
-              Неправильный логин
-            </div>
-          ) : null}
-          <div className={st.input_wrapper}>
-            <input
-              placeholder={t("signinup.password")}
-              name="password"
-              type="password"
-              value={formikA.values.password}
-              onChange={formikA.handleChange}
-              onBlur={formikA.handleBlur}
-            />
-          </div>
 
-          {formikA.errors.password && formikA.touched.password ? (
-            <div className={style.error} style={{ top: "50vh" }}>
-              {formikA.errors.password}
+            {formikA.errors.password && formikA.touched.password ? (
+              <div className={style.error} style={{ top: "50vh" }}>
+                {formikA.errors.password}
+              </div>
+            ) : null}
+            {checkUserPassword ? (
+              <div className={style.error} style={{ top: "50vh" }}>
+                Неправильный пароль
+              </div>
+            ) : null}
+            <div className={st.input_wrapper}>
+              <button type="submit">{t("signinup.send")}</button>
             </div>
-          ) : null}
-          {checkUserPassword ? (
-            <div className={style.error} style={{ top: "50vh" }}>
-              Неправильный пароль
-            </div>
-          ) : null}
-          <div className={st.input_wrapper}>
-            <button type="submit">{t("signinup.send")}</button>
-          </div>
-          <h3>
-            <span className={style.link} onClick={toggleForm}>
-              {t("signinup.willregistr")}
-            </span>
-          </h3>
-          <h3>
-            <Link to="/home">
-              <span className={style.link}>{t("signinup.notregistr")}</span>
-            </Link>
-          </h3>
-        </form>
+            <h3>
+              <span className={style.link} onClick={toggleForm}>
+                {t("signinup.willregistr")}
+              </span>
+            </h3>
+            <h3>
+              <Link to="/home">
+                <span className={style.link}>{t("signinup.notregistr")}</span>
+              </Link>
+            </h3>
+          </form>
+        </>
       ) : (
         <form className={style.signinupform} onSubmit={formikR.handleSubmit}>
           <h2>{t("signinup.registr")}</h2>

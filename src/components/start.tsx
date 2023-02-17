@@ -1,14 +1,18 @@
 import "../styles/start.scss";
 import HexagonButton from "../utils/hexagon-button";
+import LangButtons from "../utils/lang-buttons";
 
-function Start({changeLng, t, autorisation}: {changeLng: Function, t: Function, autorisation: boolean}) {
+interface IStart {
+  changeLng: Function;
+  t: Function;
+  autorisation: boolean;
+}
+
+function Start({changeLng, t, autorisation}: IStart) {
+  
   return (
     <div className='startWrapper'>
-      <div>
-        <button className="btnlngselect" onClick={() => changeLng("en")}>EN</button>
-        <button className="btnlngselect" onClick={() => changeLng("bl")}>BL</button>
-        <button className="Start" onClick={() => changeLng("ru")}>RU</button>
-      </div>
+      <LangButtons changeLng={changeLng} />
       {
         autorisation ? (
           <HexagonButton content={t("signinup.yourprofile")} link="/profile" />
