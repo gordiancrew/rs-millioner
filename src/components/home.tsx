@@ -1,10 +1,16 @@
 import { SignInUp } from "./signInUp";
 import "../styles/home.scss";
 
-function Home({t, changeAutoris}: {t: Function, changeAutoris: Function}) {
+interface IHome {
+  t: Function;
+  changeAutoris: Function;
+  changeLng: Function;
+}
+
+function Home({t, changeAutoris, changeLng}: IHome) {
   return (
     <div className="page">
-      <SignInUp t={t} changeAutoris={changeAutoris}/>
+      <SignInUp t={t} changeAutoris={changeAutoris} changeLng={changeLng} />
     </div>
   );
 }

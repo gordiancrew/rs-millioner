@@ -341,7 +341,7 @@ export const dataQuestionEn = [
                     check: CheckAnswer.right
                 },
                 {
-                    content: "let res = a ? one \ two",
+                    content: "let res = a ? one / two",
                     check: CheckAnswer.second
                 },
                 {
@@ -770,7 +770,7 @@ export const dataQuestionBl = [
                     check: CheckAnswer.right
                 },
                 {
-                    content: "let res = a ? one \ two",
+                    content: "let res = a ? one / two",
                     check: CheckAnswer.second
                 },
                 {
@@ -1198,7 +1198,7 @@ export const dataQuestionRu = [
                     check: CheckAnswer.right
                 },
                 {
-                    content: "let res = a ? one \ two",
+                    content: "let res = a ? one / two",
                     check: CheckAnswer.second
                 },
                 {
@@ -1622,7 +1622,7 @@ export const dataQuestionRu = [
                     check: CheckAnswer.right
                 },
                 {
-                    content: "let res = a ? one \ two",
+                    content: "let res = a ? one / two",
                     check: CheckAnswer.second
                 },
                 {

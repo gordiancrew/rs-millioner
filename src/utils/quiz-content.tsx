@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+// import { useNavigate } from "react-router-dom";
 import useSound from "use-sound";
 import { booleanFalse, booleanTrue } from "../data/boolean";
 import cl from "../styles/quiz.module.scss";
@@ -31,7 +31,7 @@ interface IQuiz {
 export default function QuizContent(props: IQuiz) {
   // useEffect(()=>{props.play()},[])
 
-  const [playRightAnswer] = useSound(musicUrlEnum.rightAnswer);
+  // const [playRightAnswer] = useSound(musicUrlEnum.rightAnswer);
   const [playBadAnswer] = useSound(musicUrlEnum.badAnswer);
   const [playCurrentAnswer] = useSound(musicUrlEnum.currentAnswer);
   const [playNextLevel] = useSound(musicUrlEnum.nextLevel);
@@ -43,7 +43,7 @@ export default function QuizContent(props: IQuiz) {
     props.shuffleArr(boolFalse);
     props.shuffleArr(boolTrue);
   }, []);
-  const navi = useNavigate();
+  // const navi = useNavigate();
   function disableAnswBtns() {
     setStateAnswBtns(!stateAnswBtns);
   }
