@@ -100,6 +100,7 @@ function Question({ t }: { t: Function }) {
           setBooleanStyle={setBooleanStyle}
           setKeepMoney={setKeepMoney}
           setAnswerShema={setAnswerShema}
+          level={level}
         />
 
         <Timer
