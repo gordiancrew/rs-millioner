@@ -11,10 +11,10 @@ function LangButtons({changeLng}: {changeLng: Function}) {
         const currentClass = activeLng ? 'btnLngSelect btnActive' : 'btnLngSelect';
         return (
             <button
-            className={currentClass}
-            onClick={() => changeLng(name)}
-            key={name}
-            type="button"
+                className={currentClass}
+                onClick={() => changeLng(name)}
+                key={name}
+                type="button"
             >{content}</button>
         )
     })
