@@ -19,6 +19,7 @@ interface IHeaderOptions {
   setBooleanStyle: Function;
   setKeepMoney: Function;
   setAnswerShema: Function;
+  level:number;
 }
 function QuestionHeader(props: IHeaderOptions) {
   const [playFiftyFifty] = useSound(musicUrlEnum.fiftyFifty);
@@ -77,6 +78,7 @@ function QuestionHeader(props: IHeaderOptions) {
       </div>
       <div className={headerStyle.headerHints}>
         <div
+      style={{display:props.level===0?'none':''}}
           onClick={keepHundler}
           className={headerStyle.headerItem}>
 
@@ -84,6 +86,7 @@ function QuestionHeader(props: IHeaderOptions) {
 <img className={headerStyle.icon}
          src='https://cdn-icons-png.flaticon.com/512/2174/2174616.png'></img>
           </div>
+          <h1>{props.level}</h1>
         <Link to="/home" className={headerStyle.headerItem}>
         <img className={headerStyle.icon}
          src='https://cdn.icon-icons.com/icons2/1769/PNG/512/4115235-exit-logout-sign-out_114030.png'></img>

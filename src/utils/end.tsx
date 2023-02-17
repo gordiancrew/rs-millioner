@@ -2,6 +2,8 @@ import { Link, useNavigation } from "react-router-dom";
 import style from "../styles/page-end.module.scss";
 import st from "../styles/start.module.scss";
 import { congratEn, congratBl, congratRu } from "../data/congratulations";
+import { useEffect } from "react";
+import { IGamer } from "../types.ts/iscore";
 
 interface IEnd {
   totalPoints: number;
@@ -18,10 +20,16 @@ const win = [
 ];
 
 function End(props: IEnd) {
-  // const navi = useNavigation()
-  let winnerSum;
+  // const navi = useNavigatio
+  let currentGamer: IGamer;
+  let currentGamerObjectString: string | null;
+  let games;
+  let score;
+
+  currentGamerObjectString = localStorage.getItem(localStorage.currentName)
+  let winnerSum: number;
   if (props.keepMoney) {
-    winnerSum = win[props.level - 1];
+    const newLocal = winnerSum = win[props.level - 1];
   } else if (props.level < 5) {
     winnerSum = 0;
   } else if (props.level < 10) {
@@ -37,15 +45,45 @@ function End(props: IEnd) {
     if (languageStorage === "bl") congratulations = congratBl;
   }
   const { t } = props;
+
+
+  function updateScore() {
+    if (currentGamerObjectString) {
+      currentGamer = JSON.parse(currentGamerObjectString)
+      games = +currentGamer.games + 1;
+      score = +currentGamer.score + winnerSum;
+      currentGamer.games = games;
+      currentGamer.score = score;
+      localStorage.setItem(localStorage.currentName, JSON.stringify(currentGamer))
+    }
+  }
+
+
+
+  //  let games:string;
+  // let r:object;
+  //    let currentGames:string|null=localStorage.getItem(localStorage.currentName)
+  //    if(currentGames!=null){
+  //     r:object=JSON.parse(currentGames)
+  //     games=r.games
+  //    }
+  //    games=(+games+1).toString()
+  //    r.games=games;
+  //    localStorage.setItem(r)
+
   return (
     <div className={style.wrappage}>
+      <h1>{games}</h1>
       <h2 className={style.wrapperHeaderWin}>{t("gameover.gameover")}</h2>
       <h1 className={style.wrapperWin}>
         {t("gameover.youresult")}
         <br /> {winnerSum}
       </h1>
       <Link to="/home">
-        <button className={st.button_endPage}>{t("gameover.exitmenu")}</button>
+        <button
+          onClick={updateScore}
+
+          className={st.button_endPage}>{t("gameover.exitmenu")}</button>
       </Link>
     </div>
   );

@@ -51,6 +51,7 @@ export const SignInUp = (props: { t: Function; changeAutoris: Function }) => {
         } else {
           enterMenu();
           props.changeAutoris();
+          localStorage.currentName=values.name
         }
       } else {
         changeCheckName();
@@ -62,6 +63,8 @@ export const SignInUp = (props: { t: Function; changeAutoris: Function }) => {
       name: "",
       email: "",
       password: "",
+      games:"0",
+      score:"0"
     },
     validationSchema: Yup.object({
       name: Yup.string()
