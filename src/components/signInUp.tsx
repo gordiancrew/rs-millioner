@@ -14,12 +14,10 @@ interface ISignUp {
 }
 
 export const SignInUp = ({t, changeAutoris, changeLng}: ISignUp) => {
-
   const [checkUserName, setCheckUserName] = useState(false);
   const [checkUserPassword, setCheckUserPassword] = useState(false);
   const [stateForm, setStateForm] = useState(true);
   const [doubleName, setDoubleName] = useState(false);
-  // const { t } = props;
   const navigate = useNavigate();
 
   function toggleForm() {
@@ -35,7 +33,7 @@ export const SignInUp = ({t, changeAutoris, changeLng}: ISignUp) => {
     setDoubleName(!doubleName);
   }
   function enterMenu() {
-    navigate("/home")
+    navigate("/home");
   }
   const formikA = useFormik({
     initialValues: {
@@ -44,11 +42,11 @@ export const SignInUp = ({t, changeAutoris, changeLng}: ISignUp) => {
     },
     validationSchema: Yup.object({
       name: Yup.string()
-        .min(2, "Минимум 2 символа!")
-        .required("Обязательное поле!"),
+        .min(2, t("signinup.min2Sumb"))
+        .required(t("signinup.requiredField")),
       password: Yup.string()
-        .min(8, "Минимум 8 символов!")
-        .required("Обязательное поле!"),
+        .min(8, t("signinup.min8Sumb"))
+        .required(t("signinup.requiredField")),
     }),
     onSubmit: (values) => {
       const user = localStorage.getItem(values.name);
@@ -70,17 +68,19 @@ export const SignInUp = ({t, changeAutoris, changeLng}: ISignUp) => {
       name: "",
       email: "",
       password: "",
+      games:"0",
+      score:"0"
     },
     validationSchema: Yup.object({
       name: Yup.string()
-        .min(2, "Минимум 2 символа!")
-        .required("Обязательное поле!"),
+        .min(2, t("signinup.min2Sumb"))
+        .required(t("signinup.requiredField")),
       email: Yup.string()
-        .email("Неправильный email адрес!")
-        .required("Обязательное поле!"),
+        .email(t("signinup.emailError"))
+        .required(t("signinup.requiredField")),
       password: Yup.string()
-        .min(8, "Минимум 8 символов!")
-        .required("Обязательное поле!"),
+        .min(8, t("signinup.min8Sumb"))
+        .required(t("signinup.requiredField")),
     }),
     onSubmit: (values) => {
       const keysUser = Object.keys(localStorage).map((name) =>
@@ -122,7 +122,7 @@ export const SignInUp = ({t, changeAutoris, changeLng}: ISignUp) => {
             ) : null}
             {checkUserName ? (
               <div className={style.error} style={{ top: "40vh" }}>
-                Неправильный логин
+                {t("signinup.loginError")}
               </div>
             ) : null}
             <div className={st.input_wrapper}>
@@ -143,7 +143,7 @@ export const SignInUp = ({t, changeAutoris, changeLng}: ISignUp) => {
             ) : null}
             {checkUserPassword ? (
               <div className={style.error} style={{ top: "50vh" }}>
-                Неправильный пароль
+                {t("signinup.passwordError")}
               </div>
             ) : null}
             <div className={st.input_wrapper}>
@@ -182,7 +182,7 @@ export const SignInUp = ({t, changeAutoris, changeLng}: ISignUp) => {
           ) : null}
           {doubleName ? (
             <div className={style.error} style={{ top: "43vh" }}>
-              Такое имя уже есть
+              {t("signinup.doubleName")}
             </div>
           ) : null}
           <label htmlFor="email">{t("signinup.email")}</label>

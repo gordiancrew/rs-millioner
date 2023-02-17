@@ -1,10 +1,29 @@
 import style from "../styles/profile.module.scss";
+import { IGamer } from "../types.ts/iscore";
 
 function Profile() {
+
+
+
+        let currentGamer: IGamer;
+        let currentGamerObjectString: string | null;
+        let games:string='';
+        let score;
+        currentGamerObjectString = localStorage.getItem(localStorage.currentName)
+        if (currentGamerObjectString) {
+            currentGamer = JSON.parse(currentGamerObjectString)
+            games = currentGamer.games.toString()
+            score = currentGamer.score
+           
+        }
+    
+
+
     return (
         <div className={style.wrapprofile}>
-            <h2>Тут выйгрыш, пакуль як выцягнуць не ведаю</h2>
-            <h2>Тут колькасць гульняў</h2>
+          
+            <h2>{"Суммарный выйгрыш: "+score}  </h2>
+            <h2>{"Количество игр: "+games}</h2>
         </div>
     );
 }

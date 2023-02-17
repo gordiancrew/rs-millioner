@@ -3,7 +3,7 @@
     "autoris": "Аўтарызацыя",
     "autorised": "Вы аўтарызаваныя",
     "willregistr": "Зарэгістравацца",
-    "notregistr": "Уваход без регістрацыі",
+    "notregistr": "Без регістрацыі",
     "registr": "Регістрацыя",
     "nickname": "Ваш нікнэйм:",
     "email": "Ваша пошта:",
@@ -13,7 +13,14 @@
     "startgame": "Пачаць гульню",
     "yourprofile": "Асабісты кабінет",
     "play": "Гуляць",
-    "rules": "Правілы"
+    "rules": "Правілы",
+    "min2Sumb": "Мінімум 2 сімвала!",
+    "min8Sumb": "Мінімум 8 сімвалаў!",
+    "requiredField": "Абавязковае поле!",
+    "emailError": "Няверны email адрас!",
+    "loginError": "Няверны лагін!",
+    "passwordError": "Няверны пароль!",
+    "doubleName": "Такое імя ўжо ёсць"
   },
   "gameover": {
     "gameover": "Гульня завершана!",

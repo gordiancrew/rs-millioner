@@ -13,7 +13,14 @@
     "startgame": "Начать игру",
     "yourprofile": "Личный кабинет",
     "play": "Играть",
-    "rules": "Правила"
+    "rules": "Правила",
+    "min2Sumb": "Минимум 2 символа!",
+    "min8Sumb": "Минимум 8 символов!",
+    "requiredField": "Обязательное поле!",
+    "emailError": "Неправильный email адрес!",
+    "loginError": "Неправильный логин!",
+    "passwordError": "Неправильный пароль!",
+    "doubleName": "Такое имя уже есть"
   },
   "gameover": {
     "gameover": "Игра закончена!",

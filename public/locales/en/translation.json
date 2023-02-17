@@ -13,7 +13,14 @@
     "startgame": "Start the game",
     "yourprofile": "Your profile",
     "play": "Play",
-    "rules": "Rules"
+    "rules": "Rules",
+    "min2Sumb": "Minimum 2 characters!",
+    "min8Sumb": "Minimum 8 characters!",
+    "requiredField": "Required field!",
+    "emailError": "Wrong email address!",
+    "loginError": "Wrong login!",
+    "passwordError": "Wrong password!",
+    "doubleName": "This name already used"
   },
   "gameover": {
     "gameover": "Game over!",
