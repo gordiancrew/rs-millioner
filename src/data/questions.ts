@@ -1287,22 +1287,22 @@ export const dataQuestionRu = [
     ],
     [
         {
-            ask: "Что означает аббревиатура JS в программировании?",
+            ask: "Какой из этих HTML элементов строчный?",
             ans: [
                 {
-                    content: "JavaScript",
+                    content: "Input",
                     check: CheckAnswer.right
                 },
                 {
-                    content: "Jason Statham ",
+                    content: "Div",
                     check: CheckAnswer.second
                 },
                 {
-                    content: "Just second",
+                    content: "Ol",
                     check: CheckAnswer.falsy
                 },
                 {
-                    content: "Job sweat",
+                    content: "Li",
                     check: CheckAnswer.falsy
                 }
 
@@ -1310,22 +1310,22 @@ export const dataQuestionRu = [
 
         },
         {
-            ask: "Что такое JavaScript?",
+            ask: "Какой из этих HTML элементов блочный?",
             ans: [
                 {
-                    content: "Язык программирования",
+                    content: "form",
                     check: CheckAnswer.right
                 },
                 {
-                    content: "Язык народов Византийской Империи",
+                    content: "button",
                     check: CheckAnswer.second
                 },
                 {
-                    content: "Наскальные царапания",
+                    content: "label",
                     check: CheckAnswer.falsy
                 },
                 {
-                    content: "Блюдо",
+                    content: "a",
                     check: CheckAnswer.falsy
                 }
 
@@ -1333,22 +1333,22 @@ export const dataQuestionRu = [
 
         },
         {
-            ask: "Где используется JavaScript",
+            ask: "К какому типу относится элемент <script>",
             ans: [
                 {
-                    content: "В программировании",
+                    content: "Строчный",
                     check: CheckAnswer.right
                 },
                 {
-                    content: "В тюремной лексике ",
+                    content: "Блочный",
                     check: CheckAnswer.second
                 },
                 {
-                    content: "В игре в карты",
+                    content: "Не строчный и не блочный",
                     check: CheckAnswer.falsy
                 },
                 {
-                    content: "Только в кино ",
+                    content: "Блочно-строчный",
                     check: CheckAnswer.falsy
                 }
 
@@ -1358,22 +1358,22 @@ export const dataQuestionRu = [
     ],
     [
         {
-            ask: "Как расшифровывается HTML",
+            ask: "Какое значение не может иметь свойство display в CSS",
             ans: [
                 {
-                    content: "HyperText Markup Language",
+                    content: "invisible",
                     check: CheckAnswer.right
                 },
                 {
-                    content: "HyperText My Love",
+                    content: "table-row",
                     check: CheckAnswer.second
                 },
                 {
-                    content: "Hot Top Music List",
+                    content: "grid",
                     check: CheckAnswer.falsy
                 },
                 {
-                    content: "Header Title Margin Li",
+                    content: "contents",
                     check: CheckAnswer.falsy
                 }
 
@@ -1381,22 +1381,22 @@ export const dataQuestionRu = [
 
         },
         {
-            ask: "Что такое CSS",
+            ask: "Какое значение  может иметь свойство display в CSS",
             ans: [
                 {
-                    content: "Cascading Style Sheets",
+                    content: "ruby",
                     check: CheckAnswer.right
                 },
                 {
-                    content: "Cool Style Sheets",
+                    content: "python",
                     check: CheckAnswer.second
                 },
                 {
-                    content: "Country School Shoes",
+                    content: "java",
                     check: CheckAnswer.falsy
                 },
                 {
-                    content: "Cazhetsja Stili Sleteli",
+                    content: "c+",
                     check: CheckAnswer.falsy
                 }
 
@@ -1404,22 +1404,22 @@ export const dataQuestionRu = [
 
         },
         {
-            ask: "Что такое js движок",
+            ask: "Какое значение свойства display визуально удаляет бокс элемента и подменяет его содержимым в CSS?",
             ans: [
                 {
-                    content: "Программа, обрабатывающая JavaScript",
+                    content: "contents",
                     check: CheckAnswer.right
                 },
                 {
-                    content: "Программист, пишущий код",
+                    content: "none",
                     check: CheckAnswer.second
                 },
                 {
-                    content: "Новый двигатель BMW",
+                    content: "block",
                     check: CheckAnswer.falsy
                 },
                 {
-                    content: "Вечеринка в стиле IT",
+                    content: "inline",
                     check: CheckAnswer.falsy
                 }
 
@@ -1429,22 +1429,22 @@ export const dataQuestionRu = [
     ],
     [
         {
-            ask: "Какого типа данных нет в JS",
+            ask: "Что такое git",
             ans: [
                 {
-                    content: "Char",
+                    content: "Распределенная система управления версиями",
                     check: CheckAnswer.right
                 },
                 {
-                    content: "Number",
+                    content: "Интегрированная среда разработки",
                     check: CheckAnswer.second
                 },
                 {
-                    content: "Boolean",
+                    content: "Удаленное хранилище проектов",
                     check: CheckAnswer.falsy
                 },
                 {
-                    content: "Object",
+                    content: "Программа настройки js",
                     check: CheckAnswer.falsy
                 }
 
@@ -1452,44 +1452,44 @@ export const dataQuestionRu = [
 
         },
         {
-            ask: "Какой тип данных есть в JS",
+            ask: "Какая команда в git служит для отправки состояния на удаленный репозиторий?",
             ans: [
                 {
-                    content: "Symbol",
+                    content: "push",
                     check: CheckAnswer.right
                 },
                 {
-                    content: "Char",
+                    content: "pull",
                     check: CheckAnswer.second
                 },
                 {
-                    content: "Integer",
+                    content: "set",
                     check: CheckAnswer.falsy
                 },
                 {
-                    content: "Mix",
+                    content: "patch",
                     check: CheckAnswer.falsy
                 }
 
             ]
 
         }, {
-            ask: "Какой тип данных есть в JS",
+            ask: "Как называется точка сохранения в git?",
             ans: [
                 {
-                    content: "BigInt",
+                    content: "commit",
                     check: CheckAnswer.right
                 },
                 {
-                    content: "BigFloat",
+                    content: "check",
                     check: CheckAnswer.second
                 },
                 {
-                    content: "BigString",
+                    content: "point",
                     check: CheckAnswer.falsy
                 },
                 {
-                    content: "BigObject",
+                    content: "saver",
                     check: CheckAnswer.falsy
                 }
 
@@ -1499,22 +1499,22 @@ export const dataQuestionRu = [
     ],
     [
         {
-            ask: "Какое обьявление функций не существуют в JS",
+            ask: "Какого метода HTTP запроса не бывает?",
             ans: [
                 {
-                    content: "Function Progression",
+                    content: "Update",
                     check: CheckAnswer.right
                 },
                 {
-                    content: "Function Expression",
+                    content: "Patch",
                     check: CheckAnswer.second
                 },
                 {
-                    content: "Function Decloration",
+                    content: "Head",
                     check: CheckAnswer.falsy
                 },
                 {
-                    content: "Arrow Function",
+                    content: "Post",
                     check: CheckAnswer.falsy
                 }
 
@@ -1522,51 +1522,264 @@ export const dataQuestionRu = [
 
         },
         {
-            ask: "Какой оператор не относится к логическим в JS",
+            ask: "Какой код состояния HTTP запроса обозначает ошибку сервера?",
             ans: [
                 {
-                    content: "$",
+                    content: "5XX",
                     check: CheckAnswer.right
                 },
                 {
-                    content: "&&",
+                    content: "3XX",
                     check: CheckAnswer.second
                 },
                 {
-                    content: "||",
+                    content: "4XX",
                     check: CheckAnswer.falsy
                 },
                 {
-                    content: "!",
+                    content: "2XX",
                     check: CheckAnswer.falsy
                 }
 
             ]
 
         }, {
-            ask: "Через какое слово нельзя обьявить переменную в JS",
+            ask: "Как расшифровывается HTTP?",
+            ans: [
+                {
+                    content: "HyperText Transfer Protocol",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "HyperText Transfer Pool",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "Hyper Transfer Text Process",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "Hyper Team Test Project",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        }
+
+    ],
+   
+
+     [
+        {
+            ask: "Какое из этих слов является зарезервированным в JS?",
+            ans: [
+                {
+                    content: "public",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "undefined",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "react",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "news",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        },
+        {
+            ask: "Какое из этих слов не является зарезервированным в JS?",
+            ans: [
+                {
+                    content: "NaN",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "null",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "switch",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "try",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        },
+        {
+            ask: "Какое из этих слов не зарезервировано в JS?",
             ans: [
                 {
                     content: "get",
                     check: CheckAnswer.right
                 },
                 {
-                    content: "const",
+                    content: "void",
                     check: CheckAnswer.second
                 },
                 {
-                    content: "var",
+                    content: "else",
                     check: CheckAnswer.falsy
                 },
                 {
-                    content: "let",
+                    content: "with",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+        }
+    ],
+
+    [
+        {
+            ask: "Какой принцип реализует структура данных \"Стек\"?",
+            ans: [
+                {
+                    content: "LIFO",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "FIFO",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "FIFA",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "IIFH",
                     check: CheckAnswer.falsy
                 }
 
             ]
 
-        }
+        },
+        {
+            ask: "Цепочечная структура данных, где каждый узел состоит из двух частей: данных узла и указателя на следующий узел это?",
+            ans: [
+                {
+                    content: "Связный список",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "Стек",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "Сет",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "Дерево",
+                    check: CheckAnswer.falsy
+                }
 
+            ]
+
+        },
+        {
+            ask: "Какая особенность у структуры данных \"Set\"",
+            ans: [
+                {
+                    content: "Содержит уникальные значения",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "Является упорядоченной структурой",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "Реализует принцип LIFO",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "Содержит только числа",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+        }
+    ],
+    [
+        {
+            ask: "Каким способом нельзя проверить наличие свойств обьекта?",
+            ans: [
+                {
+                    content: "Используя оператор \"is\"",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "Используя оператор \"in\"",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: " Используя индексную нотация массива",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "Используяь метод hasOwnProperty",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        },
+        {
+            ask: "Что из этого не является примером работы с асинхронным кодом ?",
+            ans: [
+                {
+                    content: "Arrow function",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "Promises.",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "Async/await.",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "Callbacks",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        },
+        {
+            ask: "Прием создания функции, способной запоминать ранее вычисленные результаты или значения это?",
+            ans: [
+                {
+                    content: "Мемоизация",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "Деструктуризация",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "Алгоритмизация",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "Структуризация",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+        }
     ],
     [
         {
@@ -1708,6 +1921,7 @@ export const dataQuestionRu = [
 
             ]
         }
-    ]
+    ],
+    
 
 ]
