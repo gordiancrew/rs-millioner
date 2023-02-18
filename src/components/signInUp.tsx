@@ -4,6 +4,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 import LangButtons from "../utils/lang-buttons";
+import { encryptUserData, checkUserPassword } from "../helpers/encrypt-userdata";
 import style from "../styles/signinup.module.scss";
 import st from "../styles/start.module.scss";
 
@@ -15,7 +16,7 @@ interface ISignUp {
 
 export const SignInUp = ({t, changeAutoris, changeLng}: ISignUp) => {
   const [checkUserName, setCheckUserName] = useState(false);
-  const [checkUserPassword, setCheckUserPassword] = useState(false);
+  const [checkUserPassw, setCheckUserPassw] = useState(false);
   const [stateForm, setStateForm] = useState(true);
   const [doubleName, setDoubleName] = useState(false);
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ export const SignInUp = ({t, changeAutoris, changeLng}: ISignUp) => {
     setCheckUserName(!checkUserName);
   }
   function changeCheckPassword() {
-    setCheckUserPassword(!checkUserPassword);
+    setCheckUserPassw(!checkUserPassw);
   }
   function checkDoubleName() {
     setDoubleName(!doubleName);
@@ -48,11 +49,13 @@ export const SignInUp = ({t, changeAutoris, changeLng}: ISignUp) => {
         .min(8, t("signinup.min8Sumb"))
         .required(t("signinup.requiredField")),
     }),
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
       const user = localStorage.getItem(values.name);
       if (user) {
         const userData = JSON.parse(user);
-        if (userData.password !== values.password) {
+        const checkPass = await checkUserPassword(values.password, userData.password);
+        console.log(checkPass);
+        if (!checkPass) {
           changeCheckPassword();
         } else {
           enterMenu();
@@ -96,7 +99,7 @@ export const SignInUp = ({t, changeAutoris, changeLng}: ISignUp) => {
       if (keysUser.includes(newUserName)) {
         checkDoubleName();
       } else {
-        localStorage.setItem(values.name, JSON.stringify(values));
+        encryptUserData(values);
         enterMenu();
         changeAutoris();
         localStorage.currentName=values.name
@@ -148,7 +151,7 @@ export const SignInUp = ({t, changeAutoris, changeLng}: ISignUp) => {
                 {formikA.errors.password}
               </div>
             ) : null}
-            {checkUserPassword ? (
+            {checkUserPassw ? (
               <div className={style.error} style={{ top: "50vh" }}>
                 {t("signinup.passwordError")}
               </div>
