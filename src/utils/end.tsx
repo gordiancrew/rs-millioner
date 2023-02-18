@@ -31,7 +31,7 @@ function End(props: IEnd) {
     winnerSum = 0;
   } else if (props.level < 10) {
     winnerSum = 1000;
-  } else if (props.level < 15) {
+  } else if (props.level < 14) {
     winnerSum = 32000;
   } else {
     winnerSum = 1000000;
