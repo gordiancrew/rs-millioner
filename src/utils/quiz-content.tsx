@@ -42,8 +42,13 @@ export default function QuizContent(props: IQuiz) {
   useEffect(() => {
     props.shuffleArr(boolFalse);
     props.shuffleArr(boolTrue);
+
+    window.speechSynthesis.cancel();
+    let text = props.ask
+    const utterance = new SpeechSynthesisUtterance(text);
+    window.speechSynthesis.speak(utterance);
   }, []);
-  // const navi = useNavigate();
+
   function disableAnswBtns() {
     setStateAnswBtns(!stateAnswBtns);
   }
@@ -121,8 +126,8 @@ export default function QuizContent(props: IQuiz) {
                 props.anses[0].check === CheckAnswer.right
                   ? props.rightAnswerStyle
                   : props.anses[0].check === CheckAnswer.falsy
-                  ? props.fiftyFiftyStyle
-                  : {}
+                    ? props.fiftyFiftyStyle
+                    : {}
               }
               onClick={(e) => questHundler(props.anses[0].check, e)}
               className={cl.line_hexagon__content}
@@ -145,8 +150,8 @@ export default function QuizContent(props: IQuiz) {
                 props.anses[1].check === CheckAnswer.right
                   ? props.rightAnswerStyle
                   : props.anses[1].check === CheckAnswer.falsy
-                  ? props.fiftyFiftyStyle
-                  : {}
+                    ? props.fiftyFiftyStyle
+                    : {}
               }
               onClick={(e) => questHundler(props.anses[1].check, e)}
               className={cl.line_hexagon__content}
@@ -172,8 +177,8 @@ export default function QuizContent(props: IQuiz) {
                 props.anses[2].check === CheckAnswer.right
                   ? props.rightAnswerStyle
                   : props.anses[2].check === CheckAnswer.falsy
-                  ? props.fiftyFiftyStyle
-                  : {}
+                    ? props.fiftyFiftyStyle
+                    : {}
               }
               onClick={(e) => questHundler(props.anses[2].check, e)}
               className={cl.line_hexagon__content}
@@ -196,8 +201,8 @@ export default function QuizContent(props: IQuiz) {
                 props.anses[3].check === CheckAnswer.right
                   ? props.rightAnswerStyle
                   : props.anses[3].check === CheckAnswer.falsy
-                  ? props.fiftyFiftyStyle
-                  : {}
+                    ? props.fiftyFiftyStyle
+                    : {}
               }
               onClick={(e) => questHundler(props.anses[3].check, e)}
               className={cl.line_hexagon__content}
