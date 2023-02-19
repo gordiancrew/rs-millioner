@@ -1923,5 +1923,5 @@ export const dataQuestionRu = [
         }
     ],
     
-
+ 
 ]
