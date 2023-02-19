@@ -1287,22 +1287,22 @@ export const dataQuestionRu = [
     ],
     [
         {
-            ask: "Что означает аббревиатура JS в программировании?",
+            ask: "Каким будет результат выполнения операции 1 / 0 ?",
             ans: [
                 {
-                    content: "JavaScript",
+                    content: "Infinity",
                     check: CheckAnswer.right
                 },
                 {
-                    content: "Jason Statham ",
+                    content: "NaN",
                     check: CheckAnswer.second
                 },
                 {
-                    content: "Just second",
+                    content: "undefined",
                     check: CheckAnswer.falsy
                 },
                 {
-                    content: "Job sweat",
+                    content: "Выведет ошибку",
                     check: CheckAnswer.falsy
                 }
 
@@ -1310,22 +1310,22 @@ export const dataQuestionRu = [
 
         },
         {
-            ask: "Что такое JavaScript?",
+            ask: "Оператор нахождения остатка от деления в JavaScript - это:",
             ans: [
                 {
-                    content: "Язык программирования",
+                    content: "%",
                     check: CheckAnswer.right
                 },
                 {
-                    content: "Язык народов Византийской Империи",
+                    content: "/",
                     check: CheckAnswer.second
                 },
                 {
-                    content: "Наскальные царапания",
+                    content: "**",
                     check: CheckAnswer.falsy
                 },
                 {
-                    content: "Блюдо",
+                    content: "--",
                     check: CheckAnswer.falsy
                 }
 
@@ -1333,22 +1333,22 @@ export const dataQuestionRu = [
 
         },
         {
-            ask: "Где используется JavaScript",
+            ask: "Какое значение будет содержать свойство length при вызове [1,2,3,4,5].length?",
             ans: [
                 {
-                    content: "В программировании",
+                    content: "5",
                     check: CheckAnswer.right
                 },
                 {
-                    content: "В тюремной лексике ",
+                    content: "0",
                     check: CheckAnswer.second
                 },
                 {
-                    content: "В игре в карты",
+                    content: "4",
                     check: CheckAnswer.falsy
                 },
                 {
-                    content: "Только в кино ",
+                    content: "undefined",
                     check: CheckAnswer.falsy
                 }
 
@@ -1358,22 +1358,22 @@ export const dataQuestionRu = [
     ],
     [
         {
-            ask: "Как расшифровывается HTML",
+            ask: "Какие значения, как результат, нельзя получить при проверке типа данных с помощью typeof?",
             ans: [
                 {
-                    content: "HyperText Markup Language",
+                    content: "NaN",
                     check: CheckAnswer.right
                 },
                 {
-                    content: "HyperText My Love",
+                    content: "null",
                     check: CheckAnswer.second
                 },
                 {
-                    content: "Hot Top Music List",
+                    content: "bigint",
                     check: CheckAnswer.falsy
                 },
                 {
-                    content: "Header Title Margin Li",
+                    content: "string",
                     check: CheckAnswer.falsy
                 }
 
@@ -1381,22 +1381,22 @@ export const dataQuestionRu = [
 
         },
         {
-            ask: "Что такое CSS",
+            ask: "Чему будет равен результат вычисления композиции операций (8 / 2 + 5 - -3 / 2)?",
             ans: [
                 {
-                    content: "Cascading Style Sheets",
+                    content: "10.5",
                     check: CheckAnswer.right
                 },
                 {
-                    content: "Cool Style Sheets",
+                    content: "7.5",
                     check: CheckAnswer.second
                 },
                 {
-                    content: "Country School Shoes",
+                    content: "5",
                     check: CheckAnswer.falsy
                 },
                 {
-                    content: "Cazhetsja Stili Sleteli",
+                    content: "13",
                     check: CheckAnswer.falsy
                 }
 
@@ -1404,22 +1404,22 @@ export const dataQuestionRu = [
 
         },
         {
-            ask: "Что такое js движок",
+            ask: "Какой результат вызова функции Math.pow(2, 4)?",
             ans: [
                 {
-                    content: "Программа, обрабатывающая JavaScript",
+                    content: "16",
                     check: CheckAnswer.right
                 },
                 {
-                    content: "Программист, пишущий код",
+                    content: "32",
                     check: CheckAnswer.second
                 },
                 {
-                    content: "Новый двигатель BMW",
+                    content: "8",
                     check: CheckAnswer.falsy
                 },
                 {
-                    content: "Вечеринка в стиле IT",
+                    content: "4",
                     check: CheckAnswer.falsy
                 }
 
@@ -1429,22 +1429,22 @@ export const dataQuestionRu = [
     ],
     [
         {
-            ask: "Какого типа данных нет в JS",
+            ask: "С какой целью используется символ \n?",
             ans: [
                 {
-                    content: "Char",
+                    content: "Перевод строки",
                     check: CheckAnswer.right
                 },
                 {
-                    content: "Number",
+                    content: "Деление",
                     check: CheckAnswer.second
                 },
                 {
-                    content: "Boolean",
+                    content: "Спецсимвол одиночной кавычки",
                     check: CheckAnswer.falsy
                 },
                 {
-                    content: "Object",
+                    content: "Умножение",
                     check: CheckAnswer.falsy
                 }
 
@@ -1452,44 +1452,44 @@ export const dataQuestionRu = [
 
         },
         {
-            ask: "Какой тип данных есть в JS",
+            ask: "Каким образом можно проверить, кратно ли число a числу b?",
             ans: [
                 {
-                    content: "Symbol",
+                    content: "a % b === 0",
                     check: CheckAnswer.right
                 },
                 {
-                    content: "Char",
+                    content: "b % a === 0",
                     check: CheckAnswer.second
                 },
                 {
-                    content: "Integer",
+                    content: "a / b === 0",
                     check: CheckAnswer.falsy
                 },
                 {
-                    content: "Mix",
+                    content: "a % b > 0",
                     check: CheckAnswer.falsy
                 }
 
             ]
 
         }, {
-            ask: "Какой тип данных есть в JS",
+            ask: "Каков будет результат вызова Math.abs(Math.floor(-46.867));?",
             ans: [
                 {
-                    content: "BigInt",
+                    content: "47",
                     check: CheckAnswer.right
                 },
                 {
-                    content: "BigFloat",
+                    content: "46",
                     check: CheckAnswer.second
                 },
                 {
-                    content: "BigString",
+                    content: "-46",
                     check: CheckAnswer.falsy
                 },
                 {
-                    content: "BigObject",
+                    content: "NaN",
                     check: CheckAnswer.falsy
                 }
 
@@ -1499,22 +1499,22 @@ export const dataQuestionRu = [
     ],
     [
         {
-            ask: "Какое обьявление функций не существуют в JS",
+            ask: "Выберите верную запись стрелочной функции show:",
             ans: [
                 {
-                    content: "Function Progression",
+                    content: "const show = () => {}",
                     check: CheckAnswer.right
                 },
                 {
-                    content: "Function Expression",
+                    content: "function show() {}",
                     check: CheckAnswer.second
                 },
                 {
-                    content: "Function Decloration",
+                    content: "const show = () {}",
                     check: CheckAnswer.falsy
                 },
                 {
-                    content: "Arrow Function",
+                    content: "const show = function() {}",
                     check: CheckAnswer.falsy
                 }
 
@@ -1522,44 +1522,44 @@ export const dataQuestionRu = [
 
         },
         {
-            ask: "Какой оператор не относится к логическим в JS",
+            ask: "Каким будет результат выполнения кода '\nHey!'[1]?",
             ans: [
                 {
-                    content: "$",
+                    content: "H",
                     check: CheckAnswer.right
                 },
                 {
-                    content: "&&",
+                    content: "\n",
                     check: CheckAnswer.second
                 },
                 {
-                    content: "||",
+                    content: "n",
                     check: CheckAnswer.falsy
                 },
                 {
-                    content: "!",
+                    content: "e",
                     check: CheckAnswer.falsy
                 }
 
             ]
 
         }, {
-            ask: "Через какое слово нельзя обьявить переменную в JS",
+            ask: "Каким будет результат выполнения операции '4' * '9'?",
             ans: [
                 {
-                    content: "get",
+                    content: "число 36",
                     check: CheckAnswer.right
                 },
                 {
-                    content: "const",
+                    content: "строка 49",
                     check: CheckAnswer.second
                 },
                 {
-                    content: "var",
+                    content: "строка 36",
                     check: CheckAnswer.falsy
                 },
                 {
-                    content: "let",
+                    content: "SyntaxError",
                     check: CheckAnswer.falsy
                 }
 
@@ -1570,22 +1570,22 @@ export const dataQuestionRu = [
     ],
     [
         {
-            ask: "Какую область видимости имеет переменная обьявленная через слово let",
+            ask: "Каким будет результат выполнения Math.min(10, 222, -5, 0, '-33')?",
             ans: [
                 {
-                    content: "Блочную",
+                    content: "-33",
                     check: CheckAnswer.right
                 },
                 {
-                    content: "Функциональную",
+                    content: "10",
                     check: CheckAnswer.second
                 },
                 {
-                    content: "Строчную",
+                    content: "222",
                     check: CheckAnswer.falsy
                 },
                 {
-                    content: "Програмную",
+                    content: "-5",
                     check: CheckAnswer.falsy
                 }
 
@@ -1593,44 +1593,44 @@ export const dataQuestionRu = [
 
         },
         {
-            ask: "Что обязательно должна иметь конструкция switch в js",
+            ask: "Как в JavaScript можно вызвать функцию myFun?",
             ans: [
                 {
-                    content: "блок case",
+                    content: "myFun()",
                     check: CheckAnswer.right
                 },
                 {
-                    content: "блок default",
+                    content: "function myFun()",
                     check: CheckAnswer.second
                 },
                 {
-                    content: "блок break",
+                    content: "myFun",
                     check: CheckAnswer.falsy
                 },
                 {
-                    content: "блок finally",
+                    content: "function()",
                     check: CheckAnswer.falsy
                 }
 
             ]
 
         }, {
-            ask: "Что из этого является тернарным оператором?",
+            ask: "Каков результат выполнения кода 13%5?",
             ans: [
                 {
-                    content: "let res = a ? one : two",
+                    content: "3",
                     check: CheckAnswer.right
                 },
                 {
-                    content: "let res = a ? one / two",
+                    content: "~0.38",
                     check: CheckAnswer.second
                 },
                 {
-                    content: "let res = a ? one",
+                    content: "2.6",
                     check: CheckAnswer.falsy
                 },
                 {
-                    content: "let res = a ! one : two",
+                    content: "2",
                     check: CheckAnswer.falsy
                 }
 
@@ -1641,22 +1641,22 @@ export const dataQuestionRu = [
     ],
     [
         {
-            ask: "какой из методов удаляет последний элемент из массива и возвращает его?",
+            ask: "Каким типом данных является Infinity (бесконечность)?",
             ans: [
                 {
-                    content: "pop",
+                    content: "number",
                     check: CheckAnswer.right
                 },
                 {
-                    content: "push ",
+                    content: "undefined",
                     check: CheckAnswer.second
                 },
                 {
-                    content: "shift",
+                    content: "boolen",
                     check: CheckAnswer.falsy
                 },
                 {
-                    content: "unshift",
+                    content: "string",
                     check: CheckAnswer.falsy
                 }
 
@@ -1664,22 +1664,22 @@ export const dataQuestionRu = [
 
         },
         {
-            ask: "Что делает метод shift с массивом?",
+            ask: "Каким будет результат выполнения операции 4 * 'five'?",
             ans: [
                 {
-                    content: "Удаляет первый элемент",
+                    content: "NaN",
                     check: CheckAnswer.right
                 },
                 {
-                    content: "удаляет последний элемент",
+                    content: "строка 4five",
                     check: CheckAnswer.second
                 },
                 {
-                    content: "Добавляет первый элемент",
+                    content: "число 20",
                     check: CheckAnswer.falsy
                 },
                 {
-                    content: "Добавляет элемент в конец",
+                    content: "SyntaxError",
                     check: CheckAnswer.falsy
                 }
 
@@ -1687,22 +1687,92 @@ export const dataQuestionRu = [
 
         },
         {
-            ask: "Как нельзя объявить массив",
+            ask: "NaN имеет числовой тип. Каким будет результат выражения (NaN + 101)?",
             ans: [
                 {
-                    content: "let arr= [Array]",
+                    content: "NaN",
                     check: CheckAnswer.right
                 },
                 {
-                    content: "let arr= new Array() ",
+                    content: "0",
                     check: CheckAnswer.second
                 },
                 {
-                    content: "let arr=[]",
+                    content: "101",
                     check: CheckAnswer.falsy
                 },
                 {
-                    content: "let arr=[3,4,5] ",
+                    content: "102",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+        }
+    ],
+    [
+        {
+            ask: "Какие значения выведутся в консоль в цикле let i = 0; while (i <= 3) {console.log(i); i++;}?",
+            ans: [
+                {
+                    content: "0, 1, 2, 3",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "0, 1, 2",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "0, 1, 2, 3, 4",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "1, 2, 3, 4",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        },
+        {
+            ask: "Если a = true, b = true, какое выражение вернет true:",
+            ans: [
+                {
+                    content: "a && b",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "!a && b",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "a && !b",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "!(a && b)",
+                    check: CheckAnswer.falsy
+                }
+
+            ]
+
+        },
+        {
+            ask: "Что будет в результате выполнения кода: let a += 10;",
+            ans: [
+                {
+                    content: "Ошибка Uncaught SyntaxError:...",
+                    check: CheckAnswer.right
+                },
+                {
+                    content: "a присвоится значение 0",
+                    check: CheckAnswer.second
+                },
+                {
+                    content: "a присвоится значение 10",
+                    check: CheckAnswer.falsy
+                },
+                {
+                    content: "a присвоится значение 20",
                     check: CheckAnswer.falsy
                 }
 
