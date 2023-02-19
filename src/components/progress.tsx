@@ -1,15 +1,21 @@
 
 
 function Progress() {
+
+	function speakText() {
+		window.speechSynthesis.cancel();
+		const text = 'Привет Сержук и Андрик. Скоро озвучим наш проект не ссыте! ';
+		const utterance = new SpeechSynthesisUtterance(text);
+		window.speechSynthesis.speak(utterance);
+	}
 	return (
-		<div>
-			<h1>Progress</h1>
-			<p>This page shows the progress of the current game.
-                Example: 
-                <a href=" https://www.zdesvoprosy.ru/wp-content/uploads/2018/02/khsm.png">
-                    THIS IMAGE
-                </a>
-            </p>
+		<div style={{
+			widows: '100vw', height: '100vh', display: 'flex',
+			justifyContent: 'center', alignItems: 'center'
+		}} >
+			<div className="wrapper">
+				<button onClick={speakText} >Прослушать текст</button>
+			</div>
 		</div>
 	);
 }
