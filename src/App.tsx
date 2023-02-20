@@ -6,18 +6,19 @@ import Profile from "./components/profile";
 import Question from "./components/question";
 import Start from "./components/start";
 import { useTranslation } from "react-i18next";
-
-
+import Rules from "./utils/rules";
 
 function App() {
   const { t, i18n } = useTranslation();
   const changeLanguage = (language: string) => {
     i18n.changeLanguage(language);
     localStorage.setItem("languagegame", language);
+
   }
   return (
     <div>
       <Routes>
+
         <Route path="/" element={<Home 
                                   t={t}
                                   changeLng={changeLanguage}
@@ -28,11 +29,12 @@ function App() {
                                       t={t}
                                     />} />
 
-        <Route path="/question" element={<Question t={t}/>} />
+
+        <Route path="/question" element={<Question t={t} />} />
+        <Route path="rules" element={<Rules t={t} />} />
       </Routes>
     </div>
   );
 }
 
 export default App;
- 

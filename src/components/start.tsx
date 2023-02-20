@@ -8,14 +8,16 @@ interface IStart {
   t: Function;
 }
 
+
 function Start({changeLng, t}: IStart) {
   const[login,setLogin]=useState('')
   function logout(){
     localStorage.removeItem('currentName')
     setLogin(login + '1')
   }
-  
+
   return (
+
     <div className='startWrapper'>
        {
         localStorage.currentName ? (
@@ -31,7 +33,7 @@ function Start({changeLng, t}: IStart) {
        {
         localStorage.currentName ? (
           <div onClick={logout}>
-          <HexagonButton content={t("signinup.logout")} link="/home" />
+          <HexagonButton content={t("signinup.logout") style={{ display: "contents" }}} link="/home" />
           </div>
         ) : null
       }
@@ -40,8 +42,10 @@ function Start({changeLng, t}: IStart) {
           <HexagonButton content={t("signinup.login")} link="/" />
         ) : null
       }
+
       <HexagonButton content={t("signinup.play")} link="/question" />
-      <HexagonButton content={t("signinup.rules")} link="/home" />
+      <HexagonButton content={t("signinup.rules")} link="/rules" />
+      
     </div>
   );
 }
