@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import { useNavigate } from "react-router-dom";
 import useSound from "use-sound";
 import { booleanFalse, booleanTrue } from "../data/boolean";
 import cl from "../styles/quiz.module.scss";
@@ -25,13 +24,9 @@ interface IQuiz {
   shuffleArr: Function;
   booleanStyle: object;
   setBooleanStyle: Function;
-  // play:Function
 }
 
 export default function QuizContent(props: IQuiz) {
-  // useEffect(()=>{props.play()},[])
-
-  // const [playRightAnswer] = useSound(musicUrlEnum.rightAnswer);
   const [playBadAnswer] = useSound(musicUrlEnum.badAnswer);
   const [playCurrentAnswer] = useSound(musicUrlEnum.currentAnswer);
   const [playNextLevel] = useSound(musicUrlEnum.nextLevel);
@@ -46,7 +41,15 @@ export default function QuizContent(props: IQuiz) {
     window.speechSynthesis.cancel();
     let text = props.ask
     const utterance = new SpeechSynthesisUtterance(text);
+    if (localStorage.languagegame === 'ru') {
+      utterance.voice = window.speechSynthesis.getVoices()[17]
+    } else if (localStorage.languagegame === 'en') {
+      utterance.voice = window.speechSynthesis.getVoices()[3]
+    } else if (localStorage.languagegame === 'bl') {
+      utterance.voice = window.speechSynthesis.getVoices()[17]
+    }
     window.speechSynthesis.speak(utterance);
+
   }, []);
 
   function disableAnswBtns() {
