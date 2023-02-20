@@ -8,7 +8,7 @@ export const booleanTrue = [
 
 export const booleanFalse = [
 
-    "!!\'\'",
+    "!!''",
     "!!false",
     "!!null",
     "!!undefined",

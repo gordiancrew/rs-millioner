@@ -1,7 +1,9 @@
 {
   "signinup": {
     "autoris": "Authorization",
-    "autorised": "You are logged in",
+    "autorised": "Are you logged in as",
+    "login": "Log in",
+    "logout": "Log out",
     "willregistr": "Register",
     "notregistr": "Without registration",
     "registr": "Registration",

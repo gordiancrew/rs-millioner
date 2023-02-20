@@ -5,7 +5,6 @@ import Profile from "./components/profile";
 
 import Question from "./components/question";
 import Start from "./components/start";
-import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
 
@@ -16,23 +15,17 @@ function App() {
     i18n.changeLanguage(language);
     localStorage.setItem("languagegame", language);
   }
-  const [autorisation, setAutorisation] = useState(false);
-  function changeAutoris() {
-    setAutorisation(!autorisation);
-  }
   return (
     <div>
       <Routes>
         <Route path="/" element={<Home 
-                                  t={t} 
-                                  changeAutoris={changeAutoris} 
+                                  t={t}
                                   changeLng={changeLanguage}
                                  />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/home" element={<Start 
                                       changeLng={changeLanguage} 
-                                      t={t} 
-                                      autorisation={autorisation}
+                                      t={t}
                                     />} />
 
         <Route path="/question" element={<Question t={t}/>} />
