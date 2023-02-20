@@ -1,4 +1,10 @@
-function LangButtons({changeLng}: {changeLng: Function}) {
+interface ILanBut {
+    changeLng: Function;
+    onoffvoice: Function;
+    hidebutton: boolean;
+}
+
+function LangButtons({changeLng, onoffvoice, hidebutton}: ILanBut) {
     const buttonsData = [
         {name: 'en', content: 'EN'},
         {name: 'bl', content: 'BL'},
@@ -21,6 +27,7 @@ function LangButtons({changeLng}: {changeLng: Function}) {
     return (
         <div>
             {buttons}
+            {hidebutton ? (<button onClick={onoffvoice()}>Vc</button>) : null}
         </div>
     )
 }

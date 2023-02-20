@@ -6,9 +6,10 @@ import LangButtons from "../utils/lang-buttons";
 interface IStart {
   changeLng: Function;
   t: Function;
+  onoffvoice: Function;
 }
 
-function Start({changeLng, t}: IStart) {
+function Start({changeLng, t, onoffvoice}: IStart) {
   const[login,setLogin]=useState('')
   function logout(){
     localStorage.removeItem('currentName')
@@ -22,7 +23,7 @@ function Start({changeLng, t}: IStart) {
          <div className="autorName">{`${t("signinup.autorised")} "${localStorage.currentName}`}</div>
         ) : null
       }
-      <LangButtons changeLng={changeLng} />
+      <LangButtons changeLng={changeLng} onoffvoice={onoffvoice} hidebutton={true} />
       {
         localStorage.currentName ? (
           <HexagonButton content={t("signinup.yourprofile")} link="/profile" />

@@ -24,6 +24,7 @@ interface IQuiz {
   shuffleArr: Function;
   booleanStyle: object;
   setBooleanStyle: Function;
+  selectvoice: boolean;
 }
 
 export default function QuizContent(props: IQuiz) {
@@ -38,17 +39,19 @@ export default function QuizContent(props: IQuiz) {
     props.shuffleArr(boolFalse);
     props.shuffleArr(boolTrue);
 
-    window.speechSynthesis.cancel();
-    let text = props.ask
-    const utterance = new SpeechSynthesisUtterance(text);
-    if (localStorage.languagegame === 'ru') {
-      utterance.voice = window.speechSynthesis.getVoices()[17]
-    } else if (localStorage.languagegame === 'en') {
-      utterance.voice = window.speechSynthesis.getVoices()[3]
-    } else if (localStorage.languagegame === 'bl') {
-      utterance.voice = window.speechSynthesis.getVoices()[17]
+    if (props.selectvoice) {
+      window.speechSynthesis.cancel();
+      let text = props.ask
+      const utterance = new SpeechSynthesisUtterance(text);
+      if (localStorage.languagegame === 'ru') {
+        utterance.voice = window.speechSynthesis.getVoices()[17]
+      } else if (localStorage.languagegame === 'en') {
+        utterance.voice = window.speechSynthesis.getVoices()[3]
+      } else if (localStorage.languagegame === 'bl') {
+        utterance.voice = window.speechSynthesis.getVoices()[17]
+      }
+      window.speechSynthesis.speak(utterance);
     }
-    window.speechSynthesis.speak(utterance);
 
   }, []);
 
