@@ -6,37 +6,46 @@ import LangButtons from "../utils/lang-buttons";
 interface IStart {
   changeLng: Function;
   t: Function;
-  autorisation: boolean;
 }
 
-function Start({ changeLng, t, autorisation }: IStart) {
-  const [login, setLogin] = useState("");
-  function logout() {
-    localStorage.removeItem("currentName");
-    setLogin("1");
+
+function Start({changeLng, t}: IStart) {
+  const[login,setLogin]=useState('')
+  function logout(){
+    localStorage.removeItem('currentName')
+    setLogin(login + '1')
   }
 
   return (
-    <div className="startWrapper">
-      {localStorage.currentName ? (
-        <div className="autorName">
-          {'Вы авторизированы как "' + localStorage.currentName + '"'}
-        </div>
-      ) : null}
+
+    <div className='startWrapper'>
+       {
+        localStorage.currentName ? (
+         <div className="autorName">{`${t("signinup.autorised")} "${localStorage.currentName}`}</div>
+        ) : null
+      }
       <LangButtons changeLng={changeLng} />
-      {localStorage.currentName ? (
-        <HexagonButton content={t("signinup.yourprofile")} link="/profile" />
-      ) : null}
-      {!localStorage.currentName ? (
-        <HexagonButton content={t("signinup.autoris")} link="/" />
-      ) : null}
+      {
+        localStorage.currentName ? (
+          <HexagonButton content={t("signinup.yourprofile")} link="/profile" />
+        ) : null
+      }
+       {
+        localStorage.currentName ? (
+          <div onClick={logout}>
+          <HexagonButton content={t("signinup.logout") style={{ display: "contents" }}} link="/home" />
+          </div>
+        ) : null
+      }
+       {
+        !localStorage.currentName? (
+          <HexagonButton content={t("signinup.login")} link="/" />
+        ) : null
+      }
+
       <HexagonButton content={t("signinup.play")} link="/question" />
       <HexagonButton content={t("signinup.rules")} link="/rules" />
-      {localStorage.currentName ? (
-        <div onClick={logout} style={{ display: "contents" }}>
-          <HexagonButton content={t("signinup.logOut")} link="/home" />
-        </div>
-      ) : null}
+      
     </div>
   );
 }

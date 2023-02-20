@@ -10,11 +10,10 @@ import st from "../styles/start.module.scss";
 
 interface ISignUp {
   t: Function;
-  changeAutoris: Function;
   changeLng: Function;
 }
 
-export const SignInUp = ({t, changeAutoris, changeLng}: ISignUp) => {
+export const SignInUp = ({t, changeLng}: ISignUp) => {
   const [checkUserName, setCheckUserName] = useState(false);
   const [checkUserPassw, setCheckUserPassw] = useState(false);
   const [stateForm, setStateForm] = useState(true);
@@ -59,7 +58,6 @@ export const SignInUp = ({t, changeAutoris, changeLng}: ISignUp) => {
           changeCheckPassword();
         } else {
           enterMenu();
-          changeAutoris();
           localStorage.currentName=userData.name
         }
       } else {
@@ -101,7 +99,6 @@ export const SignInUp = ({t, changeAutoris, changeLng}: ISignUp) => {
       } else {
         encryptUserData(values);
         enterMenu();
-        changeAutoris();
         localStorage.currentName=values.name
       }
     },
