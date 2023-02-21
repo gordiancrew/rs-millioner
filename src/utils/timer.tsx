@@ -17,8 +17,6 @@ function Timer(props: ITimer) {
 		if (props.timer > 0 && props.timeOn) {
 			setTimeout(() => props.setTimer((x: number) => x - 1), 1000);
 		}
-	});
-	useEffect(() => {
 		if (props.timer === 0) {
 			setTimeout(
 				() => props.setRightAnswerStyle({ backgroundColor: "blue" }),
@@ -26,7 +24,8 @@ function Timer(props: ITimer) {
 			);
 			setTimeout(() => props.setAnswerShema(questState.end), 4000);
 		}
-	}, [props.timer]);
+	});
+	
 
 	return (
 		<div className={timerStyle.timerBox}>
