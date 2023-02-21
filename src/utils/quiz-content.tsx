@@ -34,13 +34,14 @@ export default function QuizContent(props: IQuiz) {
   const [stateAnswBtns, setStateAnswBtns] = useState(true);
   let boolFalse = booleanFalse;
   let boolTrue = booleanTrue;
+  const {ask, shuffleArr, ...itemProps} = props;
   useEffect(() => {
-    props.shuffleArr(boolFalse);
-    props.shuffleArr(boolTrue);
+    shuffleArr(boolFalse);
+    shuffleArr(boolTrue);
 
     if (sessionStorage.getItem("voice") === null || sessionStorage.getItem("voice") === 'true') {
       window.speechSynthesis.cancel();
-      let text = props.ask
+      let text = ask
       const utterance = new SpeechSynthesisUtterance(text);
       if (localStorage.languagegame === 'ru') {
         utterance.voice = window.speechSynthesis.getVoices()[17]
@@ -51,7 +52,6 @@ export default function QuizContent(props: IQuiz) {
       }
       window.speechSynthesis.speak(utterance);
     }
-
   }, []);
 
   function disableAnswBtns() {
@@ -65,13 +65,13 @@ export default function QuizContent(props: IQuiz) {
     if (stateAnswBtns) {
       playCurrentAnswer();
       let currentElem = e.currentTarget;
-      props.setTimeOn(false);
+      itemProps.setTimeOn(false);
       if (checketQuestion === CheckAnswer.right) {
         currentElem.style.backgroundColor = "yellow";
 
         setTimeout(() => {
           currentElem.style.backgroundColor = "green";
-          props.level !== 4 && props.level !== 9 && props.level !== 14
+          itemProps.level !== 4 && itemProps.level !== 9 && itemProps.level !== 14
             ? playNextLevel()
             : playCircleSum();
         }, 2000);
@@ -82,16 +82,16 @@ export default function QuizContent(props: IQuiz) {
         setTimeout(() => (currentElem.style.backgroundColor = "white"), 2500);
         setTimeout(() => (currentElem.style.backgroundColor = "green"), 2600);
         setTimeout(() => {
-          props.setLevel((x: number) => {
+          itemProps.setLevel((x: number) => {
             currentElem.style.backgroundColor = "white";
-            if (props.level < 14) {
-              props.setFiftyFiftyStyle({});
-              props.setBooleanStyle({ display: "none" });
-              props.setAnswerShema(questState.progress);
-              props.addPoints();
+            if (itemProps.level < 14) {
+              itemProps.setFiftyFiftyStyle({});
+              itemProps.setBooleanStyle({ display: "none" });
+              itemProps.setAnswerShema(questState.progress);
+              itemProps.addPoints();
               return x + 1;
             } else {
-              props.setAnswerShema(questState.end);
+              itemProps.setAnswerShema(questState.end);
               return x;
             }
           });
@@ -103,10 +103,10 @@ export default function QuizContent(props: IQuiz) {
           playBadAnswer();
         }, 2000);
         setTimeout(
-          () => props.setRightAnswerStyle({ backgroundColor: "blue" }),
+          () => itemProps.setRightAnswerStyle({ backgroundColor: "blue" }),
           2000
         );
-        setTimeout(() => props.setAnswerShema(questState.end), 4000);
+        setTimeout(() => itemProps.setAnswerShema(questState.end), 4000);
       }
       disableAnswBtns();
     }
@@ -117,7 +117,7 @@ export default function QuizContent(props: IQuiz) {
         <div className={cl.question_wrapper__horizontLine}></div>
         <div className={cl.question_wrapper__hexagon}>
           <div className={cl.question_content}>
-            <h1>{props.ask}</h1>
+            <h1>{ask}</h1>
           </div>
         </div>
         <div className={cl.question_wrapper__horizontLine}></div>
@@ -128,21 +128,21 @@ export default function QuizContent(props: IQuiz) {
           <div className={cl.line_hexagon}>
             <div
               style={
-                props.anses[0].check === CheckAnswer.right
-                  ? props.rightAnswerStyle
-                  : props.anses[0].check === CheckAnswer.falsy
-                    ? props.fiftyFiftyStyle
+                itemProps.anses[0].check === CheckAnswer.right
+                  ? itemProps.rightAnswerStyle
+                  : itemProps.anses[0].check === CheckAnswer.falsy
+                    ? itemProps.fiftyFiftyStyle
                     : {}
               }
-              onClick={(e) => questHundler(props.anses[0].check, e)}
+              onClick={(e) => questHundler(itemProps.anses[0].check, e)}
               className={cl.line_hexagon__content}
             >
               <h4>
                 <span className={cl.optionLetters}>A:&nbsp;</span>
-                {props.anses[0].content}
+                {itemProps.anses[0].content}
               </h4>
-              <div style={props.booleanStyle} className={cl.bool}>
-                {props.anses[0].check === CheckAnswer.right
+              <div style={itemProps.booleanStyle} className={cl.bool}>
+                {itemProps.anses[0].check === CheckAnswer.right
                   ? boolTrue[0]
                   : boolFalse[0]}
               </div>
@@ -152,21 +152,21 @@ export default function QuizContent(props: IQuiz) {
           <div className={cl.line_hexagon}>
             <div
               style={
-                props.anses[1].check === CheckAnswer.right
-                  ? props.rightAnswerStyle
-                  : props.anses[1].check === CheckAnswer.falsy
-                    ? props.fiftyFiftyStyle
+                itemProps.anses[1].check === CheckAnswer.right
+                  ? itemProps.rightAnswerStyle
+                  : itemProps.anses[1].check === CheckAnswer.falsy
+                    ? itemProps.fiftyFiftyStyle
                     : {}
               }
-              onClick={(e) => questHundler(props.anses[1].check, e)}
+              onClick={(e) => questHundler(itemProps.anses[1].check, e)}
               className={cl.line_hexagon__content}
             >
               <h4>
                 <span className={cl.optionLetters}>B:&nbsp;</span>
-                {props.anses[1].content}
+                {itemProps.anses[1].content}
               </h4>
-              <div style={props.booleanStyle} className={cl.bool}>
-                {props.anses[1].check === CheckAnswer.right
+              <div style={itemProps.booleanStyle} className={cl.bool}>
+                {itemProps.anses[1].check === CheckAnswer.right
                   ? boolTrue[0]
                   : boolFalse[1]}
               </div>
@@ -179,21 +179,21 @@ export default function QuizContent(props: IQuiz) {
           <div className={cl.line_hexagon}>
             <div
               style={
-                props.anses[2].check === CheckAnswer.right
-                  ? props.rightAnswerStyle
-                  : props.anses[2].check === CheckAnswer.falsy
-                    ? props.fiftyFiftyStyle
+                itemProps.anses[2].check === CheckAnswer.right
+                  ? itemProps.rightAnswerStyle
+                  : itemProps.anses[2].check === CheckAnswer.falsy
+                    ? itemProps.fiftyFiftyStyle
                     : {}
               }
-              onClick={(e) => questHundler(props.anses[2].check, e)}
+              onClick={(e) => questHundler(itemProps.anses[2].check, e)}
               className={cl.line_hexagon__content}
             >
               <h4>
                 <span className={cl.optionLetters}>C:&nbsp;</span>
-                {props.anses[2].content}
+                {itemProps.anses[2].content}
               </h4>
-              <div style={props.booleanStyle} className={cl.bool}>
-                {props.anses[2].check === CheckAnswer.right
+              <div style={itemProps.booleanStyle} className={cl.bool}>
+                {itemProps.anses[2].check === CheckAnswer.right
                   ? boolTrue[0]
                   : boolFalse[2]}
               </div>
@@ -203,21 +203,21 @@ export default function QuizContent(props: IQuiz) {
           <div className={cl.line_hexagon}>
             <div
               style={
-                props.anses[3].check === CheckAnswer.right
-                  ? props.rightAnswerStyle
-                  : props.anses[3].check === CheckAnswer.falsy
-                    ? props.fiftyFiftyStyle
+                itemProps.anses[3].check === CheckAnswer.right
+                  ? itemProps.rightAnswerStyle
+                  : itemProps.anses[3].check === CheckAnswer.falsy
+                    ? itemProps.fiftyFiftyStyle
                     : {}
               }
-              onClick={(e) => questHundler(props.anses[3].check, e)}
+              onClick={(e) => questHundler(itemProps.anses[3].check, e)}
               className={cl.line_hexagon__content}
             >
               <h4>
                 <span className={cl.optionLetters}>D:&nbsp;</span>
-                {props.anses[3].content}
+                {itemProps.anses[3].content}
               </h4>
-              <div style={props.booleanStyle} className={cl.bool}>
-                {props.anses[3].check === CheckAnswer.right
+              <div style={itemProps.booleanStyle} className={cl.bool}>
+                {itemProps.anses[3].check === CheckAnswer.right
                   ? boolTrue[0]
                   : boolFalse[3]}
               </div>
