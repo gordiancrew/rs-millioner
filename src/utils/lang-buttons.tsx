@@ -1,10 +1,11 @@
+import { useState } from "react";
+
 interface ILanBut {
     changeLng: Function;
-    onoffvoice: Function;
     hidebutton: boolean;
 }
 
-function LangButtons({changeLng, onoffvoice, hidebutton}: ILanBut) {
+function LangButtons({changeLng, hidebutton}: ILanBut) {
     const buttonsData = [
         {name: 'en', content: 'EN'},
         {name: 'bl', content: 'BL'},
@@ -23,11 +24,25 @@ function LangButtons({changeLng, onoffvoice, hidebutton}: ILanBut) {
                 type="button"
             >{content}</button>
         )
-    })
+    });
+    if (sessionStorage.getItem('voice')) {
+
+    }
+    const stateVoice = sessionStorage.getItem('voice') ? sessionStorage.getItem('voice') === 'true' ? true : false : true;
+    const [voice, setVoice] = useState(stateVoice);
+    console.log(voice);
+    function toogleVoice() {
+        setVoice(!voice);
+        sessionStorage.setItem("voice", `${!voice}`);
+        
+    }
     return (
         <div>
             {buttons}
-            {hidebutton ? (<button onClick={onoffvoice()}>Vc</button>) : null}
+            {hidebutton ? (<button onClick={() => toogleVoice()}
+                                    className={voice ? 'btnLngSelect' : 'btnLngSelect btnVoiceNoActive'}
+                                    title="On-Off Voice"
+                                    >Voice</button>) : null}
         </div>
     )
 }

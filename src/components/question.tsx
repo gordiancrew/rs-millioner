@@ -14,7 +14,7 @@ import QuestionHeader from "../utils/question-header";
 import QuizContent from "../utils/quiz-content";
 import Timer from "../utils/timer";
 
-function Question({ t, selectvoice }: { t: Function, selectvoice: boolean }) {
+function Question({ t, }: { t: Function }) {
   const [level, setLevel] = useState(0);
   let [totalPoints, setTotalPoints] = useState(0);
   const [timeOn, setTimeOn] = useState(true);
@@ -125,7 +125,6 @@ function Question({ t, selectvoice }: { t: Function, selectvoice: boolean }) {
           shuffleArr={shuffleArr}
           booleanStyle={booleanStyle}
           setBooleanStyle={setBooleanStyle}
-          selectvoice={selectvoice}
           // play={play}
         />
       </div>

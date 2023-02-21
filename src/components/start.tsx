@@ -6,16 +6,15 @@ import LangButtons from "../utils/lang-buttons";
 interface IStart {
   changeLng: Function;
   t: Function;
-  onoffvoice: Function;
 }
 
-function Start({changeLng, t, onoffvoice}: IStart) {
-  const[login,setLogin]=useState('')
-  function logout(){
-    localStorage.removeItem('currentName')
+function Start({ changeLng, t }: IStart) {
+  const [login, setLogin] = useState("");
+  function logout() {
+    localStorage.removeItem("currentName")
     setLogin(login + '1')
   }
-  
+
   return (
     <div className='startWrapper'>
        {
@@ -23,7 +22,7 @@ function Start({changeLng, t, onoffvoice}: IStart) {
          <div className="autorName">{`${t("signinup.autorised")} "${localStorage.currentName}`}</div>
         ) : null
       }
-      <LangButtons changeLng={changeLng} onoffvoice={onoffvoice} hidebutton={true} />
+      <LangButtons changeLng={changeLng} hidebutton={true} />
       {
         localStorage.currentName ? (
           <HexagonButton content={t("signinup.yourprofile")} link="/profile" />
@@ -32,17 +31,15 @@ function Start({changeLng, t, onoffvoice}: IStart) {
        {
         localStorage.currentName ? (
           <div onClick={logout}>
+
           <HexagonButton content={t("signinup.logout")} link="/home" />
-          </div>
-        ) : null
-      }
-       {
-        !localStorage.currentName? (
-          <HexagonButton content={t("signinup.login")} link="/" />
-        ) : null
-      }
+        </div>
+      ) : null}
+      {!localStorage.currentName ? (
+        <HexagonButton content={t("signinup.login")} link="/" />
+      ) : null}
       <HexagonButton content={t("signinup.play")} link="/question" />
-      <HexagonButton content={t("signinup.rules")} link="/home" />
+      <HexagonButton content={t("signinup.rules")} link="/rules" />
     </div>
   );
 }

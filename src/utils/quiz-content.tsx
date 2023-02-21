@@ -24,7 +24,6 @@ interface IQuiz {
   shuffleArr: Function;
   booleanStyle: object;
   setBooleanStyle: Function;
-  selectvoice: boolean;
 }
 
 export default function QuizContent(props: IQuiz) {
@@ -39,7 +38,7 @@ export default function QuizContent(props: IQuiz) {
     props.shuffleArr(boolFalse);
     props.shuffleArr(boolTrue);
 
-    if (props.selectvoice) {
+    if (sessionStorage.getItem("voice") === 'true') {
       window.speechSynthesis.cancel();
       let text = props.ask
       const utterance = new SpeechSynthesisUtterance(text);

@@ -4,14 +4,13 @@ import "../styles/home.scss";
 interface IHome {
   t: Function;
   changeLng: Function;
-  onoffvoice: Function;
 }
 
-function Home({ t, changeLng, onoffvoice }: IHome) {
+function Home({ t, changeLng }: IHome) {
  
   return (
     <div className="page">
-      <SignInUp t={t} changeLng={changeLng} onoffvoice={onoffvoice} />
+      <SignInUp t={t} changeLng={changeLng} />
     </div>
   );
 

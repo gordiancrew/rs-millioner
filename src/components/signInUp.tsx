@@ -11,10 +11,9 @@ import st from "../styles/start.module.scss";
 interface ISignUp {
   t: Function;
   changeLng: Function;
-  onoffvoice: Function;
 }
 
-export const SignInUp = ({t, changeLng, onoffvoice}: ISignUp) => {
+export const SignInUp = ({t, changeLng}: ISignUp) => {
   const [checkUserName, setCheckUserName] = useState(false);
   const [checkUserPassw, setCheckUserPassw] = useState(false);
   const [stateForm, setStateForm] = useState(true);
@@ -108,7 +107,7 @@ export const SignInUp = ({t, changeLng, onoffvoice}: ISignUp) => {
     <>
       {stateForm ? (
         <>
-          <LangButtons changeLng={changeLng} onoffvoice={onoffvoice} hidebutton={false}/>
+          <LangButtons changeLng={changeLng} hidebutton={false}/>
           <form className={style.signinupform} onSubmit={formikA.handleSubmit}>
 
             <h2>{t("signinup.autoris")}</h2>
