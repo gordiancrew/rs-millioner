@@ -54,7 +54,6 @@ export default function QuizContent(props: IQuiz) {
       utterance.voice = window.speechSynthesis.getVoices()[17]
     }
     window.speechSynthesis.speak(utterance);
-
   }, []);
 
   function disableAnswBtns() {
