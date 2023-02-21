@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { shuffleArr } from "../data/functionss";
 import {
-
   dataQuestionBl,
   dataQuestionEn,
   dataQuestionRu,
