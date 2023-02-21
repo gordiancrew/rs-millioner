@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
+import { shuffleArr } from "../data/functionss";
 import {
-  dataQuestionEn,
-  dataQuestionBl,
+
   dataQuestionRu,
 } from "../data/questions";
 import { questState } from "../types.ts/iquest-state";
-import { ICase, IQuestion } from "../types.ts/iquestion";
+
 import End from "../utils/end";
 import HintBoolean from "../utils/hint-boolean";
 import HintCall from "../utils/hint-call";
@@ -28,7 +28,6 @@ function Question({ t }: { t: Function }) {
   const [itemHintBoolean, setItemHintBoolean] = useState(false);
   const [itemFiftyFifty, setItemFiftyFifty] = useState(false);
   const [itemCall, setItemCall] = useState(false);
-  const languageStorage = localStorage.getItem("languagegame");
   const [keepMoney, setKeepMoney] = useState(false);
 
   function addPoints() {
@@ -38,27 +37,11 @@ function Question({ t }: { t: Function }) {
     window.location.reload();
   }
 
-  function shuffleArr(arr: IQuestion[] | ICase[] | String[] | Number[]) {
-    for (let i = arr.length - 1; i > 0; i--) {
-      let j = Math.floor(Math.random() * (i + 1));
-      [arr[i], arr[j]] = [arr[j], arr[i]];
-    }
-    return arr;
-  }
-  let questionArr: Array<IQuestion> = dataQuestionRu[level];
-  if (languageStorage) {
-    if (languageStorage === "en") questionArr = dataQuestionEn[level];
-    if (languageStorage === "bl") questionArr = dataQuestionBl[level];
-  }
   useEffect(() => {
-    shuffleArr(questionArr);
-    shuffleArr(questionArr[0].ans);
+    shuffleArr(dataQuestionRu[level]);
+    shuffleArr(dataQuestionRu[level][0].ans);
   }, [level]);
-  const question: IQuestion = questionArr[0];
-  let answers = question.ans;
-  useEffect(() => {
-    shuffleArr(answers);
-  }, []);
+
 
   if (answerShema === questState.quiz) {
     return (
@@ -69,14 +52,14 @@ function Question({ t }: { t: Function }) {
           setItemCall={setItemCall}
           setTimeOn={setTimeOn}
           setTimer={setTimer}
-          question={answers}
+          question={dataQuestionRu[level][0].ans}
           shuffleArr={shuffleArr}
           t={t}
         />
         <HintBoolean
           visibleHintBoolean={visibleHintBoolean}
           setVisibleHintBoolean={setVisibleHintBoolean}
-          question={question.ans}
+          question={dataQuestionRu[level][0].ans}
           setTimeOn={setTimeOn}
           setTimer={setTimer}
           setItemHintBoolean={setItemHintBoolean}
@@ -109,8 +92,8 @@ function Question({ t }: { t: Function }) {
           setRightAnswerStyle={setRightAnswerStyle}
         />
         <QuizContent
-          ask={question.ask}
-          anses={question.ans}
+          ask={dataQuestionRu[level][0].ask}
+          anses={dataQuestionRu[level][0].ans}
           level={level}
           setLevel={setLevel}
           addPoints={addPoints}
@@ -122,10 +105,9 @@ function Question({ t }: { t: Function }) {
           setRightAnswerStyle={setRightAnswerStyle}
           fiftyFiftyStyle={fiftyFiftyStyle}
           setFiftyFiftyStyle={setFiftyFiftyStyle}
-          shuffleArr={shuffleArr}
           booleanStyle={booleanStyle}
           setBooleanStyle={setBooleanStyle}
-          // play={play}
+        // play={play}
         />
       </div>
     );

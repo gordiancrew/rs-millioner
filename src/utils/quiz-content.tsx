@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import useSound from "use-sound";
 import { booleanFalse, booleanTrue } from "../data/boolean";
+import { shuffleArr } from "../data/functionss";
 import cl from "../styles/quiz.module.scss";
 import { CheckAnswer } from "../types.ts/chaeckAnswer";
 import { questState } from "../types.ts/iquest-state";
@@ -21,26 +22,27 @@ interface IQuiz {
   setRightAnswerStyle: Function;
   fiftyFiftyStyle: Object;
   setFiftyFiftyStyle: Function;
-  shuffleArr: Function;
+ 
   booleanStyle: object;
   setBooleanStyle: Function;
 }
-
+let boolFalse :string[]=[];
+let boolTrue:string[]=[] ;
 export default function QuizContent(props: IQuiz) {
   const [playBadAnswer] = useSound(musicUrlEnum.badAnswer);
   const [playCurrentAnswer] = useSound(musicUrlEnum.currentAnswer);
   const [playNextLevel] = useSound(musicUrlEnum.nextLevel);
   const [playCircleSum] = useSound(musicUrlEnum.circleASum);
   const [stateAnswBtns, setStateAnswBtns] = useState(true);
-  let boolFalse = booleanFalse;
-  let boolTrue = booleanTrue;
+
   useEffect(() => {
-    props.shuffleArr(boolFalse);
-    props.shuffleArr(boolTrue);
+    boolFalse = booleanFalse;
+    boolTrue = booleanTrue;
+    shuffleArr(boolFalse);
+    shuffleArr(boolTrue);
 
     window.speechSynthesis.cancel();
-    let text = props.ask
-    const utterance = new SpeechSynthesisUtterance(text);
+    const utterance = new SpeechSynthesisUtterance('сдесь будет озвучка вопролса');
     if (localStorage.languagegame === 'ru') {
       utterance.voice = window.speechSynthesis.getVoices()[17]
     } else if (localStorage.languagegame === 'en') {
