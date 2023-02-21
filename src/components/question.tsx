@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { shuffleArr } from "../data/functionss";
 import {
 
+  dataQuestionBl,
+  dataQuestionEn,
   dataQuestionRu,
 } from "../data/questions";
 import { questState } from "../types.ts/iquest-state";
@@ -38,8 +40,16 @@ function Question({ t }: { t: Function }) {
   }
 
   useEffect(() => {
-    shuffleArr(dataQuestionRu[level]);
-    shuffleArr(dataQuestionRu[level][0].ans);
+    if (localStorage.languagegame === 'ru') {
+      shuffleArr(dataQuestionRu[level]);
+      shuffleArr(dataQuestionRu[level][0].ans);
+    } else if (localStorage.languagegame === 'en') {
+      shuffleArr(dataQuestionEn[level]);
+      shuffleArr(dataQuestionEn[level][0].ans);
+    } else if (localStorage.languagegame === 'bl') {
+      shuffleArr(dataQuestionBl[level]);
+      shuffleArr(dataQuestionBl[level][0].ans);
+    }
   }, [level]);
 
 
@@ -52,14 +62,22 @@ function Question({ t }: { t: Function }) {
           setItemCall={setItemCall}
           setTimeOn={setTimeOn}
           setTimer={setTimer}
-          question={dataQuestionRu[level][0].ans}
+          question={
+            localStorage.languagegame === 'en' ? dataQuestionEn[level][0].ans :
+              localStorage.languagegame === 'en' ? dataQuestionRu[level][0].ans :
+                dataQuestionEn[level][0].ans
+          }
           shuffleArr={shuffleArr}
           t={t}
         />
         <HintBoolean
           visibleHintBoolean={visibleHintBoolean}
           setVisibleHintBoolean={setVisibleHintBoolean}
-          question={dataQuestionRu[level][0].ans}
+          question={
+            localStorage.languagegame === 'en' ? dataQuestionEn[level][0].ans :
+            localStorage.languagegame === 'en' ? dataQuestionRu[level][0].ans :
+              dataQuestionEn[level][0].ans
+          }
           setTimeOn={setTimeOn}
           setTimer={setTimer}
           setItemHintBoolean={setItemHintBoolean}
@@ -92,8 +110,16 @@ function Question({ t }: { t: Function }) {
           setRightAnswerStyle={setRightAnswerStyle}
         />
         <QuizContent
-          ask={dataQuestionRu[level][0].ask}
-          anses={dataQuestionRu[level][0].ans}
+          ask={
+            localStorage.languagegame === 'en' ? dataQuestionEn[level][0].ask :
+            localStorage.languagegame === 'en' ? dataQuestionRu[level][0].ask :
+              dataQuestionEn[level][0].ask
+          }
+          anses={
+            localStorage.languagegame === 'en' ? dataQuestionEn[level][0].ans :
+            localStorage.languagegame === 'en' ? dataQuestionRu[level][0].ans :
+              dataQuestionEn[level][0].ans
+          }
           level={level}
           setLevel={setLevel}
           addPoints={addPoints}
