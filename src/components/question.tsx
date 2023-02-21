@@ -64,8 +64,8 @@ function Question({ t }: { t: Function }) {
           setTimer={setTimer}
           question={
             localStorage.languagegame === 'en' ? dataQuestionEn[level][0].ans :
-              localStorage.languagegame === 'en' ? dataQuestionRu[level][0].ans :
-                dataQuestionEn[level][0].ans
+              localStorage.languagegame === 'bl' ? dataQuestionBl[level][0].ans :
+                dataQuestionRu[level][0].ans
           }
           shuffleArr={shuffleArr}
           t={t}
@@ -75,8 +75,8 @@ function Question({ t }: { t: Function }) {
           setVisibleHintBoolean={setVisibleHintBoolean}
           question={
             localStorage.languagegame === 'en' ? dataQuestionEn[level][0].ans :
-            localStorage.languagegame === 'en' ? dataQuestionRu[level][0].ans :
-              dataQuestionEn[level][0].ans
+              localStorage.languagegame === 'bl' ? dataQuestionBl[level][0].ans :
+                dataQuestionRu[level][0].ans
           }
           setTimeOn={setTimeOn}
           setTimer={setTimer}
@@ -112,13 +112,13 @@ function Question({ t }: { t: Function }) {
         <QuizContent
           ask={
             localStorage.languagegame === 'en' ? dataQuestionEn[level][0].ask :
-            localStorage.languagegame === 'en' ? dataQuestionRu[level][0].ask :
-              dataQuestionEn[level][0].ask
+            localStorage.languagegame === 'bl' ? dataQuestionBl[level][0].ask :
+              dataQuestionRu[level][0].ask
           }
           anses={
             localStorage.languagegame === 'en' ? dataQuestionEn[level][0].ans :
-            localStorage.languagegame === 'en' ? dataQuestionRu[level][0].ans :
-              dataQuestionEn[level][0].ans
+            localStorage.languagegame === 'bl' ? dataQuestionBl[level][0].ans :
+              dataQuestionRu[level][0].ans
           }
           level={level}
           setLevel={setLevel}
