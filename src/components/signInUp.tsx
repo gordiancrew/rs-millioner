@@ -107,7 +107,7 @@ export const SignInUp = ({t, changeLng}: ISignUp) => {
     <>
       {stateForm ? (
         <>
-          <LangButtons changeLng={changeLng}/>
+          <LangButtons changeLng={changeLng} hidebutton={false}/>
           <form className={style.signinupform} onSubmit={formikA.handleSubmit}>
 
             <h2>{t("signinup.autoris")}</h2>

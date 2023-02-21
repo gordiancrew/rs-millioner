@@ -11,23 +11,27 @@ interface IStart {
 function Start({ changeLng, t }: IStart) {
   const [login, setLogin] = useState("");
   function logout() {
-    localStorage.removeItem("currentName");
-    setLogin(login + "1");
+    localStorage.removeItem("currentName")
+    setLogin(login + '1')
   }
 
   return (
-    <div className="startWrapper">
-      {localStorage.currentName ? (
-        <div className="autorName">{`${t("signinup.autorised")} "${
-          localStorage.currentName
-        }`}</div>
-      ) : null}
-      <LangButtons changeLng={changeLng} />
-      {localStorage.currentName ? (
-        <HexagonButton content={t("signinup.yourprofile")} link="/profile" />
-      ) : null}
-      {localStorage.currentName ? (
-        <div onClick={logout} style={{ display: "contents" }}>
+    <div className='startWrapper'>
+       {
+        localStorage.currentName ? (
+         <div className="autorName">{`${t("signinup.autorised")} "${localStorage.currentName}`}</div>
+        ) : null
+      }
+      <LangButtons changeLng={changeLng} hidebutton={true} />
+      {
+        localStorage.currentName ? (
+          <HexagonButton content={t("signinup.yourprofile")} link="/profile" />
+        ) : null
+      }
+       {
+        localStorage.currentName ? (
+          <div onClick={logout}>
+
           <HexagonButton content={t("signinup.logout")} link="/home" />
         </div>
       ) : null}

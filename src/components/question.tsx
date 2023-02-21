@@ -14,7 +14,7 @@ import QuestionHeader from "../utils/question-header";
 import QuizContent from "../utils/quiz-content";
 import Timer from "../utils/timer";
 
-function Question({ t }: { t: Function }) {
+function Question({ t, }: { t: Function }) {
   const [level, setLevel] = useState(0);
   let [totalPoints, setTotalPoints] = useState(0);
   const [timeOn, setTimeOn] = useState(true);
