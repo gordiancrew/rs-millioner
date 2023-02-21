@@ -17,7 +17,7 @@ import QuizContent from "../utils/quiz-content";
 import Timer from "../utils/timer";
 
 function Question({ t }: { t: Function }) {
-  const [level, setLevel] = useState(0);
+  // const [level, setLevel] = useState(0);
   let [totalPoints, setTotalPoints] = useState(0);
   const [timeOn, setTimeOn] = useState(true);
   const [timer, setTimer] = useState(30);
@@ -41,16 +41,17 @@ function Question({ t }: { t: Function }) {
 
   useEffect(() => {
     if (localStorage.languagegame === 'ru') {
-      shuffleArr(dataQuestionRu[level]);
-      shuffleArr(dataQuestionRu[level][0].ans);
+      shuffleArr(dataQuestionRu[localStorage.level]);
+      shuffleArr(dataQuestionRu[localStorage.level][0].ans);
     } else if (localStorage.languagegame === 'en') {
-      shuffleArr(dataQuestionEn[level]);
-      shuffleArr(dataQuestionEn[level][0].ans);
+      shuffleArr(dataQuestionEn[localStorage.level]);
+      shuffleArr(dataQuestionEn[localStorage.level][0].ans);
     } else if (localStorage.languagegame === 'bl') {
-      shuffleArr(dataQuestionBl[level]);
-      shuffleArr(dataQuestionBl[level][0].ans);
+      shuffleArr(dataQuestionBl[localStorage.level]);
+      shuffleArr(dataQuestionBl[localStorage.level][0].ans);
     }
-  }, [level]);
+    localStorage.level=0;
+  }, [localStorage.level]);
 
 
   if (answerShema === questState.quiz) {
@@ -63,9 +64,9 @@ function Question({ t }: { t: Function }) {
           setTimeOn={setTimeOn}
           setTimer={setTimer}
           question={
-            localStorage.languagegame === 'en' ? dataQuestionEn[level][0].ans :
-              localStorage.languagegame === 'bl' ? dataQuestionBl[level][0].ans :
-                dataQuestionRu[level][0].ans
+            localStorage.languagegame === 'en' ? dataQuestionEn[localStorage.level][0].ans :
+              localStorage.languagegame === 'bl' ? dataQuestionBl[localStorage.level][0].ans :
+                dataQuestionRu[localStorage.level][0].ans
           }
           shuffleArr={shuffleArr}
           t={t}
@@ -74,9 +75,9 @@ function Question({ t }: { t: Function }) {
           visibleHintBoolean={visibleHintBoolean}
           setVisibleHintBoolean={setVisibleHintBoolean}
           question={
-            localStorage.languagegame === 'en' ? dataQuestionEn[level][0].ans :
-              localStorage.languagegame === 'bl' ? dataQuestionBl[level][0].ans :
-                dataQuestionRu[level][0].ans
+            localStorage.languagegame === 'en' ? dataQuestionEn[localStorage.level][0].ans :
+              localStorage.languagegame === 'bl' ? dataQuestionBl[localStorage.level][0].ans :
+                dataQuestionRu[localStorage.level][0].ans
           }
           setTimeOn={setTimeOn}
           setTimer={setTimer}
@@ -98,7 +99,7 @@ function Question({ t }: { t: Function }) {
           setBooleanStyle={setBooleanStyle}
           setKeepMoney={setKeepMoney}
           setAnswerShema={setAnswerShema}
-          level={level}
+          // level={level}
         />
 
         <Timer
@@ -111,17 +112,17 @@ function Question({ t }: { t: Function }) {
         />
         <QuizContent
           ask={
-            localStorage.languagegame === 'en' ? dataQuestionEn[level][0].ask :
-            localStorage.languagegame === 'bl' ? dataQuestionBl[level][0].ask :
-              dataQuestionRu[level][0].ask
+            localStorage.languagegame === 'en' ? dataQuestionEn[localStorage.level][0].ask :
+            localStorage.languagegame === 'bl' ? dataQuestionBl[localStorage.level][0].ask :
+              dataQuestionRu[localStorage.level][0].ask
           }
           anses={
-            localStorage.languagegame === 'en' ? dataQuestionEn[level][0].ans :
-            localStorage.languagegame === 'bl' ? dataQuestionBl[level][0].ans :
-              dataQuestionRu[level][0].ans
+            localStorage.languagegame === 'en' ? dataQuestionEn[localStorage.level][0].ans :
+            localStorage.languagegame === 'bl' ? dataQuestionBl[localStorage.level][0].ans :
+              dataQuestionRu[localStorage.level][0].ans
           }
-          level={level}
-          setLevel={setLevel}
+          // level={level}
+          // setLevel={setLevel}
           addPoints={addPoints}
           setTimeOn={setTimeOn}
           setTimer={setTimer}
@@ -140,8 +141,8 @@ function Question({ t }: { t: Function }) {
   } else if (answerShema === questState.progress) {
     return (
       <ProgressShema
-        level={level}
-        setLevel={setLevel}
+        // level={level}
+        // setLevel={setLevel}
         setAnswerShema={setAnswerShema}
         setTimer={setTimer}
         setTimeOn={setTimeOn}
@@ -153,7 +154,7 @@ function Question({ t }: { t: Function }) {
       <End
         totalPoints={totalPoints}
         repeatGame={repeatGame}
-        level={level}
+        // level={level}
         keepMoney={keepMoney}
         t={t}
       />

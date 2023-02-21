@@ -6,7 +6,7 @@ import { IGamer } from "../types.ts/iscore";
 interface IEnd {
   totalPoints: number;
   repeatGame: Function;
-  level: number;
+  // level: number;
   keepMoney: boolean;
   t: Function;
 }
@@ -26,12 +26,12 @@ function End(props: IEnd) {
   currentGamerObjectString = localStorage.getItem(localStorage.currentName)
   let winnerSum: number;
   if (props.keepMoney) {
-    winnerSum = win[props.level - 1];
-  } else if (props.level < 5) {
+    winnerSum = win[localStorage.level - 1];
+  } else if (localStorage.level < 5) {
     winnerSum = 0;
-  } else if (props.level < 10) {
+  } else if (localStorage.level < 10) {
     winnerSum = 1000;
-  } else if (props.level < 14) {
+  } else if (localStorage.level < 14) {
     winnerSum = 32000;
   } else {
     winnerSum = 1000000;

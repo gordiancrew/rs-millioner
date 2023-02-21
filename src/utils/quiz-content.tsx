@@ -12,8 +12,8 @@ import { musicUrlEnum } from "../types.ts/music-url";
 interface IQuiz {
   ask: string;
   anses: Array<ICase>;
-  level: number;
-  setLevel: Function;
+  // level: number;
+  // setLevel: Function;
   setTimeOn: Function;
   addPoints: Function;
   timer: number;
@@ -43,9 +43,9 @@ export default function QuizContent(props: IQuiz) {
     shuffleArr(boolTrue);
 
     window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(localStorage.languagegame === 'en' ? dataQuestionEn[1][0].ask :
-    localStorage.languagegame === 'bl' ? dataQuestionBl[1][0].ask :
-      dataQuestionRu[1][0].ask);
+    const utterance = new SpeechSynthesisUtterance(localStorage.languagegame === 'en' ? dataQuestionEn[localStorage.level][0].ask :
+    localStorage.languagegame === 'bl' ? dataQuestionBl[localStorage.level][0].ask :
+      dataQuestionRu[localStorage.level][0].ask);
     if (localStorage.languagegame === 'ru') {
       utterance.voice = window.speechSynthesis.getVoices()[17]
     } else if (localStorage.languagegame === 'en') {
@@ -74,7 +74,7 @@ export default function QuizContent(props: IQuiz) {
 
         setTimeout(() => {
           currentElem.style.backgroundColor = "green";
-          props.level !== 4 && props.level !== 9 && props.level !== 14
+          localStorage.level !== 4 && localStorage.level !== 9 && localStorage.level !== 14
             ? playNextLevel()
             : playCircleSum();
         }, 2000);
@@ -85,9 +85,9 @@ export default function QuizContent(props: IQuiz) {
         setTimeout(() => (currentElem.style.backgroundColor = "white"), 2500);
         setTimeout(() => (currentElem.style.backgroundColor = "green"), 2600);
         setTimeout(() => {
-          props.setLevel((x: number) => {
+          localStorage.level=((x: number) => {
             currentElem.style.backgroundColor = "white";
-            if (props.level < 14) {
+            if (localStorage.level < 14) {
               props.setFiftyFiftyStyle({});
               props.setBooleanStyle({ display: "none" });
               props.setAnswerShema(questState.progress);

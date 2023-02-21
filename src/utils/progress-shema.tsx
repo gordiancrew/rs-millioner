@@ -4,8 +4,8 @@ import progressStyle from "../styles/progress.module.scss";
 import st from "../styles/start.module.scss";
 
 interface IProgress {
-  level: number;
-  setLevel: Function;
+  // level: number;
+  // setLevel: Function;
   setAnswerShema: Function;
   setTimer: Function;
   setTimeOn: Function;
@@ -28,17 +28,17 @@ function ProgressShema(props: IProgress) {
       {/* <h1>Progress shema. You level is:{props.level}</h1> */}
       <div
         style={{
-          display: props.level !== 5 && props.level !== 10 ? "none" : "",
+          display: localStorage.level !== 5 && localStorage.level !== 10 ? "none" : "",
         }}
         className={progressStyle.circleSum}
       ></div>
       <div
         style={{
-          display: props.level !== 5 && props.level !== 10 ? "none" : "",
+          display: localStorage.level !== 5 && localStorage.level !== 10 ? "none" : "",
         }}
         className={progressStyle.circleText}
       >
-        {arr1[15 - props.level]}
+        {arr1[15 - localStorage.level]}
       </div>
       <div className={progressStyle.progressBox}>
         {arr.map((x, i) => (
@@ -47,11 +47,11 @@ function ProgressShema(props: IProgress) {
             // style={{color: (i+1)%5===0? 'red':'black'     }}
             // className={st.progress}
             style={{
-              backgroundColor: i === 15 - props.level ? "yellow" : "",
+              backgroundColor: i === 15 - localStorage.level ? "yellow" : "",
               color:
                 i === 5 || i === 10 || i === 0
                   ? "white"
-                  : 15 - i > props.level
+                  : 15 - i > localStorage.level
                   ? "#9e9342"
                   : "black",
             }}

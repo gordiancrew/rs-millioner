@@ -19,7 +19,7 @@ interface IHeaderOptions {
   setBooleanStyle: Function;
   setKeepMoney: Function;
   setAnswerShema: Function;
-  level:number;
+  // level:number;
 }
 function QuestionHeader(props: IHeaderOptions) {
   const [playFiftyFifty] = useSound(musicUrlEnum.fiftyFifty);
@@ -83,7 +83,7 @@ function QuestionHeader(props: IHeaderOptions) {
       </div>
       <div className={headerStyle.headerHints}>
         <div
-      style={{display:props.level===0?'none':''}}
+      style={{display:localStorage.level===0?'none':''}}
           onClick={keepHundler}
           className={headerStyle.headerItem}>
 
