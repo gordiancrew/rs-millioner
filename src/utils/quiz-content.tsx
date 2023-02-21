@@ -38,7 +38,7 @@ export default function QuizContent(props: IQuiz) {
     props.shuffleArr(boolFalse);
     props.shuffleArr(boolTrue);
 
-    if (sessionStorage.getItem("voice") === 'true') {
+    if (sessionStorage.getItem("voice") === null || sessionStorage.getItem("voice") === 'true') {
       window.speechSynthesis.cancel();
       let text = props.ask
       const utterance = new SpeechSynthesisUtterance(text);
