@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import useSound from "use-sound";
 import { booleanFalse, booleanTrue } from "../data/boolean";
 import { shuffleArr } from "../data/functionss";
+import { dataQuestionBl, dataQuestionEn, dataQuestionRu } from "../data/questions";
 import cl from "../styles/quiz.module.scss";
 import { CheckAnswer } from "../types.ts/chaeckAnswer";
 import { questState } from "../types.ts/iquest-state";
@@ -42,7 +43,9 @@ export default function QuizContent(props: IQuiz) {
     shuffleArr(boolTrue);
 
     window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance('Озвучка');
+    const utterance = new SpeechSynthesisUtterance(localStorage.languagegame === 'en' ? dataQuestionEn[props.level][0].ask :
+    localStorage.languagegame === 'bl' ? dataQuestionBl[props.level][0].ask :
+      dataQuestionRu[props.level][0].ask);
     if (localStorage.languagegame === 'ru') {
       utterance.voice = window.speechSynthesis.getVoices()[17]
     } else if (localStorage.languagegame === 'en') {
