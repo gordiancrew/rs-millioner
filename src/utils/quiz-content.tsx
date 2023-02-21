@@ -42,7 +42,7 @@ export default function QuizContent(props: IQuiz) {
     shuffleArr(boolTrue);
 
     window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance('сдесь будет озвучка вопролса');
+    const utterance = new SpeechSynthesisUtterance(props.ask);
     if (localStorage.languagegame === 'ru') {
       utterance.voice = window.speechSynthesis.getVoices()[17]
     } else if (localStorage.languagegame === 'en') {
