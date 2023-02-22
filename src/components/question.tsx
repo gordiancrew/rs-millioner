@@ -49,6 +49,9 @@ function Question({ t }: { t: Function }) {
     } else if (localStorage.languagegame === 'bl') {
       shuffleArr(dataQuestionBl[level]);
       shuffleArr(dataQuestionBl[level][0].ans);
+    }else{
+      shuffleArr(dataQuestionRu[level]);
+      shuffleArr(dataQuestionRu[level][0].ans);
     }
   }, [level]);
 
