@@ -23,12 +23,12 @@ interface IQuiz {
   setRightAnswerStyle: Function;
   fiftyFiftyStyle: Object;
   setFiftyFiftyStyle: Function;
- 
+
   booleanStyle: object;
   setBooleanStyle: Function;
 }
-let boolFalse :string[]=[];
-let boolTrue:string[]=[] ;
+let boolFalse: string[] = [];
+let boolTrue: string[] = [];
 export default function QuizContent(props: IQuiz) {
   const [playBadAnswer] = useSound(musicUrlEnum.badAnswer);
   const [playCurrentAnswer] = useSound(musicUrlEnum.currentAnswer);
@@ -41,11 +41,13 @@ export default function QuizContent(props: IQuiz) {
     boolTrue = booleanTrue;
     shuffleArr(boolFalse);
     shuffleArr(boolTrue);
+  }, []);
 
+  function voice() {
     window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(localStorage.languagegame === 'en' ? dataQuestionEn[1][0].ask :
-    localStorage.languagegame === 'bl' ? dataQuestionBl[1][0].ask :
-      dataQuestionRu[1][0].ask);
+    const utterance = new SpeechSynthesisUtterance(localStorage.languagegame === 'en' ? dataQuestionEn[props.level][0].ask :
+      localStorage.languagegame === 'bl' ? dataQuestionBl[props.level][0].ask :
+        dataQuestionRu[props.level][0].ask);
     if (localStorage.languagegame === 'ru') {
       utterance.voice = window.speechSynthesis.getVoices()[17]
     } else if (localStorage.languagegame === 'en') {
@@ -54,7 +56,7 @@ export default function QuizContent(props: IQuiz) {
       utterance.voice = window.speechSynthesis.getVoices()[17]
     }
     window.speechSynthesis.speak(utterance);
-  }, []);
+  }
 
   function disableAnswBtns() {
     setStateAnswBtns(!stateAnswBtns);
@@ -115,7 +117,7 @@ export default function QuizContent(props: IQuiz) {
   };
   return (
     <section className={cl.quiz_section}>
-      <div className={cl.question_wrapper}>
+      <div onClick={voice} className={cl.question_wrapper}>
         <div className={cl.question_wrapper__horizontLine}></div>
         <div className={cl.question_wrapper__hexagon}>
           <div className={cl.question_content}>
