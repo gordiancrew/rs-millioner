@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-
 import timerStyle from "../styles/timer.module.scss";
 import { questState } from "../types.ts/iquest-state";
 import TimeProgress from "./time-progress";
