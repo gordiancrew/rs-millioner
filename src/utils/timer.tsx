@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-
 import timerStyle from "../styles/timer.module.scss";
 import { questState } from "../types.ts/iquest-state";
+import { musicUrlEnum } from "../types.ts/music-url";
 import TimeProgress from "./time-progress";
 interface ITimer {
 	setTimeOn: Function;
@@ -11,7 +11,8 @@ interface ITimer {
 	setAnswerShema: Function;
 	setRightAnswerStyle: Function;
 }
-
+let aud = new Audio();
+aud.src = musicUrlEnum.badAnswer
 function Timer(props: ITimer) {
 	useEffect(() => {
 		if (props.timer > 0 && props.timeOn) {
@@ -19,13 +20,16 @@ function Timer(props: ITimer) {
 		}
 		if (props.timer === 0) {
 			setTimeout(
-				() => props.setRightAnswerStyle({ backgroundColor: "blue" }),
+				() => {
+					props.setRightAnswerStyle({ backgroundColor: "blue" });
+					aud.play()
+				},
 				2000
 			);
 			setTimeout(() => props.setAnswerShema(questState.end), 4000);
 		}
 	});
-	
+
 
 	return (
 		<div className={timerStyle.timerBox}>
