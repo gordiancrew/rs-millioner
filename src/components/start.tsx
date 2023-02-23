@@ -2,6 +2,7 @@ import { useState } from "react";
 import "../styles/start.scss";
 import HexagonButton from "../utils/hexagon-button";
 import LangButtons from "../utils/lang-buttons";
+import Footer from "./footer";
 
 interface IStart {
   changeLng: Function;
@@ -36,6 +37,7 @@ function Start({ changeLng, t }: IStart) {
       ) : null}
       <HexagonButton content={t("signinup.play")} link="/question" />
       <HexagonButton content={t("signinup.rules")} link="/rules" />
+      <Footer />
     </div>
   );
 }
