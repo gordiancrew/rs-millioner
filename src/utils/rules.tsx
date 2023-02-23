@@ -4,6 +4,9 @@ import st from "../styles/rules.module.scss";
 export default function Rules({ t }: { t: Function }) {
   return (
     <div className={st.rules}>
+      <div className={st.logoWrapper}>
+        <div className={st.logo}></div>
+      </div>
       <h1>{t("rules.header")}</h1>
       <p>{t("rules.description")}</p>
       <p>{t("rules.authorization")}</p>

@@ -17,7 +17,6 @@ const win = [
 ];
 
 function End(props: IEnd) {
-  // const navi = useNavigatio
   let currentGamer: IGamer;
   let currentGamerObjectString: string | null;
   let games;
@@ -49,20 +48,6 @@ function End(props: IEnd) {
       localStorage.setItem(localStorage.currentName, JSON.stringify(currentGamer))
     }
   }
-
-
-
-  //  let games:string;
-  // let r:object;
-  //    let currentGames:string|null=localStorage.getItem(localStorage.currentName)
-  //    if(currentGames!=null){
-  //     r:object=JSON.parse(currentGames)
-  //     games=r.games
-  //    }
-  //    games=(+games+1).toString()
-  //    r.games=games;
-  //    localStorage.setItem(r)
-
   return (
     <div className={style.wrappage}>
       <h1>{games}</h1>
