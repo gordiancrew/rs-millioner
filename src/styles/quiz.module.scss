@@ -148,6 +148,9 @@ h4 {
   .quiz_section {
     height: 55vh;
   }
+  .question_content {
+    font-size: 14px;
+  }
 
   .answer_wrapper__line {
     flex-direction: column;
@@ -181,5 +184,10 @@ h4 {
 
   .answer_wrapperline {
     height: 50%;
+  }
+}
+@media (max-width: 500px) {
+  .question_content {
+    font-size: 10px;
   }
 }

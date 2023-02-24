@@ -154,7 +154,7 @@ export const SignInUp = ({t, changeLng}: ISignUp) => {
               </div>
             ) : null}
             <div className={st.input_wrapper}>
-              <button type="submit">{t("signinup.send")}</button>
+              <button type="submit">{t("signinup.login")}</button>
             </div>
             <h3>
               <span className={style.link} onClick={toggleForm}>
