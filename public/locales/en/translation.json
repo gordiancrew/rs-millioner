@@ -1,0 +1,56 @@
+{
+  "signinup": {
+    "autoris": "Authorization",
+    "autorised": "Are you logged in as",
+    "login": "Log in",
+    "logout": "Log out",
+    "willregistr": "Register",
+    "notregistr": "Without registration",
+    "registr": "Registration",
+    "nickname": "Your nickname:",
+    "email": "Your mail:",
+    "password": "Password:",
+    "send": "Send",
+    "registred": "Are you registered",
+    "startgame": "Start the game",
+    "yourprofile": "Your profile",
+    "play": "Play",
+    "rules": "Rules",
+    "min2Sumb": "Minimum 2 characters!",
+    "min8Sumb": "Minimum 8 characters!",
+    "requiredField": "Required field!",
+    "emailError": "Wrong email address!",
+    "loginError": "Wrong login!",
+    "passwordError": "Wrong password!",
+    "doubleName": "This name already used"
+  },
+  "gameover": {
+    "gameover": "Game over!",
+    "playagain": "Play again",
+    "youresult": "Your winnings:",
+    "exitmenu": "Exit to the menu",
+    "points": "points",
+    "nextquestion": "Next question"
+  },
+  "hint": {
+    "condition": "Remember the combination of numbers!",
+    "backToQuestion": "Back to question",
+    "requirement": "Repeat the combination you saw!",
+    "probability": "Probability",
+    "answer": "answer"
+  },
+  "rules": {
+    "header": "Game 'who wants to be a programmer?'",
+    "description": "Attention! After this game, you will never be at the same level in your development in the art of programming! Therefore, decide for yourself whether you want to immerse yourself in the world of it and become a cool programmer, there will be no turning back! The game is an analogue of the famous game 'Who wants become a millionaire' with the context of questions on programming topics (in particular, front-end development).",
+    "authorization": "The game uses browser registration, that is, the data of different users can be stored in the local storage of the browser of this computer. And it can be played by different users, which is convenient for family play. Upon authorization, the user receives a personal account where his statistics will be stored - the number of games and the sum of all megabytes won. You can play without registration, but then there will be no personal account and no personal statistics.",
+    "languages": "The game has content in three languages: English, Russian and Belarusian.",
+    "core": "The participant answers the questions offered to him, 30 seconds are given for each question, except for situations when using prompts. If the question is answered correctly, the player goes to an intermediate page with the result of the current progress and continues the game with the next question. A total of 15 questions, differentiated from simple to complex. With correct answers, the player receives a certain amount of megabytes, from 100 to 1,000,000. With the correct answer to the first 5 questions, and then to 10, the current amount becomes fireproof, that is, when leaving the game in the future, the player is guaranteed to receive it. When leaving the game before 5 questions, the player receives 0. If you are not sure that the answer to the question is correct, you can take the current amount by clicking on the button with the money bag, which means 'take the result'. If you urgently need to do other things, you can leave the game by clicking on the button with the door and the arrow, which means exit from this great game. This game will not be included in the statistics.",
+    "hints": {
+      "description": "If you are unsure of the correct answer, the game offers 3 hints, each of which can be used only once.",
+      "hintFiftyFifty": "1) 50:50 - when using this hint, two wrong answers out of four are removed, and the player will have to choose from two options, which greatly increases the chances of answering correctly.",
+      "hintCall": "2) Call - with this original hint, you are invited to play a mini-game in which 10 numbers will be highlighted in turn on the analog of the telephone keypad in a chaotic manner, after the inscription on the display 'repeat the combination of numbers' you need to enter the same or approximately the same combination of numbers, the percentage of guessed numbers will be displayed and the correct answer to the question will be offered with the same percentage probability.",
+      "hintBoolean": "3) Boolean - this original hint will add some js value to the question, which can be cast to either true or false. Naturally, an expression with the potential true will be near the correct answer."
+    },
+    "conclusion": "We have put our heart and soul into this game and we hope you will enjoy playing it and combine a pleasant pastime with the benefit of developing your programming skills) Good luck!"
+  }
+}
