@@ -8,9 +8,16 @@ function Footer() {
             <Link to="https://rs.school/js/">
                 <img className={footerStyle.logoRs} src='https://rs.school/images/rs_school_js.svg' alt='logoRs' ></img>
             </Link>
-            <Link to="https://github.com/gordiancrew/">@Gordiancrew</Link>
-            <Link to="https://github.com/AndreiPavlov135">@AndreiPavlov135</Link>
-            <Link to="https://github.com/Syarguk">@Syarguk</Link>
+            <Link className={footerStyle.gitHub} to="https://github.com/gordiancrew/">
+                <img className={footerStyle.logoGH} src='https://cdn-icons-png.flaticon.com/512/25/25231.png' alt='logoRs' ></img>
+                Gordiancrew
+            </Link>
+            <Link className={footerStyle.gitHub} to="https://github.com/AndreiPavlov135">
+            <img className={footerStyle.logoGH} src='https://cdn-icons-png.flaticon.com/512/25/25231.png' alt='logoRs' ></img>
+                AndreiPavlov135</Link>
+            <Link className={footerStyle.gitHub} to="https://github.com/Syarguk">
+            <img className={footerStyle.logoGH} src='https://cdn-icons-png.flaticon.com/512/25/25231.png' alt='logoRs' ></img>
+                Syarguk</Link>
         </div>
     )
 

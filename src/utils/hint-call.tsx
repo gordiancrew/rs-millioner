@@ -1,6 +1,5 @@
 import { useState } from "react";
 import useSound from "use-sound";
-// import Question from "../components/question";
 import hintStyle from "../styles/hint.module.scss";
 import { CheckAnswer } from "../types.ts/chaeckAnswer";
 import { ICase } from "../types.ts/iquestion";
@@ -28,12 +27,10 @@ function HintCall(props: ICallOptions) {
     "https://zvukipro.com/uploads/files/2019-09/1568277966_7ef6b05043704d0.mp3"
   );
 
-  // useEffect(()=>props.shuffleArr(arrNumbers),[])
   function goGame() {
     setGameOver(true);
     for (let i = 0; i <= 10; i++) {
       setTimeout(() => {
-        // playClick()
         setCurrentBlick(i === 10 ? -1 : arrNumbers[i]);
       }, (i + 1) * 1000 + 2000);
     }
@@ -92,7 +89,6 @@ function HintCall(props: ICallOptions) {
       className={hintStyle.hintWrapper}
     >
       <div className={hintStyle.hintContainer}>
-        {/* <h2>Answer is:{answer}</h2> */}
         <div className={hintStyle.telephoneWrapper}>
           <div className={hintStyle.telephoneDisplay}>{display}</div>
           {arrNumbers.map((x: number, i: number) => (

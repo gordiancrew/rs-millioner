@@ -3,7 +3,6 @@ import useSound from "use-sound";
 import headerStyle from "../styles/question-header.module.scss";
 import { questState } from "../types.ts/iquest-state";
 import { musicUrlEnum } from "../types.ts/music-url";
-//import phoneImg from 'https://cdn-icons-png.flaticon.com/512/159/159832.png'
 interface IHeaderOptions {
   setVisibleHintBoolean: Function;
   setTimeOn: Function;
@@ -51,11 +50,6 @@ function QuestionHeader(props: IHeaderOptions) {
   }
   return (
     <div className={headerStyle.headerBox}>
-       {/* {
-        localStorage.currentName ? (
-         <div>{"Вы зарегистрированы как "+localStorage.currentName}</div>
-        ) : null
-      } */}
       <div className={headerStyle.headerHints}>
         <div
           onClick={!props.itemHintBoolean ? booleanHundler : () => { }}

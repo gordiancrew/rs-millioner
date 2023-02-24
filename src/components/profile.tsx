@@ -4,8 +4,6 @@ import HexagonButton from "../utils/hexagon-button";
 
 function Profile() {
 
-
-
         let currentGamer: IGamer;
         let currentGamerObjectString: string | null;
         let games:string='';
@@ -18,8 +16,6 @@ function Profile() {
            
         }
     
-
-
     return (
         <div className={style.wrapprofile}>
           

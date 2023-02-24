@@ -1,5 +1,5 @@
-export enum questState{
-quiz,
-progress,
-end
+export enum questState {
+    quiz,
+    progress,
+    end
 }

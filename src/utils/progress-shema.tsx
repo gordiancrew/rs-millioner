@@ -1,6 +1,5 @@
 import { questState } from "../types.ts/iquest-state";
 import progressStyle from "../styles/progress.module.scss";
-// import { useState } from "react";
 import st from "../styles/start.module.scss";
 
 interface IProgress {
@@ -25,7 +24,6 @@ function ProgressShema(props: IProgress) {
 
   return (
     <div className={progressStyle.progressWrapper}>
-      {/* <h1>Progress shema. You level is:{props.level}</h1> */}
       <div
         style={{
           display: props.level !== 5 && props.level !== 10 ? "none" : "",

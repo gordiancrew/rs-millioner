@@ -94,10 +94,6 @@
   border: none;
   cursor: pointer;
   @include clip-path(3vh);
-  // transition: 0.4s;
-  // &:hover {
-  //   transform: scale(1.1);
-  // }
 }
 
 @media (max-width: 800px) {
