@@ -44,8 +44,6 @@ function ProgressShema(props: IProgress) {
         {arr.map((x, i) => (
           <div
             key={i}
-            // style={{color: (i+1)%5===0? 'red':'black'     }}
-            // className={st.progress}
             style={{
               backgroundColor: i === 15 - props.level ? "yellow" : "",
               color:
