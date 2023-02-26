@@ -1,0 +1,33 @@
+.rules {
+  color: #ffffff;
+  background-color: hsla(60, 13%, 5%, 0.5);
+
+}
+
+h1 {
+  text-align: center;
+  text-shadow: black 1vh 1vh 2vh;
+}
+
+p {
+  text-shadow: black 1vh 1vh 2vh;
+  font-size: large;
+  margin: 1vh 1vw;
+  &::before {
+    content: "⬥ ";
+    color: rgb(158, 147, 66);
+  }
+}
+.logoWrapper{
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+.logo{
+  background: url(../../public/log.jpg) no-repeat center ;
+  background-size: 100%;
+  width: 250px;
+  height: 250px;
+  border-radius: 125px;
+  overflow: hidden;
+}

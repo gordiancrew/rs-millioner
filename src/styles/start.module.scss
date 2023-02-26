@@ -1,0 +1,111 @@
+@mixin clip-path($notchSize) {
+  clip-path: polygon(
+    0% $notchSize,
+    $notchSize 0%,
+    calc(100% - $notchSize) 0%,
+    100% $notchSize,
+    100% calc(100% - $notchSize),
+    calc(100% - $notchSize) 100%,
+    $notchSize 100%,
+    0% calc(100% - $notchSize)
+  );
+}
+
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  background-color: inherit;
+  width: 100vw;
+  height: 200px;
+  @include center;
+}
+
+.horizontLine {
+  background-color: rgb(30, 171, 178);
+  width: calc(100vw / 3);
+  height: 1px;
+}
+
+.questionBox {
+  background-color: rgb(30, 171, 178);
+  width: calc(100vw / 3);
+  height: 10vh;
+  @include clip-path(5vh);
+  @include center;
+}
+
+.questionContent {
+  background-color: black;
+  color: #ffff;
+  width: calc(100vw / 3 - 5px);
+  height: calc(10vh - 0.2vh);
+  @include clip-path(calc(5vh - 0.2px));
+  @include center;
+  &:hover {
+    background-color: gray;
+    cursor: pointer;
+  }
+}
+
+.link {
+  text-decoration: none;
+}
+
+.input_wrapper {
+  width: 100%;
+  background-color: #ffff;
+  height: 4vh;
+  @include clip-path(2vh);
+}
+
+.progress {
+  @include clip-path(3vh);
+}
+
+.button_progress {
+  height: 4vh;
+  margin-top: 1vh;
+  @include clip-path(2vh);
+  @include center;
+  background-color: rgb(30, 171, 178);
+  & > button {
+    background-color: transparent;
+    border: none;
+    height: 100%;
+    width: 100%;
+    font-size: 2vh;
+    font-weight: 900;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.button_endPage {
+  margin-left: -5vw;
+  width: calc(100% + 10vw);
+  height: 6vh;
+  background-color: rgb(30, 171, 178);
+  color: #ffff;
+  border: none;
+  cursor: pointer;
+  @include clip-path(3vh);
+}
+
+@media (max-width: 800px) {
+  .horizontLine {
+    width: 20vw;
+  }
+
+  .questionBox {
+    width: 60vw;
+  }
+
+  .questionContent {
+    width: calc(60vw - 5px);
+  }
+}

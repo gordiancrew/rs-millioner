@@ -1,0 +1,30 @@
+.startWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+}
+.btnLngSelect {
+  margin: 0 18px;
+  width: 50px;
+  height: 20px;
+  font-size: 10px;
+  color: rgb(247, 244, 244);
+  border: rgb(30, 171, 178) solid 2px;
+  background-color: rgb(8, 8, 8);
+  // border-radius: 15px;
+  transition: 0.3s;
+  cursor: pointer;
+  &:hover {
+    background-color: rgb(202, 165, 63);
+  }
+}
+.btnActive {
+  background-color: rgb(92, 85, 85);
+}
+.autorName {
+  font-size: 1.5rem;
+  color: antiquewhite;
+  margin: 4vh;
+}

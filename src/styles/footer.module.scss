@@ -1,0 +1,39 @@
+.footerBox {
+  height: 15vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: hsla(60, 17%, 90%, 0.4);
+  color: black;
+
+}
+
+.logoRs {
+  height: 4vh;
+}
+
+.gitHub {
+  color: black;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.gitHub:hover {
+  color: gold;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.logoGH {
+  height: 2vh;
+}
+@media (max-width: 500px) {
+  .gitHub{
+    flex-direction: column;
+  }
+  }
