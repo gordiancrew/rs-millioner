@@ -63,7 +63,8 @@
 
 .langBtn {
   position: absolute;
-  bottom: 11vh;
+  top: 0;
+  cursor:pointer;
 }
 
 @media (max-width: 1000px) {

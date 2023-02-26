@@ -21,7 +21,7 @@ function Start({ changeLng, t }: IStart) {
       {localStorage.currentName ? (
         <div className="autorName">{`${t("signinup.autorised")} "${
           localStorage.currentName
-        }`}</div>
+        }"`}</div>
       ) : null}
       <LangButtons changeLng={changeLng} />
       {localStorage.currentName ? (
